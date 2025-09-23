@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildsBase" load_steps=4 format=3 uid="uid://dik053hq0ols3"]
+
+[ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_khuho"]
+[ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/builds_base.gd" id="2_q8ves"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13vpj"]
+atlas = ExtResource("1_khuho")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_q8ves")
+name = "House"
+game_texture = SubResource("AtlasTexture_13vpj")
+edit_texture = SubResource("AtlasTexture_13vpj")
+metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

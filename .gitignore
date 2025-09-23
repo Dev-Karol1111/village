@@ -1,0 +1,17 @@
+# Godot-specific
+.import/
+.export/
+*.import
+*.tmp
+
+# System
+.DS_Store
+Thumbs.db
+
+# Backup / autosave
+*.bak
+*.swp
+*.swo
+
+# Godot cache / logs
+*.log
