@@ -5,6 +5,7 @@
 [node name="Build_chose" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 0
 script = ExtResource("1_ge4it")
 
 [node name="TextureButton" type="TextureButton" parent="."]
