@@ -10,6 +10,6 @@ region = Rect2(32, 0, 16, 16)
 [resource]
 script = ExtResource("2_q8ves")
 name = "House"
-game_texture = SubResource("AtlasTexture_13vpj")
+game_texture_tileset_x = 2
 edit_texture = SubResource("AtlasTexture_13vpj")
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

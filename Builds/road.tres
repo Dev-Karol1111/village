@@ -10,6 +10,5 @@ region = Rect2(0, 0, 16, 16)
 [resource]
 script = ExtResource("2_ps3xv")
 name = "Road"
-game_texture = SubResource("AtlasTexture_nkwov")
 edit_texture = SubResource("AtlasTexture_nkwov")
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"
