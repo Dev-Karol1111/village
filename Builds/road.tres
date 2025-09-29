@@ -5,10 +5,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkwov"]
 atlas = ExtResource("1_nkwov")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(16, 0, 16, 16)
 
 [resource]
 script = ExtResource("2_ps3xv")
 name = "Road"
+game_texture_tileset_x = 1
 edit_texture = SubResource("AtlasTexture_nkwov")
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

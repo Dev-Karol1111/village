@@ -1,10 +1,1 @@
-res://scenes/ui/edit.gd
-res://scripts/ItemList.gd
 res://scripts/map.gd
-res://scripts/ui/mode.gd
-res://Builds/road.tres
-res://Builds/house.tres
-res://scripts/ui/build_chose.gd
-res://scenes/ui/build_chose.tscn
-res://scenes/map.tscn
-res://scenes/ui/edit_mode.tscn
