@@ -8,8 +8,8 @@ signal change_visible(visible: bool)
 
 var map : Node
 
-func set_block(x : int, y: int, source := 0):
-	map.block = [Vector2i(x ,y), source]
+func set_block(x : int, y: int, source := 0, price := 0):
+	map.block = [Vector2i(x ,y), source, price]
 
 
 func _ready() -> void:

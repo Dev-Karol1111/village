@@ -3,11 +3,13 @@ extends TextureRect
 var data : BuildsBase
 var edit_menu 
 
+@onready var price_label : Label = $Label
 @onready var button : TextureButton = $TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	texture = data.edit_texture
+	price_label.text = "$ %s" % data.price
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -15,7 +17,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_texture_button_pressed() -> void:
-	edit_menu.set_block(data.game_texture_tileset_x, data.game_texture_tileset_y)
+	edit_menu.set_block(data.game_texture_tileset_x, data.game_texture_tileset_y, 0,data.price)
 
 
 func _on_resized() -> void:

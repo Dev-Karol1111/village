@@ -2,13 +2,15 @@ extends Node2D
 
 @onready var tilemap_layer: TileMapLayer = $TileMapLayer
 
-var block : Array = [Vector2i(1,0), 0] # title cord, source
+var block : Array = [Vector2i(1,0), 0, 0] # title cord, source, price
 var can_build := false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if !can_build:
 		return
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		if Managment.moneys - block[2] < 0:
+			return
 		var mouses_pos = get_global_mouse_position()
 		var local_pos = tilemap_layer.to_local(mouses_pos)
 		
@@ -23,6 +25,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			check_road(title_cords.x-1, title_cords.y, true)
 		else:
 			tilemap_layer.set_cell(title_cords, block[1] , block[0])
+		
+		Managment.moneys -= block[2]
+		Signals.data_changed.emit()
 	
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT: 
 		var mouses_pos = get_global_mouse_position()
@@ -31,6 +36,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		var title_cords = Vector2i(int(floor(local_pos.x / 16)), int(floor(local_pos.y / 16)))
 		
 		tilemap_layer.set_cell(title_cords, 0, Vector2i(0,0))
+		if block[0] == Vector2i(1,0):
+			check_road(title_cords.x, title_cords.y+1, true)
+			check_road(title_cords.x, title_cords.y-1, true)
+			check_road(title_cords.x+1, title_cords.y, true)
+			check_road(title_cords.x-1, title_cords.y, true)
 
 	
 	
@@ -95,7 +105,7 @@ func check_road(x : int, y : int, second := false):
 	if !second:
 		return [new_block, radio]
 	else:
-		if (new_block != block[0] or radio != 0) and (tilemap_layer.get_cell_atlas_coords(pos) in blocks):
+		if (tilemap_layer.get_cell_atlas_coords(pos) in blocks):
 			tilemap_layer.set_cell(Vector2i(x,y), block[1] , new_block, radio)
 		
 	

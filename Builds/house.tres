@@ -12,4 +12,5 @@ script = ExtResource("2_q8ves")
 name = "House"
 game_texture_tileset_x = 2
 edit_texture = SubResource("AtlasTexture_13vpj")
+price = 50
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

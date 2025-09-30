@@ -15,6 +15,15 @@ run/main_scene="uid://u06ivjho2qcm"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Managment="*res://scripts/autoload/managment.gd"
+Signals="*res://scripts/autoload/signals.gd"
+
+[display]
+
+mouse_cursor/custom_image="uid://bdbgdv3333bbm"
+
 [input]
 
 a={
