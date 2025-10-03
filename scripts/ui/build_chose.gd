@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_texture_button_pressed() -> void:
-	edit_menu.set_block(data.game_texture_tileset_x, data.game_texture_tileset_y, 0,data.price)
+	edit_menu.set_block(data.game_texture_tileset_x, data.game_texture_tileset_y, 0 ,data.price, load("res://Builds/buildsList.tres").builds.find(data))
 
 
 func _on_resized() -> void:

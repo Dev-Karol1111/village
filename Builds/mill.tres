@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BettingBase" load_steps=4 format=3 uid="uid://mi7726j4eid3"]
+
+[ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_c3x0t"]
+[ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/betting_base.gd" id="2_c3x0t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k1jn"]
+atlas = ExtResource("1_c3x0t")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_c3x0t")
+product_time = 3
+need_workers = 1
+game_texture_tileset_x = 3
+edit_texture = SubResource("AtlasTexture_3k1jn")
+price = 60
+type = "betting"
+metadata/_custom_type_script = "uid://cp850ln8fgsvp"

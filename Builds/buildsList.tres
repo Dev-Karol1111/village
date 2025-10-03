@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="BuildsList" load_steps=5 format=3 uid="uid://duvulk2ij2j62"]
+[gd_resource type="Resource" script_class="BuildsList" load_steps=6 format=3 uid="uid://duvulk2ij2j62"]
 
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/builds_base.gd" id="1_bkfmt"]
 [ext_resource type="Resource" uid="uid://4luwep32h1de" path="res://Builds/road.tres" id="2_jj75n"]
 [ext_resource type="Resource" uid="uid://dik053hq0ols3" path="res://Builds/house.tres" id="3_o5stl"]
+[ext_resource type="Resource" uid="uid://mi7726j4eid3" path="res://Builds/mill.tres" id="4_jj75n"]
 [ext_resource type="Script" uid="uid://bdlax846wpf2t" path="res://scripts/ItemList.gd" id="4_tqkvp"]
 
 [resource]
 script = ExtResource("4_tqkvp")
-builds = Array[ExtResource("1_bkfmt")]([ExtResource("3_o5stl"), ExtResource("2_jj75n")])
+builds = Array[ExtResource("1_bkfmt")]([ExtResource("3_o5stl"), ExtResource("2_jj75n"), ExtResource("4_jj75n")])

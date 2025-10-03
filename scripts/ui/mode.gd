@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-var edit_mode := false
-
 @onready var mode_button : Button = $"Mode"
 @onready var edit_menu : Node  = $"Edit"
 
@@ -19,13 +17,11 @@ func _process(_delta: float) -> void:
 
 func _on_mode_pressed() -> void:
 	var map_node = get_node(map)
-	edit_mode = !edit_mode
-	if edit_mode:
+	Managment.mode = ("normal" if Managment.mode == "edit" else "edit")
+	if Managment.mode == "edit":
 		mode_button.icon = load("res://assets/ui/exit_edit.png")
 		edit_menu.change_visible.emit(true)
-		map_node.can_build = true
 	else:
 		mode_button.icon = load("res://assets/ui/edit.png")
 		edit_menu.change_visible.emit(false)
-		map_node.can_build = false
 	

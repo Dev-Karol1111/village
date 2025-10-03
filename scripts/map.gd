@@ -1,46 +1,85 @@
 extends Node2D
 
 @onready var tilemap_layer: TileMapLayer = $TileMapLayer
+@onready var ui_opened_node : Node = $Mode/opened
 
-var block : Array = [Vector2i(1,0), 0, 0] # title cord, source, price
-var can_build := false
+var block : Array = [Vector2i(1,0), 0, 0, 0] # title cord, source, price, index
 
 func _unhandled_input(event: InputEvent) -> void:
-	if !can_build:
+	if event is InputEventMouseButton and event.pressed:
+		var mouse_pos = get_global_mouse_position()
+		var local_pos = tilemap_layer.to_local(mouse_pos)
+		var tile_coords = Vector2i(int(floor(local_pos.x / 16)), int(floor(local_pos.y / 16)))
+
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			_handle_left_click(tile_coords)
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			_handle_right_click(tile_coords)
+
+
+func _handle_left_click(tile_coords: Vector2i) -> void:
+	if Managment.mode == "normal":
+		_open_build_ui(tile_coords)
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if Managment.moneys - block[2] < 0:
+
+	if not _can_afford(block[2]):
+		return
+
+	if not _can_place_block(tile_coords):
+		return
+
+	_place_block(tile_coords)
+
+
+
+func _handle_right_click(tile_coords: Vector2i) -> void:
+	if Managment.mode == "normal":
+		return
+
+	_remove_block(tile_coords)
+	
+func _open_build_ui(tile_coords: Vector2i) -> void:
+	for child in ui_opened_node.get_children():
+		child.queue_free()
+
+	for bett in Managment.betting:
+		var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
+		if cell.x == bett.game_texture_tileset_x and cell.y == bett.game_texture_tileset_y:
+			var ui = load("res://scenes/ui/build_ui.tscn").instantiate()
+			ui_opened_node.add_child(ui)
 			return
-		var mouses_pos = get_global_mouse_position()
-		var local_pos = tilemap_layer.to_local(mouses_pos)
-		
-		var title_cords = Vector2i(int(floor(local_pos.x / 16)), int(floor(local_pos.y / 16)))
-	
-		if block[0] == Vector2i(1,0):
-			var data = check_road(title_cords.x, title_cords.y)
-			tilemap_layer.set_cell(title_cords, block[1] , data[0], data[1])
-			check_road(title_cords.x, title_cords.y+1, true)
-			check_road(title_cords.x, title_cords.y-1, true)
-			check_road(title_cords.x+1, title_cords.y, true)
-			check_road(title_cords.x-1, title_cords.y, true)
-		else:
-			tilemap_layer.set_cell(title_cords, block[1] , block[0])
-		
-		Managment.moneys -= block[2]
-		Signals.data_changed.emit()
-	
-	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_RIGHT: 
-		var mouses_pos = get_global_mouse_position()
-		var local_pos = tilemap_layer.to_local(mouses_pos)
-		
-		var title_cords = Vector2i(int(floor(local_pos.x / 16)), int(floor(local_pos.y / 16)))
-		
-		tilemap_layer.set_cell(title_cords, 0, Vector2i(0,0))
-		if block[0] == Vector2i(1,0):
-			check_road(title_cords.x, title_cords.y+1, true)
-			check_road(title_cords.x, title_cords.y-1, true)
-			check_road(title_cords.x+1, title_cords.y, true)
-			check_road(title_cords.x-1, title_cords.y, true)
+
+func _can_afford(cost: int) -> bool:
+	return Managment.moneys - cost >= 0
+
+func _can_place_block(tile_coords: Vector2i) -> bool:
+	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
+	return not (cell == block[0] or cell != Vector2i(0,0))
+
+func _place_block(tile_coords: Vector2i) -> void:
+	if load("res://Builds/buildsList.tres").builds[block[3]].type == "betting":
+		Managment.betting.append(load("res://Builds/buildsList.tres").builds[block[3]])
+
+	if block[0] == Vector2i(1,0): # droga
+		var data = check_road(tile_coords.x, tile_coords.y)
+		tilemap_layer.set_cell(tile_coords, block[1], data[0], data[1])
+		_update_roads_around(tile_coords)
+	else:
+		tilemap_layer.set_cell(tile_coords, block[1], block[0])
+
+	Managment.moneys -= block[2]
+	Signals.data_changed.emit()
+
+func _remove_block(tile_coords: Vector2i) -> void:
+	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0,0))
+	if block[0] == Vector2i(1,0):
+		_update_roads_around(tile_coords)
+
+func _update_roads_around(tile_coords: Vector2i) -> void:
+	check_road(tile_coords.x, tile_coords.y+1, true)
+	check_road(tile_coords.x, tile_coords.y-1, true)
+	check_road(tile_coords.x+1, tile_coords.y, true)
+	check_road(tile_coords.x-1, tile_coords.y, true)
 
 	
 	

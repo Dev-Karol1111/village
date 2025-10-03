@@ -8,8 +8,8 @@ signal change_visible(visible: bool)
 
 var map : Node
 
-func set_block(x : int, y: int, source := 0, price := 0):
-	map.block = [Vector2i(x ,y), source, price]
+func set_block(x : int, y: int, source := 0, price := 0, build_index := 0):
+	map.block = [Vector2i(x ,y), source, price, build_index]
 
 
 func _ready() -> void:
@@ -28,13 +28,6 @@ func render_build_select():
 			tex_rect.data = build
 			tex_rect.edit_menu = self
 			Builds_choos.add_child(tex_rect)
-
-'''			tex_rect.resized.connect(func():
-				if tex_rect.texture:
-					var aspect = float(tex_rect.texture.get_width()) / tex_rect.texture.get_height()
-					tex_rect.custom_minimum_size = Vector2(tex_rect.size.y * aspect, tex_rect.size.y)
-			)'''
-
 func change_visible_func(visible):
 	for child in self.get_children():
 		child.visible = visible
