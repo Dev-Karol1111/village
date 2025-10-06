@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://damopi222eetn"]
+[gd_scene load_steps=4 format=3 uid="uid://damopi222eetn"]
 
 [ext_resource type="Texture2D" uid="uid://xyqd6jdeq2tg" path="res://assets/ui/ui-tileset.png" id="1_ami6n"]
+[ext_resource type="Script" uid="uid://csomysjbt5k2" path="res://scripts/ui/build_ui.gd" id="1_rl6t5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rl6t5"]
 atlas = ExtResource("1_ami6n")
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 offset_right = -0.11999512
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rl6t5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -45,7 +47,7 @@ offset_right = 172.0
 offset_bottom = 152.0
 text = "workers: 1 / 1"
 
-[node name="Products" type="Label" parent="TextureRect"]
+[node name="products" type="Label" parent="TextureRect"]
 layout_mode = 0
 offset_left = 46.0
 offset_top = 161.0

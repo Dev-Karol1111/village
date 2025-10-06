@@ -1,3 +1,4 @@
+ProductBase
 BettingBase
 BuildsBase
 BuildsList

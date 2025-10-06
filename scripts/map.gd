@@ -46,6 +46,7 @@ func _open_build_ui(tile_coords: Vector2i) -> void:
 		var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
 		if cell.x == bett.game_texture_tileset_x and cell.y == bett.game_texture_tileset_y:
 			var ui = load("res://scenes/ui/build_ui.tscn").instantiate()
+			ui.data = bett
 			ui_opened_node.add_child(ui)
 			return
 
@@ -71,6 +72,10 @@ func _place_block(tile_coords: Vector2i) -> void:
 	Signals.data_changed.emit()
 
 func _remove_block(tile_coords: Vector2i) -> void:
+	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
+	for bett in Managment.betting:
+		if bett.game_texture_tileset_y == cell.y and bett.game_texture_tileset_x == cell.x:
+			Managment.betting.erase(bett)
 	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0,0))
 	if block[0] == Vector2i(1,0):
 		_update_roads_around(tile_coords)
