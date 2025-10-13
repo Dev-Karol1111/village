@@ -3,7 +3,7 @@ extends Node2D
 @onready var tilemap_layer: TileMapLayer = $TileMapLayer
 @onready var ui_opened_node : Node = $Mode/opened
 
-var block : Array = [Vector2i(1,0), 0, 0, 0] # title cord, source, price, index
+var block : Array = [Vector2i(1,0), 0, 0, 0, "transport"] # title cord, source, price, index, list
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
@@ -58,8 +58,8 @@ func _can_place_block(tile_coords: Vector2i) -> bool:
 	return not (cell == block[0] or cell != Vector2i(0,0))
 
 func _place_block(tile_coords: Vector2i) -> void:
-	if load("res://Builds/buildsList.tres").builds[block[3]].type == "betting":
-		Managment.betting.append(load("res://Builds/buildsList.tres").builds[block[3]])
+	if block[4] == "bettings":
+		Managment.betting.append(load("res://Builds/buildsList.tres").bettings[block[3]])
 
 	if block[0] == Vector2i(1,0): # droga
 		var data = check_road(tile_coords.x, tile_coords.y)

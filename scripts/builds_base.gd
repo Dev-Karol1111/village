@@ -8,4 +8,4 @@ class_name BuildsBase
 @export var game_texture_tileset_y : int
 @export var edit_texture : Texture2D
 @export var price : int = 0
-@export_enum("normal", "betting") var type = "normal"
+@export_enum("transport", "builds" ,"bettings") var type = "Chose type"

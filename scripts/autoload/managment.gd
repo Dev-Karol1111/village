@@ -5,7 +5,7 @@ var people := 200
 
 var mode := "normal"
 
-var betting : Array[BettingBase]
+var betting : Array[BettingBase] = []
 var production_time : Array[int] = []
 
 var products : Dictionary[String, int] = {"flour" : 100}
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func production_loop() -> void:
 	while running:
-		while len(betting) == len(production_time):
+		while len(betting) >= len(production_time):
 			production_time.append(0)
 		for bett in betting:
 			var i := betting.find(bett)

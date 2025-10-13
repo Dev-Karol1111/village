@@ -1,11 +1,11 @@
+Button
+VBoxContainer
 Node
 Label
 TextureRect
 TextureButton
 ColorRect
 HBoxContainer
-VBoxContainer
-Button
 CanvasLayer
 Camera2D
 TileMapLayer

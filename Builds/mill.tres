@@ -22,5 +22,5 @@ need_workers = 1
 game_texture_tileset_x = 3
 edit_texture = SubResource("AtlasTexture_3k1jn")
 price = 60
-type = "betting"
+type = "bettings"
 metadata/_custom_type_script = "uid://cp850ln8fgsvp"

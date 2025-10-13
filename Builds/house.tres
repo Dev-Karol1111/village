@@ -13,4 +13,5 @@ name = "House"
 game_texture_tileset_x = 2
 edit_texture = SubResource("AtlasTexture_13vpj")
 price = 50
+type = "builds"
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

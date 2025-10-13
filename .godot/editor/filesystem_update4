@@ -1,10 +1,4 @@
-res://scripts/ui/build_ui.gd
-res://scenes/ui/build_ui.tscn
-res://Builds/road.tres
-res://Builds/house.tres
-res://Builds/mill.tres
-res://scripts/map.gd
-res://scripts/product_base.gd
 res://scripts/betting_base.gd
-res://resources/products/flour.tres
+res://scripts/product_base.gd
+res://scripts/save_managment.gd
 res://scripts/autoload/managment.gd

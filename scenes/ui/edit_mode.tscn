@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duapvbu2xv16c" path="res://scripts/ui/mode.gd" id="1_plch7"]
 [ext_resource type="Texture2D" uid="uid://bw5ubeo45w8vl" path="res://assets/ui/edit.png" id="1_tpjst"]
-[ext_resource type="Script" uid="uid://cy0hpow7uwxro" path="res://scenes/ui/edit.gd" id="3_cpwu2"]
+[ext_resource type="Script" uid="uid://cy0hpow7uwxro" path="res://scripts/ui/edit.gd" id="3_ycatb"]
 [ext_resource type="Resource" uid="uid://duvulk2ij2j62" path="res://Builds/buildsList.tres" id="4_o0g5u"]
 [ext_resource type="Script" uid="uid://b6mcpo1cueccd" path="res://scripts/ui/ui.gd" id="5_4kt5k"]
 [ext_resource type="Texture2D" uid="uid://xyqd6jdeq2tg" path="res://assets/ui/ui-tileset.png" id="5_ycatb"]
@@ -22,10 +22,10 @@ script = ExtResource("1_plch7")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -117.0
-offset_top = 55.0
-offset_right = -93.0
-offset_bottom = 79.0
+offset_left = -109.0
+offset_top = 47.0
+offset_right = -85.0
+offset_bottom = 71.0
 grow_horizontal = 0
 scale = Vector2(2, 2)
 size_flags_horizontal = 8
@@ -33,7 +33,7 @@ size_flags_vertical = 0
 icon = ExtResource("1_tpjst")
 
 [node name="Edit" type="Node" parent="."]
-script = ExtResource("3_cpwu2")
+script = ExtResource("3_ycatb")
 Build_list_resource = ExtResource("4_o0g5u")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Edit"]
@@ -81,4 +81,20 @@ offset_right = 175.0
 offset_bottom = 58.0
 text = "$ 0"
 
+[node name="save" type="Button" parent="."]
+offset_left = 1047.0
+offset_top = 169.0
+offset_right = 1094.0
+offset_bottom = 200.0
+text = "SAVE"
+
+[node name="load" type="Button" parent="."]
+offset_left = 1050.0
+offset_top = 219.0
+offset_right = 1097.0
+offset_bottom = 250.0
+text = "LOAD"
+
 [connection signal="pressed" from="Mode" to="." method="_on_mode_pressed"]
+[connection signal="pressed" from="save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="load" to="." method="_on_load_pressed"]

@@ -5,6 +5,7 @@ extends CanvasLayer
 
 @export var map : NodePath
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	edit_menu.change_visible.emit(false)
@@ -25,3 +26,11 @@ func _on_mode_pressed() -> void:
 		mode_button.icon = load("res://assets/ui/edit.png")
 		edit_menu.change_visible.emit(false)
 	
+
+
+func _on_save_pressed() -> void:
+	load("res://scripts/save_managment.gd").new().save(get_node(map).get_child(0))
+
+
+func _on_load_pressed() -> void:
+	load("res://scripts/save_managment.gd").new().load(get_node(map).get_child(0))
