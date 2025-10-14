@@ -1,4 +1,6 @@
-res://scripts/betting_base.gd
-res://scripts/product_base.gd
-res://scripts/save_managment.gd
 res://scripts/autoload/managment.gd
+res://scripts/ui/mode.gd
+res://scenes/ui/edit_mode.tscn
+res://Builds/road.tres
+res://Builds/house.tres
+res://Builds/mill.tres

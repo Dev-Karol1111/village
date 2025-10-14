@@ -19,20 +19,22 @@ func _ready() -> void:
 
 func production_loop() -> void:
 	while running:
-		while len(betting) >= len(production_time):
-			production_time.append(0)
-		for bett in betting:
-			var i := betting.find(bett)
-			production_time[i] += 1
+		if speed_time > 0:
+			while len(betting) >= len(production_time):
+				production_time.append(0)
+			for bett in betting:
+				var i := betting.find(bett)
+				production_time[i] += 1
 
-			if production_time[i] >= bett.product_time:
-				production_time[i] = 0
+				if production_time[i] >= bett.product_time:
+					production_time[i] = 0
 
-				for input_product in bett.input_products.keys():
-					products[input_product.name] -= bett.input_products[input_product]
+					for input_product in bett.input_products.keys():
+						products[input_product.name] -= bett.input_products[input_product]
 
-				for output_product in bett.output_products.keys():
-					products[output_product.name] += bett.output_products[output_product]
-					print(products)
-
-		await get_tree().create_timer(speed_time).timeout
+					for output_product in bett.output_products.keys():
+						products[output_product.name] += bett.output_products[output_product]
+						print(products)
+			await get_tree().create_timer(speed_time).timeout
+		else:
+			await get_tree().process_frame

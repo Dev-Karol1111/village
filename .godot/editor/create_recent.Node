@@ -1,10 +1,10 @@
 Button
+TextureRect
+ColorRect
 VBoxContainer
 Node
 Label
-TextureRect
 TextureButton
-ColorRect
 HBoxContainer
 CanvasLayer
 Camera2D

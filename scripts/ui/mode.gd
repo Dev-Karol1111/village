@@ -34,3 +34,19 @@ func _on_save_pressed() -> void:
 
 func _on_load_pressed() -> void:
 	load("res://scripts/save_managment.gd").new().load(get_node(map).get_child(0))
+
+
+func _on_pause_pressed() -> void:
+	Managment.speed_time = 0
+	var new_icon = AtlasTexture.new()
+	new_icon.atlas = load("res://assets/ui/ui-tileset.png")
+	new_icon.region = Rect2(48,16,16,16)
+	$timeManagment/pause.icon = new_icon
+
+
+func _on_unpause_pressed() -> void:
+	Managment.speed_time = 1
+	var new_icon = AtlasTexture.new()
+	new_icon.atlas = load("res://assets/ui/ui-tileset.png")
+	new_icon.region = Rect2(16,16,16,16)
+	$timeManagment/pause.icon = new_icon

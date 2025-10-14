@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbdifxhepwxbs"]
+[gd_scene load_steps=11 format=3 uid="uid://bbdifxhepwxbs"]
 
 [ext_resource type="Script" uid="uid://duapvbu2xv16c" path="res://scripts/ui/mode.gd" id="1_plch7"]
 [ext_resource type="Texture2D" uid="uid://bw5ubeo45w8vl" path="res://assets/ui/edit.png" id="1_tpjst"]
@@ -14,6 +14,14 @@ region = Rect2(32, 0, 32, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kt5k"]
 atlas = ExtResource("5_ycatb")
 region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skuhn"]
+atlas = ExtResource("5_ycatb")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb44s"]
+atlas = ExtResource("5_ycatb")
+region = Rect2(16, 16, 16, 16)
 
 [node name="Mode" type="CanvasLayer"]
 script = ExtResource("1_plch7")
@@ -95,6 +103,36 @@ offset_right = 1097.0
 offset_bottom = 250.0
 text = "LOAD"
 
+[node name="timeManagment" type="ColorRect" parent="."]
+offset_left = 552.0
+offset_top = 18.0
+offset_right = 652.0
+offset_bottom = 66.0
+color = Color(0.08235294, 0.08235294, 0.27450982, 1)
+
+[node name="unpause" type="Button" parent="timeManagment"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_right = -24.0
+offset_bottom = 24.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = SubResource("AtlasTexture_skuhn")
+
+[node name="pause" type="Button" parent="timeManagment"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+scale = Vector2(2, 2)
+icon = SubResource("AtlasTexture_jb44s")
+
 [connection signal="pressed" from="Mode" to="." method="_on_mode_pressed"]
 [connection signal="pressed" from="save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="timeManagment/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="timeManagment/pause" to="." method="_on_pause_pressed"]
