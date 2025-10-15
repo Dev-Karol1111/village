@@ -33,7 +33,8 @@ func production_loop() -> void:
 						products[input_product.name] -= bett.input_products[input_product]
 
 					for output_product in bett.output_products.keys():
-						products[output_product.name] += bett.output_products[output_product]
+						products[output_product.name] = products.get(output_product.name, 0) + bett.output_products[output_product]
+						#products[output_product.name] = 0
 						print(products)
 			await get_tree().create_timer(speed_time).timeout
 		else:

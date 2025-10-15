@@ -14,6 +14,7 @@ texture = ExtResource("1_4xfga")
 2:3/0 = 0
 0:3/0 = 0
 3:0/0 = 0
+0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_paxxb"]
 sources/0 = SubResource("TileSetAtlasSource_4xfga")

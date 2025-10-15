@@ -1,6 +1,9 @@
-res://scripts/autoload/managment.gd
-res://scripts/ui/mode.gd
 res://scenes/ui/edit_mode.tscn
 res://Builds/road.tres
 res://Builds/house.tres
 res://Builds/mill.tres
+res://Builds/buildsList.tres
+res://Builds/lumberjack.tres
+res://scenes/map.tscn
+res://scripts/map.gd
+res://scripts/autoload/managment.gd

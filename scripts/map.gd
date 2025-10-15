@@ -60,7 +60,7 @@ func _can_place_block(tile_coords: Vector2i) -> bool:
 func _place_block(tile_coords: Vector2i) -> void:
 	if block[4] == "bettings":
 		Managment.betting.append(load("res://Builds/buildsList.tres").bettings[block[3]])
-
+		
 	if block[0] == Vector2i(1,0): # droga
 		var data = check_road(tile_coords.x, tile_coords.y)
 		tilemap_layer.set_cell(tile_coords, block[1], data[0], data[1])
@@ -76,6 +76,7 @@ func _remove_block(tile_coords: Vector2i) -> void:
 	for bett in Managment.betting:
 		if bett.game_texture_tileset_y == cell.y and bett.game_texture_tileset_x == cell.x:
 			Managment.betting.erase(bett)
+			break
 	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0,0))
 	if block[0] == Vector2i(1,0):
 		_update_roads_around(tile_coords)
