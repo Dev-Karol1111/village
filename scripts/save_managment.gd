@@ -28,6 +28,7 @@ func load(tilemap: TileMapLayer):
 			for build_data in info["bettings_builds"]:
 				Managment.betting.append(load("res://Builds/buildsList.tres").bettings[int(build_data[1])])
 				
+	Signals.data_changed_ui.emit()				
 
 func save(tilemap: TileMapLayer):
 	var file = FileAccess.open(path_to_save, FileAccess.WRITE)

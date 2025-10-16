@@ -13,6 +13,7 @@ var IPD = 11
 
 func _ready() -> void:
 	update_data()
+	Signals.data_changed_build_info.connect(update_data)
 
 func update_data():
 	build_name.text = data.name

@@ -19,6 +19,7 @@ ExtResource("3_70jsb"): 10
 })
 product_time = 3
 need_workers = 1
+name = "Mill"
 game_texture_tileset_x = 3
 edit_texture = SubResource("AtlasTexture_3k1jn")
 price = 60

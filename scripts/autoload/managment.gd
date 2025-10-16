@@ -34,8 +34,8 @@ func production_loop() -> void:
 
 					for output_product in bett.output_products.keys():
 						products[output_product.name] = products.get(output_product.name, 0) + bett.output_products[output_product]
-						#products[output_product.name] = 0
 						print(products)
+			Signals.data_changed_build_info.emit()	
 			await get_tree().create_timer(speed_time).timeout
 		else:
 			await get_tree().process_frame

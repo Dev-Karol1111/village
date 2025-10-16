@@ -69,7 +69,7 @@ func _place_block(tile_coords: Vector2i) -> void:
 		tilemap_layer.set_cell(tile_coords, block[1], block[0])
 
 	Managment.moneys -= block[2]
-	Signals.data_changed.emit()
+	Signals.data_changed_ui.emit()
 
 func _remove_block(tile_coords: Vector2i) -> void:
 	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
