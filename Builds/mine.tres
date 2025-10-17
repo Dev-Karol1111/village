@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BettingBase" load_steps=6 format=3 uid="uid://b477cup162klk"]
+
+[ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_btysg"]
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/product_base.gd" id="2_c843u"]
+[ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/betting_base.gd" id="3_6tjtf"]
+[ext_resource type="Resource" uid="uid://vgb81ew8dnxx" path="res://resources/products/stone.tres" id="3_c843u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc7so"]
+atlas = ExtResource("1_btysg")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+script = ExtResource("3_6tjtf")
+output_products = Dictionary[ExtResource("2_c843u"), int]({
+ExtResource("3_c843u"): 3
+})
+product_time = 5
+need_workers = 1
+name = "Mine"
+game_texture_tileset_x = 1
+game_texture_tileset_y = 1
+edit_texture = SubResource("AtlasTexture_bc7so")
+price = 100
+type = "bettings"
+metadata/_custom_type_script = "uid://cp850ln8fgsvp"

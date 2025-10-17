@@ -3,10 +3,5 @@ res://Builds/road.tres
 res://Builds/house.tres
 res://Builds/lumberjack.tres
 res://Builds/mill.tres
-res://scripts/autoload/signals.gd
-res://scripts/ui/ui.gd
-res://scripts/save_managment.gd
-res://scripts/autoload/managment.gd
-res://scripts/ui/build_ui.gd
-res://scripts/map.gd
-res://scenes/ui/build_ui.tscn
+res://Builds/buildsList.tres
+res://Builds/mine.tres
