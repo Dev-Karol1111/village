@@ -26,8 +26,11 @@ func load(tilemap: TileMapLayer):
 			Managment.betting.clear()
 			print(info["bettings_builds"])
 			for build_data in info["bettings_builds"]:
-				Managment.betting.append(load("res://Builds/buildsList.tres").bettings[int(build_data[1])])
-				
+				Managment.betting.append(load("res://Builds/buildsList.tres").betting[int(build_data[1])])
+		if info.has("free_places"):
+			Managment.free_places.clear()
+			for free_place in info["free_places"].keys():
+				Managment.free_places.set(load("res://Builds/buildsList.tres").betting[int(free_place[1])], info["free_places"][free_place])
 	Signals.data_changed_ui.emit()				
 
 func save(tilemap: TileMapLayer):
@@ -43,10 +46,14 @@ func save(tilemap: TileMapLayer):
 				   "money": Managment.moneys,
 				   "people": Managment.people, 
 				   "bettings_builds": [],
+	               "free_places" : [],
 			   }
 
 	for b in Managment.betting:
 		info["bettings_builds"].append(b.get_data())	
+	
+	for f in Managment.free_places:
+		info["free_places"].append(f.get_data())
 
 	file.store_string(JSON.stringify(info))
 	file.close()

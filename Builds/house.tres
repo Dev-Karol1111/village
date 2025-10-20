@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="BuildsBase" load_steps=4 format=3 uid="uid://dik053hq0ols3"]
+[gd_resource type="Resource" script_class="BuildsBase" load_steps=7 format=3 uid="uid://dik053hq0ols3"]
 
 [ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_khuho"]
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/product_base.gd" id="2_13vpj"]
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/builds_base.gd" id="2_q8ves"]
+[ext_resource type="Resource" uid="uid://i3qpu4f8b68a" path="res://resources/products/wood.tres" id="3_36o3r"]
+[ext_resource type="Resource" uid="uid://vgb81ew8dnxx" path="res://resources/products/stone.tres" id="4_8i6jo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13vpj"]
 atlas = ExtResource("1_khuho")
@@ -13,5 +16,10 @@ name = "House"
 game_texture_tileset_x = 2
 edit_texture = SubResource("AtlasTexture_13vpj")
 price = 50
-type = "builds"
+products_need_to_build = Dictionary[ExtResource("2_13vpj"), int]({
+ExtResource("3_36o3r"): 10,
+ExtResource("4_8i6jo"): 5
+})
+free_places = 3
+type = "build"
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

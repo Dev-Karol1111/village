@@ -12,5 +12,5 @@
 [resource]
 script = ExtResource("4_tqkvp")
 transport = Array[ExtResource("1_bkfmt")]([ExtResource("2_jj75n")])
-builds = Array[ExtResource("1_bkfmt")]([ExtResource("3_o5stl")])
-bettings = Array[ExtResource("1_o5stl")]([ExtResource("4_jj75n"), ExtResource("3_tqkvp"), ExtResource("4_scyvr")])
+build = Array[ExtResource("1_bkfmt")]([ExtResource("3_o5stl")])
+betting = Array[ExtResource("1_o5stl")]([ExtResource("3_tqkvp"), ExtResource("4_jj75n"), ExtResource("4_scyvr")])

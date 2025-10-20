@@ -8,8 +8,8 @@ signal change_visible(visible: bool)
 
 var map : Node
 
-func set_block(x : int, y: int, source := 0, price := 0, build_index := 0, type := "transport"):
-	map.block = [Vector2i(x ,y), source, price, build_index, type]
+func set_block(block_data: BuildsBase):
+	map.block = [block_data.type, load("res://Builds/buildsList.tres").get(block_data.type).find(block_data)]
 
 
 func _ready() -> void:
@@ -18,7 +18,8 @@ func _ready() -> void:
 	render_build_select()	
 
 func render_build_select():
-	var data = [Build_list_resource.transport, Build_list_resource.builds, Build_list_resource.bettings]
+	var data = [Build_list_resource.transport, Build_list_resource.build, Build_list_resource.betting]
+	var build_index := 100
 	for current_array in data:
 		for build in current_array:
 			if build:
@@ -29,7 +30,9 @@ func render_build_select():
 				tex_rect.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 				tex_rect.data = build
 				tex_rect.edit_menu = self
+				tex_rect.z_index = build_index
 				Builds_choos.add_child(tex_rect)
+				build_index -= 1
 func change_visible_func(visible):
 	for child in self.get_children():
 		child.visible = visible

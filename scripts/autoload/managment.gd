@@ -12,9 +12,12 @@ var products : Dictionary[String, int] = {"flour" : 100}
 
 var speed_time := 1
 
+var free_places : Dictionary[BuildsBase, int]
+
 @onready var running := true
 
 func _ready() -> void:
+	init()
 	production_loop()
 
 func production_loop() -> void:
@@ -39,3 +42,9 @@ func production_loop() -> void:
 			await get_tree().create_timer(speed_time).timeout
 		else:
 			await get_tree().process_frame
+			
+func init():
+	var build_list = load("res://Builds/buildsList.tres")
+	for bett in build_list.betting:
+		if bett.free_places > 0:
+			free_places.set(bett, bett.free_places)

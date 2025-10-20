@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="BettingBase" load_steps=6 format=3 uid="uid://mi7726j4eid3"]
+[gd_resource type="Resource" script_class="BettingBase" load_steps=8 format=3 uid="uid://mi7726j4eid3"]
 
 [ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_c3x0t"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/product_base.gd" id="2_3k1jn"]
 [ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/betting_base.gd" id="2_c3x0t"]
 [ext_resource type="Resource" uid="uid://bv6dq1wsyjiv5" path="res://resources/products/flour.tres" id="3_70jsb"]
+[ext_resource type="Resource" uid="uid://i3qpu4f8b68a" path="res://resources/products/wood.tres" id="4_g5vrv"]
+[ext_resource type="Resource" uid="uid://vgb81ew8dnxx" path="res://resources/products/stone.tres" id="5_4qj0a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3k1jn"]
 atlas = ExtResource("1_c3x0t")
@@ -23,5 +25,9 @@ name = "Mill"
 game_texture_tileset_x = 3
 edit_texture = SubResource("AtlasTexture_3k1jn")
 price = 60
-type = "bettings"
+products_need_to_build = Dictionary[ExtResource("2_3k1jn"), int]({
+ExtResource("4_g5vrv"): 2,
+ExtResource("5_4qj0a"): 2
+})
+type = "betting"
 metadata/_custom_type_script = "uid://cp850ln8fgsvp"

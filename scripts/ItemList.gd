@@ -3,5 +3,5 @@ extends Resource
 class_name BuildsList
 
 @export var transport : Array[BuildsBase]
-@export var builds : Array[BuildsBase]
-@export var bettings : Array[BettingBase]
+@export var build : Array[BuildsBase]
+@export var betting : Array[BettingBase]

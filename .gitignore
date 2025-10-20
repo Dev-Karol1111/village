@@ -15,3 +15,5 @@ Thumbs.db
 
 # Godot cache / logs
 *.log
+
+app_builds/

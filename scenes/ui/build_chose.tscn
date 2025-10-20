@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://lysfh4571l4u"]
+[gd_scene load_steps=4 format=3 uid="uid://lysfh4571l4u"]
 
 [ext_resource type="Script" uid="uid://b8c3awv1frdms" path="res://scripts/ui/build_chose.gd" id="1_ge4it"]
+[ext_resource type="Texture2D" uid="uid://xyqd6jdeq2tg" path="res://assets/ui/ui-tileset.png" id="2_xafks"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2302f"]
+atlas = ExtResource("2_xafks")
+region = Rect2(0, 16, 16, 16)
 
 [node name="Build_chose" type="TextureRect"]
 offset_right = 40.0
@@ -28,5 +33,44 @@ grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
 
+[node name="info" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.35000002
+anchor_right = 0.6
+anchor_bottom = 0.35000002
+offset_top = -155.0
+offset_right = 232.0
+texture = SubResource("AtlasTexture_2302f")
+
+[node name="products" type="Label" parent="info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.062000003
+anchor_top = 0.063
+anchor_right = 0.062000003
+anchor_bottom = 0.063
+offset_left = 0.03999996
+offset_top = 0.030999899
+offset_right = 69.04
+offset_bottom = 23.031
+text = "Products:"
+
+[node name="free_places" type="Label" parent="info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.075
+anchor_top = 0.72300005
+anchor_right = 0.075
+anchor_bottom = 0.72300005
+offset_left = 0.024999619
+offset_top = -0.037002563
+offset_right = 40.025
+offset_bottom = 22.962997
+text = "Free places: "
+
 [connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

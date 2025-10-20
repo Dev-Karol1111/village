@@ -1,9 +1,9 @@
-Button
+Label
 TextureRect
+Button
 ColorRect
 VBoxContainer
 Node
-Label
 TextureButton
 HBoxContainer
 CanvasLayer

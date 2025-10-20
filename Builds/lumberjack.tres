@@ -20,5 +20,9 @@ name = "lumberjack"
 game_texture_tileset_y = 1
 edit_texture = SubResource("AtlasTexture_xaw56")
 price = 40
-type = "bettings"
+products_need_to_build = Dictionary[ExtResource("2_bwo3i"), int]({
+ExtResource("4_i3ua7"): 5
+})
+free_places = 1
+type = "betting"
 metadata/_custom_type_script = "uid://cp850ln8fgsvp"
