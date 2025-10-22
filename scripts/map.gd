@@ -3,7 +3,7 @@ extends Node2D
 @onready var tilemap_layer: TileMapLayer = $TileMapLayer
 @onready var ui_opened_node : Node = $Mode/opened
 
-var block = ["transport", 0] # title cord, source, price, index, list | new - list, index
+var block = ["transport", 0] # list, index
 var block_data : BuildsBase
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -44,11 +44,12 @@ func _open_build_ui(tile_coords: Vector2i) -> void:
 	for child in ui_opened_node.get_children():
 		child.queue_free()
 
-	for bett in Managment.betting:
+	for bett in Managment.betting.values():
 		var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
 		if cell.x == bett.game_texture_tileset_x and cell.y == bett.game_texture_tileset_y:
 			var ui = load("res://scenes/ui/build_ui.tscn").instantiate()
 			ui.data = bett
+			ui.cords = tile_coords
 			ui_opened_node.add_child(ui)
 			return
 
@@ -74,7 +75,8 @@ func _can_place_block(tile_coords: Vector2i) -> bool:
 
 func _place_block(tile_coords: Vector2i) -> void:
 	if block_data.type == "betting":
-		Managment.betting.append(block_data)
+		Managment.betting.set(tile_coords, block_data)
+		#Managment.betting.append(block_data)
 		
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # droga
 		var data = check_road(tile_coords.x, tile_coords.y)
@@ -95,7 +97,7 @@ func _place_block(tile_coords: Vector2i) -> void:
 
 func _remove_block(tile_coords: Vector2i) -> void:
 	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
-	for bett in Managment.betting:
+	for bett in Managment.betting.values():
 		if bett.game_texture_tileset_y == cell.y and bett.game_texture_tileset_x == cell.x:
 			Managment.betting.erase(bett)
 			break

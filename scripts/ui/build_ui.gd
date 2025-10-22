@@ -1,6 +1,7 @@
 extends Control
 
 var data : BettingBase
+var cords: Vector2i
 
 var actual_workers = 0
 var IPD = 11
@@ -17,7 +18,11 @@ func _ready() -> void:
 
 func update_data():
 	build_name.text = data.name
-	workers.text = "workers: %s/%s" % [data.need_workers, actual_workers]
+	if Managment.working_places.has(cords):
+		actual_workers = Managment.working_places[cords]
+	else:
+		actual_workers = 0
+	workers.text = "workers: %s/%s" % [actual_workers, data.need_workers]
 	var text = "products:\n"
 	for product in data.input_products.keys():
 		text += " * %s %s/%s \n" % [product.name, Managment.products[product.name], data.input_products[product]]

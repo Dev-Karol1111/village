@@ -15,11 +15,9 @@ script = ExtResource("2_q8ves")
 name = "House"
 game_texture_tileset_x = 2
 edit_texture = SubResource("AtlasTexture_13vpj")
-price = 50
 products_need_to_build = Dictionary[ExtResource("2_13vpj"), int]({
 ExtResource("3_36o3r"): 10,
 ExtResource("4_8i6jo"): 5
 })
-free_places = 3
 type = "build"
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

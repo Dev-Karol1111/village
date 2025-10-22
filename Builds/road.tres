@@ -13,6 +13,5 @@ script = ExtResource("2_ps3xv")
 name = "Road"
 game_texture_tileset_x = 1
 edit_texture = SubResource("AtlasTexture_nkwov")
-price = 2
 type = "transport"
 metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

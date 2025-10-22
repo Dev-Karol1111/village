@@ -1,9 +1,3 @@
-res://scripts/ui/build_chose.gd
-res://scenes/ui/build_chose.tscn
-res://Builds/road.tres
-res://Builds/house.tres
-res://Builds/lumberjack.tres
-res://Builds/mill.tres
-res://Builds/mine.tres
-res://scripts/ui/edit.gd
-res://scripts/save_managment.gd
+res://scripts/autoload/managment.gd
+res://scripts/map.gd
+res://scripts/ui/build_ui.gd

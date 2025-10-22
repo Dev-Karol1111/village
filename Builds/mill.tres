@@ -20,11 +20,10 @@ output_products = Dictionary[ExtResource("2_3k1jn"), int]({
 ExtResource("3_70jsb"): 10
 })
 product_time = 3
-need_workers = 1
+need_workers = 3
 name = "Mill"
 game_texture_tileset_x = 3
 edit_texture = SubResource("AtlasTexture_3k1jn")
-price = 60
 products_need_to_build = Dictionary[ExtResource("2_3k1jn"), int]({
 ExtResource("4_g5vrv"): 2,
 ExtResource("5_4qj0a"): 2

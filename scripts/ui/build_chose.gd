@@ -3,7 +3,6 @@ extends TextureRect
 var data : BuildsBase
 var edit_menu 
 
-@onready var price_label : Label = $Label
 @onready var button : TextureButton = $TextureButton
 
 @onready var info_box : TextureRect = $info
@@ -12,7 +11,6 @@ var edit_menu
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	texture = data.edit_texture
-	price_label.text = "$ %s" % data.price
 	info_box.visible = false
 	update_data()
 	Signals.data_changed_build_info.connect(update_data)
