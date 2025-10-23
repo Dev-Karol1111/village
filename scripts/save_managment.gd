@@ -26,11 +26,16 @@ func load(tilemap: TileMapLayer):
 			Managment.betting.clear()
 			print(info["bettings_builds"])
 			for build_data in info["bettings_builds"]:
-				Managment.betting.append(load("res://Builds/buildsList.tres").betting[int(build_data[1])])
+				Managment.betting.set(Vector2i(build_data["x"], build_data["y"]), load("res://Builds/buildsList.tres").betting[int(build_data["data"][1])])
 		if info.has("free_places"):
 			Managment.free_places.clear()
-			for free_place in info["free_places"].keys():
-				Managment.free_places.set(load("res://Builds/buildsList.tres").betting[int(free_place[1])], info["free_places"][free_place])
+			for free_place in info["free_places"]:
+				Managment.free_places.set(load("res://Builds/buildsList.tres").betting[int(free_place["data"][1])], free_place["value"])
+		
+		if info.has("products"):
+			Managment.products.clear()
+			for product in info["products"]:
+				Managment.products.set(product, int(info["products"][product]))
 	Signals.data_changed_ui.emit()				
 
 func save(tilemap: TileMapLayer):
@@ -46,14 +51,15 @@ func save(tilemap: TileMapLayer):
 				   "money": Managment.moneys,
 				   "people": Managment.people, 
 				   "bettings_builds": [],
-	               "free_places" : [],
+				   "free_places" : [],
+				   "products" : Managment.products,
 			   }
 
 	for b in Managment.betting:
-		info["bettings_builds"].append(b.get_data())	
+		info["bettings_builds"].append({"x" : b.x, "y" : b.y, "data" : Managment.betting[b].get_data()})	
 	
 	for f in Managment.free_places:
-		info["free_places"].append(f.get_data())
+		info["free_places"].append({"data" : f.get_data(), "value" : Managment.free_places[f]})
 
 	file.store_string(JSON.stringify(info))
 	file.close()

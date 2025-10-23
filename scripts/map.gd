@@ -97,8 +97,10 @@ func _place_block(tile_coords: Vector2i) -> void:
 
 func _remove_block(tile_coords: Vector2i) -> void:
 	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
-	for bett in Managment.betting.values():
+	for _bett in Managment.betting.keys():
+		var bett = Managment.betting[_bett]
 		if bett.game_texture_tileset_y == cell.y and bett.game_texture_tileset_x == cell.x:
+			Managment.avaible_workers += Managment.working_places[_bett]
 			Managment.betting.erase(bett)
 			break
 	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0,0))

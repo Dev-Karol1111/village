@@ -1,7 +1,7 @@
 extends Node
 
 var moneys := 500
-var people := 50
+var people := 8
 
 var avaible_workers : int
 var working_places : Dictionary[Vector2i, int] =  {}
@@ -35,10 +35,10 @@ func production_loop() -> void:
 						if working_places[_betting] > 0:
 							avaible_workers += working_places[_betting]
 							if (working_places[_betting] - bett.need_workers) > 0:
-								working_places.set(bett, bett.need_workers)
+								working_places.set(_betting, bett.need_workers)
 								avaible_workers -= bett.need_workers
 							else:
-								working_places.set(bett, avaible_workers)
+								working_places.set(_betting, avaible_workers)
 								avaible_workers = 0		
 				else:
 					if (avaible_workers - bett.need_workers) > 0:
