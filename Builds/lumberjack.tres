@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="BettingBase" load_steps=6 format=3 uid="uid://dawawu23tbhfx"]
 
 [ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_s115i"]
-[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/product_base.gd" id="2_bwo3i"]
-[ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/betting_base.gd" id="3_njlyf"]
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_bwo3i"]
+[ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="3_njlyf"]
 [ext_resource type="Resource" uid="uid://i3qpu4f8b68a" path="res://resources/products/wood.tres" id="4_i3ua7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xaw56"]

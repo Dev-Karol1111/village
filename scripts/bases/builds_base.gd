@@ -9,4 +9,4 @@ class_name BuildsBase
 @export var edit_texture : Texture2D
 @export var products_need_to_build : Dictionary[ProductBase, int] = {}
 @export var free_places : int = 0
-@export_enum("transport", "build" ,"betting") var type := "Chose type"
+@export_enum("transport", "house" ,"betting") var type := "Chose type"

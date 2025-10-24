@@ -8,6 +8,7 @@ var working_places : Dictionary[Vector2i, int] =  {}
 
 var mode := "normal"
 
+var houses : Array[Vector2i]
 var betting : Dictionary[Vector2i, BettingBase] = {}
 var production_time : Dictionary[Vector2i, int] = {}
 
@@ -72,3 +73,8 @@ func init():
 	for bett in build_list.betting:
 		if bett.free_places > 0:
 			free_places.set(bett, bett.free_places)
+			
+func add_people(value: int):
+	people += value
+	avaible_workers += value
+	Signals.data_changed_ui.emit()

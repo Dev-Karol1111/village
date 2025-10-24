@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="BuildsList" load_steps=9 format=3 uid="uid://duvulk2ij2j62"]
 
-[ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/builds_base.gd" id="1_bkfmt"]
-[ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/betting_base.gd" id="1_o5stl"]
+[ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/bases/builds_base.gd" id="1_bkfmt"]
+[ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="1_o5stl"]
 [ext_resource type="Resource" uid="uid://4luwep32h1de" path="res://Builds/road.tres" id="2_jj75n"]
-[ext_resource type="Resource" uid="uid://dik053hq0ols3" path="res://Builds/house.tres" id="3_o5stl"]
+[ext_resource type="Resource" uid="uid://yu6k4lrym1xy" path="res://Builds/house.tres" id="3_o5stl"]
 [ext_resource type="Resource" uid="uid://dawawu23tbhfx" path="res://Builds/lumberjack.tres" id="3_tqkvp"]
 [ext_resource type="Resource" uid="uid://mi7726j4eid3" path="res://Builds/mill.tres" id="4_jj75n"]
 [ext_resource type="Resource" uid="uid://b477cup162klk" path="res://Builds/mine.tres" id="4_scyvr"]
-[ext_resource type="Script" uid="uid://bdlax846wpf2t" path="res://scripts/ItemList.gd" id="4_tqkvp"]
+[ext_resource type="Script" uid="uid://bdlax846wpf2t" path="res://scripts/bases/ItemList.gd" id="4_tqkvp"]
 
 [resource]
 script = ExtResource("4_tqkvp")
 transport = Array[ExtResource("1_bkfmt")]([ExtResource("2_jj75n")])
-build = Array[ExtResource("1_bkfmt")]([ExtResource("3_o5stl")])
+house = Array[ExtResource("1_bkfmt")]([ExtResource("3_o5stl")])
 betting = Array[ExtResource("1_o5stl")]([ExtResource("3_tqkvp"), ExtResource("4_jj75n"), ExtResource("4_scyvr")])

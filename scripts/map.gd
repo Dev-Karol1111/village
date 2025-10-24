@@ -67,7 +67,6 @@ func _can_afford() -> bool:
 		else:
 			return false
 	return true	
-	#return Managment.moneys - cost >= 0
 
 func _can_place_block(tile_coords: Vector2i) -> bool:
 	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
@@ -76,8 +75,9 @@ func _can_place_block(tile_coords: Vector2i) -> bool:
 func _place_block(tile_coords: Vector2i) -> void:
 	if block_data.type == "betting":
 		Managment.betting.set(tile_coords, block_data)
-		#Managment.betting.append(block_data)
-		
+	if block_data.type == "house":
+		Managment.add_people(block_data.living_people)
+		Managment.houses.append(tile_coords)
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # droga
 		var data = check_road(tile_coords.x, tile_coords.y)
 		tilemap_layer.set_cell(tile_coords, 0, data[0], data[1]) #0 - source
@@ -85,7 +85,6 @@ func _place_block(tile_coords: Vector2i) -> void:
 	else:
 		tilemap_layer.set_cell(tile_coords, 0, Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y)) #0 - source
 
-	#Managment.moneys -= block_data.price
 	if block_data in Managment.free_places:
 		Managment.free_places[block_data] -= 1
 		if Managment.free_places[block_data] <= 0:
@@ -103,6 +102,8 @@ func _remove_block(tile_coords: Vector2i) -> void:
 			Managment.avaible_workers += Managment.working_places[_bett]
 			Managment.betting.erase(bett)
 			break
+	if tile_coords in Managment.houses:
+		Managment.add_people(-4) # 4 - value of people in house
 	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0,0))
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0):
 		_update_roads_around(tile_coords)
@@ -178,9 +179,4 @@ func check_road(x : int, y : int, second := false):
 	else:
 		if (tilemap_layer.get_cell_atlas_coords(pos) in blocks):
 			tilemap_layer.set_cell(Vector2i(x,y), 0 , new_block, radio) #0 - source
-		
-	
-		
-	
-		
-	
+			
