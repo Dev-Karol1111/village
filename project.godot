@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Managment="*res://scripts/autoload/managment.gd"
 Signals="*res://scripts/autoload/signals.gd"
+WorkersManagement="*res://scripts/autoload/workers_management.gd"
 
 [display]
 

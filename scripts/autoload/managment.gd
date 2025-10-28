@@ -3,13 +3,15 @@ extends Node
 var moneys := 500
 var people := 8
 
+var tilemap: TileMapLayer
+
 var avaible_workers : int
 var working_places : Dictionary[Vector2i, int] =  {}
 
 var mode := "normal"
 
-var houses : Array[Vector2i]
-var betting : Dictionary[Vector2i, BettingBase] = {}
+var houses : Dictionary[Vector2i, int] = {}#Array[Vector2i]
+var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase
 var production_time : Dictionary[Vector2i, int] = {}
 
 var products : Dictionary[String, int] = {"flour" : 100}
@@ -17,6 +19,8 @@ var products : Dictionary[String, int] = {"flour" : 100}
 var speed_time := 1
 
 var free_places : Dictionary[BuildsBase, int]
+
+var transport_connection_astartgrid : AStarGrid2D
 
 @onready var running := true
 
@@ -28,7 +32,7 @@ func production_loop() -> void:
 	while running:
 		if speed_time > 0:
 			for _betting in betting:
-				var bett = betting[_betting]
+				var bett = betting[_betting]["data"]
 				if working_places.has(_betting):
 					if working_places[_betting] == bett.need_workers:
 						pass
@@ -78,3 +82,24 @@ func add_people(value: int):
 	people += value
 	avaible_workers += value
 	Signals.data_changed_ui.emit()
+	
+func check_connection(form_tile: Vector2i, to_tile: Vector2i) -> bool:
+	if transport_connection_astartgrid:
+		var path = transport_connection_astartgrid.get_id_path(form_tile, to_tile)
+		if len(path) > 0:
+			print(path)
+			return true
+		else:
+			return false
+	return false
+		
+func make_transport_map(tile_map_layer: TileMapLayer):	
+	var AStar_grid = AStarGrid2D.new()
+	AStar_grid.region = Rect2i(0,0,52,29)
+	AStar_grid.cell_size = Vector2i(16,16)
+	AStar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
+	AStar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	AStar_grid.update()
+	for cell in tile_map_layer.get_used_cells():
+		AStar_grid.set_point_solid(cell, !tile_map_layer.get_cell_tile_data(cell).get_custom_data("transport"))
+	transport_connection_astartgrid = AStar_grid
