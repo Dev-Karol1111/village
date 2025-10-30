@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="village"
-run/main_scene="uid://u06ivjho2qcm"
+run/main_scene="res://scenes/map.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,7 +23,7 @@ WorkersManagement="*res://scripts/autoload/workers_management.gd"
 
 [display]
 
-mouse_cursor/custom_image="uid://bdbgdv3333bbm"
+mouse_cursor/custom_image="uid://6denpaxn8p7v"
 
 [input]
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://u06ivjho2qcm"]
+[gd_scene load_steps=7 format=4 uid="uid://c38tb5age5s3k"]
 
 [ext_resource type="Script" uid="uid://bq552cukkckul" path="res://scripts/map.gd" id="1_0cso3"]
-[ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_4xfga"]
+[ext_resource type="Texture2D" uid="uid://dpeb8iacj8pco" path="res://assets/titleset.png" id="1_4xfga"]
 [ext_resource type="Script" uid="uid://c04pusap538xc" path="res://scripts/camera.gd" id="2_paxxb"]
-[ext_resource type="PackedScene" uid="uid://bbdifxhepwxbs" path="res://scenes/ui/edit_mode.tscn" id="3_gldc4"]
+[ext_resource type="PackedScene" path="res://scenes/ui/edit_mode.tscn" id="3_gldc4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xfga"]
 texture = ExtResource("1_4xfga")

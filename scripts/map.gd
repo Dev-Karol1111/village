@@ -103,7 +103,8 @@ func _remove_block(tile_coords: Vector2i) -> void:
 	for _bett in Managment.betting.keys():
 		var bett = Managment.betting[_bett]["data"]
 		if bett.game_texture_tileset_y == cell.y and bett.game_texture_tileset_x == cell.x:
-			Managment.avaible_workers += Managment.working_places[_bett]
+			for house in Managment.betting[_bett]["workers_from"]:
+				Managment.houses[house] += Managment.betting[_bett]["workers_from"][house]
 			Managment.betting.erase(_bett)
 			break
 	if tile_coords in Managment.houses:

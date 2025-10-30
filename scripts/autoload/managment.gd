@@ -10,8 +10,8 @@ var working_places : Dictionary[Vector2i, int] =  {}
 
 var mode := "normal"
 
-var houses : Dictionary[Vector2i, int] = {}#Array[Vector2i]
-var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase
+var houses : Dictionary[Vector2i, int] = {}
+var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase, connected_houses - Vector2i, workers_from - Vector21
 var production_time : Dictionary[Vector2i, int] = {}
 
 var products : Dictionary[String, int] = {"flour" : 100}
@@ -33,26 +33,9 @@ func production_loop() -> void:
 		if speed_time > 0:
 			for _betting in betting:
 				var bett = betting[_betting]["data"]
-				if working_places.has(_betting):
-					if working_places[_betting] == bett.need_workers:
-						pass
-					else:
-						if working_places[_betting] > 0:
-							avaible_workers += working_places[_betting]
-							if (working_places[_betting] - bett.need_workers) > 0:
-								working_places.set(_betting, bett.need_workers)
-								avaible_workers -= bett.need_workers
-							else:
-								working_places.set(_betting, avaible_workers)
-								avaible_workers = 0		
-				else:
-					if (avaible_workers - bett.need_workers) > 0:
-						working_places.set(_betting, bett.need_workers)
-						avaible_workers -= bett.need_workers
-					else:
-						working_places.set(_betting, avaible_workers)
-						avaible_workers = 0
 				
+				WorkersManagement.check_workers(_betting)
+
 				if working_places[_betting] != bett.need_workers:
 					continue
 					
@@ -77,6 +60,9 @@ func init():
 	for bett in build_list.betting:
 		if bett.free_places > 0:
 			free_places.set(bett, bett.free_places)
+	for house in build_list.house:
+		if house.free_places > 0:
+			free_places.set(house, house.free_places)
 			
 func add_people(value: int):
 	people += value
@@ -87,7 +73,6 @@ func check_connection(form_tile: Vector2i, to_tile: Vector2i) -> bool:
 	if transport_connection_astartgrid:
 		var path = transport_connection_astartgrid.get_id_path(form_tile, to_tile)
 		if len(path) > 0:
-			print(path)
 			return true
 		else:
 			return false

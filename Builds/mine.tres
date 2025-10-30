@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="BettingBase" load_steps=7 format=3 uid="uid://b477cup162klk"]
+[gd_resource type="Resource" script_class="BettingBase" load_steps=7 format=3 uid="uid://b5hhayratixtc"]
 
-[ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_btysg"]
+[ext_resource type="Texture2D" uid="uid://dpeb8iacj8pco" path="res://assets/titleset.png" id="1_btysg"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_c843u"]
 [ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="3_6tjtf"]
-[ext_resource type="Resource" uid="uid://vgb81ew8dnxx" path="res://resources/products/stone.tres" id="3_c843u"]
-[ext_resource type="Resource" uid="uid://i3qpu4f8b68a" path="res://resources/products/wood.tres" id="4_6tjtf"]
+[ext_resource type="Resource" uid="uid://drpmmg02qrm2x" path="res://resources/products/stone.tres" id="3_bc7so"]
+[ext_resource type="Resource" uid="uid://c3hisiedmmmc1" path="res://resources/products/wood.tres" id="4_01usn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bc7so"]
 atlas = ExtResource("1_btysg")
@@ -13,7 +13,7 @@ region = Rect2(16, 16, 16, 16)
 [resource]
 script = ExtResource("3_6tjtf")
 output_products = Dictionary[ExtResource("2_c843u"), int]({
-ExtResource("3_c843u"): 3
+ExtResource("3_bc7so"): 5
 })
 product_time = 5
 need_workers = 4
@@ -22,9 +22,8 @@ game_texture_tileset_x = 1
 game_texture_tileset_y = 1
 edit_texture = SubResource("AtlasTexture_bc7so")
 products_need_to_build = Dictionary[ExtResource("2_c843u"), int]({
-ExtResource("4_6tjtf"): 3,
-ExtResource("3_c843u"): 5
+ExtResource("3_bc7so"): 5,
+ExtResource("4_01usn"): 2
 })
 free_places = 1
 type = "betting"
-metadata/_custom_type_script = "uid://cp850ln8fgsvp"
