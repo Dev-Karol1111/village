@@ -6,12 +6,12 @@ var people := 8
 var tilemap: TileMapLayer
 
 var avaible_workers : int
-var working_places : Dictionary[Vector2i, int] =  {}
+#var working_places : Dictionary[Vector2i, int] =  {}
 
 var mode := "normal"
 
 var houses : Dictionary[Vector2i, int] = {}
-var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase, connected_houses - Vector2i, workers_from - Vector21
+var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase, connected_houses - Vector2i, workers_from - Vector21, gotta_update - bool, workers - int
 var production_time : Dictionary[Vector2i, int] = {}
 
 var products : Dictionary[String, int] = {"flour" : 100}
@@ -21,6 +21,8 @@ var speed_time := 1
 var free_places : Dictionary[BuildsBase, int]
 
 var transport_connection_astartgrid : AStarGrid2D
+
+var was_edit_menu_opened := false
 
 @onready var running := true
 
@@ -32,11 +34,17 @@ func production_loop() -> void:
 	while running:
 		if speed_time > 0:
 			for _betting in betting:
+				if was_edit_menu_opened:
+					betting[_betting]["gotta_update"] = true
+				WorkersManagement.check_workers()
+			for _betting in betting:
+				if was_edit_menu_opened:
+					betting[_betting]["gotta_update"] = true 		
 				var bett = betting[_betting]["data"]
 				
-				WorkersManagement.check_workers(_betting)
+				#WorkersManagement.check_workers(_betting)
 
-				if working_places[_betting] != bett.need_workers:
+				if Managment.betting[_betting].get("workers", 0) != bett.need_workers:
 					continue
 					
 				production_time.set(_betting, production_time.get(_betting, 0) + 1)
@@ -50,6 +58,8 @@ func production_loop() -> void:
 						products[output_product.name] = products.get(output_product.name, 0) + bett.output_products[output_product]
 						print(products)
 			Signals.data_changed_build_info.emit()	
+			if was_edit_menu_opened:
+				was_edit_menu_opened = false	
 			await get_tree().create_timer(speed_time).timeout
 		else:
 			await get_tree().process_frame

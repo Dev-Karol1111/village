@@ -18,10 +18,7 @@ func _ready() -> void:
 
 func update_data():
 	build_name.text = data.name
-	if Managment.working_places.has(cords):
-		actual_workers = Managment.working_places[cords]
-	else:
-		actual_workers = 0
+	actual_workers = Managment.betting[cords].get("workers", 0)
 	workers.text = "workers: %s/%s" % [actual_workers, data.need_workers]
 	var text = "products:\n"
 	for product in data.input_products.keys():
