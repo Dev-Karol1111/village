@@ -6,6 +6,9 @@ extends Node2D
 var block = ["transport", 0] # list, index
 var block_data : BuildsBase
 
+func _ready() -> void:
+	Managment.tilemap = $TileMapLayer
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		block_data = load("res://Builds/buildsList.tres").get(block[0])[block[1]]
@@ -45,10 +48,11 @@ func _open_build_ui(tile_coords: Vector2i) -> void:
 		child.queue_free()
 
 	for bett in Managment.betting.values():
+		var new_bett = bett["data"]
 		var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
-		if cell.x == bett.game_texture_tileset_x and cell.y == bett.game_texture_tileset_y:
+		if cell.x == new_bett.game_texture_tileset_x and cell.y == new_bett.game_texture_tileset_y:
 			var ui = load("res://scenes/ui/build_ui.tscn").instantiate()
-			ui.data = bett
+			ui.data = new_bett
 			ui.cords = tile_coords
 			ui_opened_node.add_child(ui)
 			return
@@ -74,10 +78,10 @@ func _can_place_block(tile_coords: Vector2i) -> bool:
 
 func _place_block(tile_coords: Vector2i) -> void:
 	if block_data.type == "betting":
-		Managment.betting.set(tile_coords, block_data)
+		Managment.betting.set(tile_coords, {"data" : block_data})
 	if block_data.type == "house":
 		Managment.add_people(block_data.living_people)
-		Managment.houses.append(tile_coords)
+		Managment.houses.set(tile_coords, {"people" : block_data.living_people, "workers": block_data.living_people})
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # droga
 		var data = check_road(tile_coords.x, tile_coords.y)
 		tilemap_layer.set_cell(tile_coords, 0, data[0], data[1]) #0 - source
@@ -97,10 +101,11 @@ func _place_block(tile_coords: Vector2i) -> void:
 func _remove_block(tile_coords: Vector2i) -> void:
 	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
 	for _bett in Managment.betting.keys():
-		var bett = Managment.betting[_bett]
+		var bett = Managment.betting[_bett]["data"]
 		if bett.game_texture_tileset_y == cell.y and bett.game_texture_tileset_x == cell.x:
-			Managment.avaible_workers += Managment.working_places[_bett]
-			Managment.betting.erase(bett)
+			for house in Managment.betting[_bett]["workers_from"]:
+				Managment.houses[house] += Managment.betting[_bett]["workers_from"][house]
+			Managment.betting.erase(_bett)
 			break
 	if tile_coords in Managment.houses:
 		Managment.add_people(-4) # 4 - value of people in house

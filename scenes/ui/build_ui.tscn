@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://damopi222eetn"]
+[gd_scene load_steps=4 format=3 uid="uid://bvjfydj5f0o0g"]
 
-[ext_resource type="Texture2D" uid="uid://xyqd6jdeq2tg" path="res://assets/ui/ui-tileset.png" id="1_ami6n"]
+[ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_ami6n"]
 [ext_resource type="Script" uid="uid://csomysjbt5k2" path="res://scripts/ui/build_ui.gd" id="1_rl6t5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rl6t5"]

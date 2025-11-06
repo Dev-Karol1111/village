@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="ProductBase" load_steps=2 format=3 uid="uid://bv6dq1wsyjiv5"]
+[gd_resource type="Resource" script_class="ProductBase" load_steps=2 format=3 uid="uid://c2lee8ewf4gog"]
 
-[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/product_base.gd" id="1_euycf"]
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="1_euycf"]
 
 [resource]
 script = ExtResource("1_euycf")
 name = "flour"
-metadata/_custom_type_script = "uid://bam7get7v1om5"
+metadata/_custom_type_script = ""

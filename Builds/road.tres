@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="BuildsBase" load_steps=5 format=3 uid="uid://4luwep32h1de"]
+[gd_resource type="Resource" script_class="BuildsBase" load_steps=5 format=3 uid="uid://devk7oguqlrg0"]
 
-[ext_resource type="Texture2D" uid="uid://bd0o121am4iuj" path="res://assets/titleset.png" id="1_nkwov"]
+[ext_resource type="Texture2D" uid="uid://dpeb8iacj8pco" path="res://assets/titleset.png" id="1_nkwov"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_fr20p"]
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/bases/builds_base.gd" id="2_ps3xv"]
 
@@ -14,4 +14,3 @@ name = "Road"
 game_texture_tileset_x = 1
 edit_texture = SubResource("AtlasTexture_nkwov")
 type = "transport"
-metadata/_custom_type_script = "uid://cmhbmbcpdtriw"

@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="ProductBase" load_steps=2 format=3 uid="uid://i3qpu4f8b68a"]
+[gd_resource type="Resource" script_class="ProductBase" load_steps=2 format=3 uid="uid://c3hisiedmmmc1"]
 
-[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/product_base.gd" id="1_vtwa3"]
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="1_vtwa3"]
 
 [resource]
 script = ExtResource("1_vtwa3")
 name = "wood"
-metadata/_custom_type_script = "uid://bam7get7v1om5"
+metadata/_custom_type_script = ""

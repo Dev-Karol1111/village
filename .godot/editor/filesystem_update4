@@ -1,12 +1,6 @@
-res://Builds/house2.tres
-res://Builds/lumberjack2.tres
-res://scenes/ui/build_chose.tscn
-res://Builds/road.tres
-res://Builds/lumberjack.tres
-res://Builds/mill.tres
-res://Builds/mine.tres
-res://Builds/buildsList.tres
-res://Builds/house.tres
-res://scripts/map.gd
-res://scripts/bases/house_base.gd
 res://scripts/autoload/managment.gd
+res://scripts/map.gd
+res://scripts/autoload/workers_management.gd
+res://scripts/bases/betting_base.gd
+res://scripts/bases/builds_base.gd
+res://scripts/save_managment.gd

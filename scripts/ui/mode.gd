@@ -17,16 +17,19 @@ func _process(_delta: float) -> void:
 
 
 func _on_mode_pressed() -> void:
-	var map_node = get_node(map)
+	#var map_node = get_node(map)
 	Managment.mode = ("normal" if Managment.mode == "edit" else "edit")
 	if Managment.mode == "edit":
 		mode_button.icon = load("res://assets/ui/exit_edit.png")
 		edit_menu.change_visible.emit(true)
 	else:
+		Managment.make_transport_map(get_node(map).get_child(0))
+		WorkersManagement.determine_betting_house_connetion()
+		Managment.was_edit_menu_opened = true
 		mode_button.icon = load("res://assets/ui/edit.png")
 		edit_menu.change_visible.emit(false)
+		
 	
-
 
 func _on_save_pressed() -> void:
 	load("res://scripts/save_managment.gd").new().save(get_node(map).get_child(0))
