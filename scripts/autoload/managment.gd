@@ -1,7 +1,7 @@
 extends Node
 
 var moneys := 500
-var people := 8
+var people := 0
 
 var tilemap: TileMapLayer
 
@@ -10,7 +10,7 @@ var avaible_workers : int
 
 var mode := "normal"
 
-var houses : Dictionary[Vector2i, int] = {}
+var houses : Dictionary[Vector2i, Dictionary] = {}
 var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase, connected_houses - Vector2i, workers_from - Vector21, gotta_update - bool, workers - int
 var production_time : Dictionary[Vector2i, int] = {}
 

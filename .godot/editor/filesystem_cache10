@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1762088946
+::res://::1762444289
 export_presets.cfg::TextFile::-1::1761673160::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::3698461076577249356::1761673160::1761836120::1::::<><><>0<>0<>f10171b320974a05cc4851d7b7e5c840<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://app_builds/::1761918724
@@ -35,10 +35,10 @@ menu.tscn::PackedScene::3478166886035145112::1761836121::0::1::::<><><>0<>0<><>:
 camera.gd::GDScript::6588376830117403572::1761673160::0::1::::<>Camera2D<><>0<>0<><>::
 map.gd::GDScript::3573243377152435659::1761844561::0::1::::<>Node2D<><>0<>0<><>::
 save_managment.gd::GDScript::8899271062811013183::1761673168::0::1::::<>Node<><>0<>0<><>::
-::res://scripts/autoload/::1761927379
-managment.gd::GDScript::2183731358657836462::1761919489::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/autoload/::1762096494
+managment.gd::GDScript::2183731358657836462::1762096494::0::1::::<>Node<><>0<>0<><>::
 signals.gd::GDScript::8931573957715779257::1761673160::0::1::::<>Node<><>0<>0<><>::
-workers_management.gd::GDScript::1033206919692191950::1761927379::0::1::::<>Node<><>0<>0<><>::
+workers_management.gd::GDScript::1033206919692191950::1762096281::0::1::::<>Node<><>0<>0<><>::
 ::res://scripts/bases/::1761835197
 betting_base.gd::GDScript::5895665241816893825::1761673160::0::1::::BettingBase<>BuildsBase<><>0<>0<><>::
 builds_base.gd::GDScript::5629640338139900434::1761673160::0::1::::BuildsBase<>Resource<><>0<>0<><>::

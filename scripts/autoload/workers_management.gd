@@ -8,11 +8,11 @@ func check_workers():
 		if bett_data.get("gotta_update", false):
 			# Process all workers first
 			for house in bett_data.get("workers_from", []):
-				Managment.houses[house] += bett_data["workers_from"][house]
+				Managment.houses[house]["workers"] += bett_data["workers_from"][house]
 
 			# Then clear everything
-			bett_data["workers_from"].clear()
-			bett_data["connected_houses"].clear()
+			bett_data.set("workers_from", {})
+			bett_data.set("connected_houses", [])
 			bett_data["workers"] = 0
 			bett_data["gotta_update"] = false
 		else:
@@ -46,11 +46,11 @@ func allocate_workers(bett_vector: Vector2i):
 		if need_workers == 0:
 			return
 
-		var available_workers = Managment.houses[house]
+		var available_workers = Managment.houses[house]["workers"]
 		var workers_to_allocate = min(need_workers, available_workers)
 
 		Managment.betting[bett_vector]["workers"] += workers_to_allocate
-		Managment.houses[house] -= workers_to_allocate
+		Managment.houses[house]["workers"] -= workers_to_allocate
 		need_workers -= workers_to_allocate
 
 		# Track how many workers are from this house

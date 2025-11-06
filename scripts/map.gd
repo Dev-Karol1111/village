@@ -81,7 +81,7 @@ func _place_block(tile_coords: Vector2i) -> void:
 		Managment.betting.set(tile_coords, {"data" : block_data})
 	if block_data.type == "house":
 		Managment.add_people(block_data.living_people)
-		Managment.houses.set(tile_coords, block_data.living_people)
+		Managment.houses.set(tile_coords, {"people" : block_data.living_people, "workers": block_data.living_people})
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # droga
 		var data = check_road(tile_coords.x, tile_coords.y)
 		tilemap_layer.set_cell(tile_coords, 0, data[0], data[1]) #0 - source

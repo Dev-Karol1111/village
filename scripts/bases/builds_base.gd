@@ -10,3 +10,15 @@ class_name BuildsBase
 @export var products_need_to_build : Dictionary[ProductBase, int] = {}
 @export var free_places : int = 0
 @export_enum("transport", "house" ,"betting") var type := "Chose type"
+
+func get_data() -> Array:
+
+	var data := []
+
+	data.append(type)
+	var build_list = load("res://Builds/buildsList.tres")
+	data.append(build_list.get(type).find(self))
+
+
+	return data
+	

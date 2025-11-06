@@ -30,7 +30,7 @@ func load(tilemap: TileMapLayer):
 		if info.has("free_places"):
 			Managment.free_places.clear()
 			for free_place in info["free_places"]:
-				Managment.free_places.set(load("res://Builds/buildsList.tres").betting[int(free_place["data"][1])], int(free_place["value"]))
+				Managment.free_places.set(load("res://Builds/buildsList.tres").get(free_place["data"][0])[int(free_place["data"][1])], int(free_place["value"]))
 		
 		if info.has("products"):
 			Managment.products.clear()
@@ -40,7 +40,9 @@ func load(tilemap: TileMapLayer):
 		if info.has("houses"):
 			Managment.houses.clear()
 			for house in info["houses"]:
-				Managment.houses.set(Vector2i(house.x, house.y),int(house.living_people))
+				Managment.houses.set(Vector2i(house.x, house.y), {"people" : int(house.living_people), "workers" : int(house.living_people)})
+			Managment.make_transport_map(tilemap)
+			Managment.was_edit_menu_opened = true
 	Signals.data_changed_ui.emit()				
 
 func save(tilemap: TileMapLayer):
@@ -68,6 +70,6 @@ func save(tilemap: TileMapLayer):
 		info["free_places"].append({"data" : f.get_data(), "value" : Managment.free_places[f]})
 	
 	for h in Managment.houses:
-		info["houses"].append({"x" : h.x, "y" : h.y, "living_people" : Managment.houses[h]})
+		info["houses"].append({"x" : h.x, "y" : h.y, "living_people" : Managment.houses[h]["people"]})
 	file.store_string(JSON.stringify(info))
 	file.close()

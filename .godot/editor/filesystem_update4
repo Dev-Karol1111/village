@@ -1,2 +1,6 @@
 res://scripts/autoload/managment.gd
+res://scripts/map.gd
 res://scripts/autoload/workers_management.gd
+res://scripts/bases/betting_base.gd
+res://scripts/bases/builds_base.gd
+res://scripts/save_managment.gd
