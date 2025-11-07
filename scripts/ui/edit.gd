@@ -36,8 +36,4 @@ func render_build_select():
 func change_visible_func(visible):
 	for child in self.get_children():
 		child.visible = visible
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		

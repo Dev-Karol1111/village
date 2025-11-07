@@ -50,5 +50,5 @@ func _set_cursor(path: String):
 		img.resize(int(img.get_width() * cursor_scale), int(img.get_height() * cursor_scale))
 		var scaled_tex := ImageTexture.create_from_image(img)
 
-		var hotspot = Vector2(scaled_tex.get_width() / 2, scaled_tex.get_height() / 2)
+		var hotspot = Vector2(scaled_tex.get_width() / 2.0, scaled_tex.get_height() / 2.0)
 		Input.set_custom_mouse_cursor(scaled_tex, Input.CURSOR_ARROW, hotspot)

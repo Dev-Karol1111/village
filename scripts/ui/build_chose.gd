@@ -8,12 +8,15 @@ var edit_menu
 @onready var info_box : TextureRect = $info
 @onready var products_label : Label = $"info/products"
 @onready var free_places_label : Label = $"info/free_places"
+@onready var living_people_label : Label = $"info/living_people"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	texture = data.edit_texture
 	info_box.visible = false
 	update_data()
 	Signals.data_changed_build_info.connect(update_data)
+	if data.type != "house":
+		living_people_label.visible = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -34,7 +37,10 @@ func update_data():
 		free_places_label.text = "Free places: %s" % Managment.free_places[data]
 	else:
 		free_places_label.text = "Free places: 0"
-
+	
+	if data.type == "house":
+		living_people_label.text = "Living people: %s" % data.living_people
+	
 func _on_texture_button_pressed() -> void:
 	edit_menu.set_block(data)
 

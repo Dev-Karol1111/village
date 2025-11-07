@@ -10,6 +10,8 @@ extends CanvasLayer
 func _ready() -> void:
 	edit_menu.change_visible.emit(false)
 	edit_menu.map = get_node(map) 
+	Signals.pause_game.connect(_on_pause_pressed)
+	Signals.unpause_game.connect(_on_unpause_pressed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -22,12 +24,15 @@ func _on_mode_pressed() -> void:
 	if Managment.mode == "edit":
 		mode_button.icon = load("res://assets/ui/exit_edit.png")
 		edit_menu.change_visible.emit(true)
+		Signals.edit_menu_opened.emit()
+		Signals.pause_game.emit()
 	else:
 		Managment.make_transport_map(get_node(map).get_child(0))
 		WorkersManagement.determine_betting_house_connetion()
 		Managment.was_edit_menu_opened = true
 		mode_button.icon = load("res://assets/ui/edit.png")
 		edit_menu.change_visible.emit(false)
+		Signals.unpause_game.emit()
 		
 	
 
@@ -48,6 +53,8 @@ func _on_pause_pressed() -> void:
 
 
 func _on_unpause_pressed() -> void:
+	if Managment.mode == "edit":
+		return
 	Managment.speed_time = 1
 	var new_icon = AtlasTexture.new()
 	new_icon.atlas = load("res://assets/ui/ui-tileset.png")

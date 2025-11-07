@@ -55,6 +55,19 @@ offset_right = 40.025
 offset_bottom = 22.962997
 text = "Free places: "
 
+[node name="living_people" type="Label" parent="info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07300001
+anchor_top = 0.56100005
+anchor_right = 0.07300001
+anchor_bottom = 0.56100005
+offset_left = 0.063999176
+offset_top = 2.0449905
+offset_right = 111.063995
+offset_bottom = 25.04499
+text = "Living people: "
+
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="mouse_entered" from="TextureButton" to="." method="_on_texture_button_mouse_entered"]
 [connection signal="mouse_exited" from="TextureButton" to="." method="_on_texture_button_mouse_exited"]
