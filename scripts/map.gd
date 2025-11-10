@@ -14,7 +14,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		block_data = load("res://Builds/buildsList.tres").get(block[0])[block[1]]
 		var mouse_pos = get_global_mouse_position()
 		var local_pos = tilemap_layer.to_local(mouse_pos)
-		var tile_coords = Vector2i(int(floor(local_pos.x / 16)), int(floor(local_pos.y / 16)))
+		var tile_coords = Vector2i(int(floor(local_pos.x / 32)), int(floor(local_pos.y / 32)))
 
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			_handle_left_click(tile_coords)

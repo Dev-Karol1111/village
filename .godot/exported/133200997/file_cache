@@ -1,0 +1,14 @@
+res://Builds/buildsList.tres::552ead5691e238dea08f8e232d9dfcd7::1762447034::res://.godot/exported/133200997/export-6c8a49f73ce7e9e94731238fbf4a0e5f-buildsList.res
+res://Builds/house.tres::3f7376aa8b19b9b217d39e9747d034c8::1762526275::res://.godot/exported/133200997/export-d6e882cb7f78a187f5b62dc5c9beb48c-house.res
+res://Builds/lumberjack.tres::dd7a1902e372a5afd61b56ea6148a6e1::1762526275::res://.godot/exported/133200997/export-f31bd280a8ec06a4d5038e78963f4fe6-lumberjack.res
+res://Builds/mill.tres::5f0670e16cab87bc009466eb9cd081fe::1762526275::res://.godot/exported/133200997/export-533c3ab3af88d1ab1c04d2b6f6536a11-mill.res
+res://Builds/mine.tres::985e3417609b6a41b8601b6b77748abe::1762526275::res://.godot/exported/133200997/export-e70d74f221998543d017e88df08d4c5f-mine.res
+res://Builds/road.tres::262dab964fc5d788db499066111a756a::1762526275::res://.godot/exported/133200997/export-ba28bd7d52838fb64ce88e1d15bbbe43-road.res
+res://resources/products/flour.tres::adfb83c0d22cf4beed10f888ef44e8a7::1762447034::res://.godot/exported/133200997/export-02cc856062487d803caf01f904b4d26a-flour.res
+res://resources/products/stone.tres::527bf67ca6ae8ed25c67949cb0276a19::1762447034::res://.godot/exported/133200997/export-9a8bfcd7d3395c3f48c2ffaee82de2cc-stone.res
+res://resources/products/wood.tres::ffa96cd06228d2946413212140dab48b::1762447034::res://.godot/exported/133200997/export-45053560f61289a42bcd0cb6efaf176a-wood.res
+res://scenes/ui/build_chose.tscn::e905e66dcd5eaa49b0137d27b01cf5f3::1762526401::res://.godot/exported/133200997/export-dda8487d5da2f90c40462d0536fc5591-build_chose.scn
+res://scenes/ui/build_ui.tscn::4fdd2ca762d0331bc915bf01ff9099b4::1762447034::res://.godot/exported/133200997/export-8e6a27eb77f228a4a9c97c56602b999b-build_ui.scn
+res://scenes/ui/edit_mode.tscn::7c24beaf5cd2a43c347c493764346f93::1762447034::res://.godot/exported/133200997/export-8dfa38944e988d5d456d40e8d298856f-edit_mode.scn
+res://scenes/ui/menu.tscn::62024daf180de294297b63156f5c3363::1762447034::res://.godot/exported/133200997/export-d93ed1463a70380dd7330cfefee4edf7-menu.scn
+res://scenes/map.tscn::8094ac90d4df8b2b93a86ae09dc477f4::1762447034::res://.godot/exported/133200997/export-ed473fb65393d895a0df52094abbd023-map.scn

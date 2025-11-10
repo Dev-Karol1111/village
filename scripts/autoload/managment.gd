@@ -90,7 +90,7 @@ func check_connection(form_tile: Vector2i, to_tile: Vector2i) -> bool:
 		
 func make_transport_map(tile_map_layer: TileMapLayer):	
 	var AStar_grid = AStarGrid2D.new()
-	AStar_grid.region = Rect2i(0,0,52,29)
+	AStar_grid.region = Rect2i(0,0,41,32)
 	AStar_grid.cell_size = Vector2i(16,16)
 	AStar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	AStar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER

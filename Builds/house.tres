@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="HouseBase" load_steps=7 format=3 uid="uid://bn360vh53v05u"]
 
-[ext_resource type="Texture2D" uid="uid://dpeb8iacj8pco" path="res://assets/titleset.png" id="1_khuho"]
+[ext_resource type="Texture2D" uid="uid://c2mcgxfi3cwqb" path="res://assets/tileset.png" id="1_36o3r"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_13vpj"]
 [ext_resource type="Resource" uid="uid://drpmmg02qrm2x" path="res://resources/products/stone.tres" id="3_36o3r"]
 [ext_resource type="Resource" uid="uid://c3hisiedmmmc1" path="res://resources/products/wood.tres" id="4_8i6jo"]
 [ext_resource type="Script" uid="uid://dq4ajlu66q7uy" path="res://scripts/bases/house_base.gd" id="5_36o3r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ks6p0"]
-atlas = ExtResource("1_khuho")
-region = Rect2(32, 0, 16, 16)
+atlas = ExtResource("1_36o3r")
+region = Rect2(64, 0, 32, 32)
 
 [resource]
 script = ExtResource("5_36o3r")

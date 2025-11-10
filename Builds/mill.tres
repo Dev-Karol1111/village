@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BettingBase" load_steps=8 format=3 uid="uid://c0hc4dawjk2of"]
 
-[ext_resource type="Texture2D" uid="uid://dpeb8iacj8pco" path="res://assets/titleset.png" id="1_c3x0t"]
+[ext_resource type="Texture2D" uid="uid://c2mcgxfi3cwqb" path="res://assets/tileset.png" id="1_g5vrv"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_3k1jn"]
 [ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="2_c3x0t"]
 [ext_resource type="Resource" uid="uid://c2lee8ewf4gog" path="res://resources/products/flour.tres" id="3_g5vrv"]
@@ -8,8 +8,8 @@
 [ext_resource type="Resource" uid="uid://drpmmg02qrm2x" path="res://resources/products/stone.tres" id="4_g5vrv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3k1jn"]
-atlas = ExtResource("1_c3x0t")
-region = Rect2(48, 0, 16, 16)
+atlas = ExtResource("1_g5vrv")
+region = Rect2(96, 0, 32, 32)
 
 [resource]
 script = ExtResource("2_c3x0t")

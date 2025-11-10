@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="BuildsBase" load_steps=5 format=3 uid="uid://devk7oguqlrg0"]
 
-[ext_resource type="Texture2D" uid="uid://dpeb8iacj8pco" path="res://assets/titleset.png" id="1_nkwov"]
+[ext_resource type="Texture2D" uid="uid://c2mcgxfi3cwqb" path="res://assets/tileset.png" id="1_ps3xv"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_fr20p"]
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/bases/builds_base.gd" id="2_ps3xv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkwov"]
-atlas = ExtResource("1_nkwov")
-region = Rect2(16, 0, 16, 16)
+atlas = ExtResource("1_ps3xv")
+region = Rect2(32, 0, 32, 32)
 
 [resource]
 script = ExtResource("2_ps3xv")
