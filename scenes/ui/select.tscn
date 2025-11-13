@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://ftjx2ufw3bdy"]
+
+[ext_resource type="Script" uid="uid://bjtol02rxiina" path="res://scripts/ui/select.gd" id="1_0sx1g"]
+[ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_av82s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_av82s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_av82s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0sx1g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0sx1g"]
+atlas = ExtResource("1_av82s")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fo5tc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8g1u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dho2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnht3"]
+atlas = ExtResource("1_av82s")
+region = Rect2(16, 32, 16, 16)
+
+[node name="select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0sx1g")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="left" type="Button" parent="HBox"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_av82s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_av82s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0sx1g")
+icon = SubResource("AtlasTexture_0sx1g")
+
+[node name="Label" type="Label" parent="HBox"]
+layout_mode = 2
+text = "FULLSCREEN"
+
+[node name="Button" type="Button" parent="HBox"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fo5tc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j8g1u")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dho2h")
+icon = SubResource("AtlasTexture_wnht3")
+
+[connection signal="pressed" from="HBox/left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBox/Button" to="." method="_on_button_pressed"]
