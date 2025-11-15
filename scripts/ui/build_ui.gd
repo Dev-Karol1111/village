@@ -22,10 +22,11 @@ func _ready() -> void:
 func update_data():
 	build_name.text = data.name
 	actual_workers = Managment.betting[cords].get("workers", 0)
-	workers.text = "workers: %s/%s" % [actual_workers, data.need_workers]
-	var text = "products:\n"
+	workers.text = tr("workers") + ": %s/%s" % [actual_workers, data.need_workers]
+	var text = tr("products") + ":\n"
 	for product in data.input_products.keys():
-		text += " * %s %s/%s \n" % [product.name, Managment.products[product.name], data.input_products[product]]
+		var product_name = tr(product.name)
+		text += " * %s %s/%s \n" % [product_name, Managment.products[product.name], data.input_products[product]]
 	products.text = text
-	production_time.text = "production time: %s" % [data.product_time]
-	items_per_day.text = "items per day: %s" % [IPD]
+	production_time.text = tr("production time") + ": %s" % [data.product_time]
+	items_per_day.text = tr("items per day") + ": %s" % [IPD]

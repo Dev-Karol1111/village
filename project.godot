@@ -58,6 +58,10 @@ zoom-out={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://resources/Translation.pl.translation", "res://resources/Translation.en.translation")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

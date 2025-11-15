@@ -40,7 +40,7 @@ offset_left = 0.03999996
 offset_top = 0.030999899
 offset_right = 69.04
 offset_bottom = 23.031
-text = "Products:"
+text = "products"
 
 [node name="free_places" type="Label" parent="info"]
 layout_mode = 1

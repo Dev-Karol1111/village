@@ -23,23 +23,24 @@ func _process(_delta: float) -> void:
 	pass
 
 func update_data():
-	var products_text := "Products: \n"
+	var products_text := tr("products") + ": \n"
 	for need_product in data.products_need_to_build.keys():
 		var value
 		if Managment.products.has(need_product.name):
 			value = Managment.products[need_product.name]
 		else:
 			value = 0
-		products_text += " * %s %s/%s \n" % [need_product.name, value, data.products_need_to_build[need_product]]
+		var product_name = tr(need_product.name)
+		products_text += " * %s %s/%s \n" % [product_name, value, data.products_need_to_build[need_product]]
 		
 	products_label.text = products_text
 	if Managment.free_places.has(data):
-		free_places_label.text = "Free places: %s" % Managment.free_places[data]
+		free_places_label.text = tr("free places") + ": %s" % Managment.free_places[data]
 	else:
-		free_places_label.text = "Free places: 0"
+		free_places_label.text = tr("free places") + ": 0"
 	
 	if data.type == "house":
-		living_people_label.text = "Living people: %s" % data.living_people
+		living_people_label.text = tr("living people") + ": %s" % data.living_people
 	
 func _on_texture_button_pressed() -> void:
 	edit_menu.set_block(data)

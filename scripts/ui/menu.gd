@@ -1,6 +1,7 @@
 extends Control
 
-
+func _ready() -> void:
+	load("res://scenes/ui/settings.tscn").instantiate().load_settings(true)
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

@@ -65,7 +65,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_c2n5p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
-text = "START"
+text = "start"
 
 [node name="settings" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -74,7 +74,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_c2n5p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
-text = "SETTINGS"
+text = "settings"
 
 [node name="exit" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
@@ -83,7 +83,7 @@ size_flags_stretch_ratio = 0.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_c2n5p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
-text = "EXIT"
+text = "exit"
 
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]

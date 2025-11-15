@@ -42,7 +42,7 @@ offset_top = -10.152008
 offset_right = 37.0
 offset_bottom = 12.847992
 grow_horizontal = 2
-text = "SETTINGS"
+text = "settings"
 label_settings = SubResource("LabelSettings_vrkq3")
 
 [node name="VBox" type="VBoxContainer" parent="."]
@@ -60,9 +60,10 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="fullscreen" parent="VBox" instance=ExtResource("2_7pacj")]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
-options = Array[String](["Fullscreen", "Windowed"])
+size_flags_horizontal = 8
+options = Array[String](["fullscreen", "windowed"])
 
 [node name="volume" type="HBoxContainer" parent="VBox"]
 layout_mode = 2
@@ -70,7 +71,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBox/volume"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-text = "Volume"
+text = "volume"
 
 [node name="volume_slider" type="HSlider" parent="VBox/volume"]
 custom_minimum_size = Vector2(150, 0)
@@ -78,6 +79,12 @@ layout_mode = 2
 max_value = 1.0
 step = 0.05
 value = 1.0
+
+[node name="language" parent="VBox" instance=ExtResource("2_7pacj")]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+options = Array[String](["English", "Polish"])
 
 [node name="back_to_menu" type="Button" parent="."]
 layout_mode = 1
@@ -92,7 +99,7 @@ offset_right = 74.5
 offset_bottom = 45.063965
 grow_horizontal = 2
 grow_vertical = 0
-text = "Back to menu"
+text = "back to menu"
 
 [connection signal="value_changed" from="VBox/volume/volume_slider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="back_to_menu" to="." method="_on_back_to_menu_pressed"]
