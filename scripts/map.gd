@@ -109,10 +109,10 @@ func _remove_block(tile_coords: Vector2i) -> void:
 	for _bett in Managment.betting.keys():
 		var bett = Managment.betting[_bett]["data"]
 		if bett.game_texture_tileset_y == cell.y and bett.game_texture_tileset_x == cell.x:
-			for house in Managment.betting[_bett]["workers_from"]:
+			for house in Managment.betting[_bett].get("workers_from", []):
 				Managment.houses[house] += Managment.betting[_bett]["workers_from"][house]
 			Managment.betting.erase(_bett)
-			break
+			#break
 	if tile_coords in Managment.houses:
 		Managment.add_people(-4) # 4 - value of people in house
 	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0,0))
