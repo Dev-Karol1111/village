@@ -6,10 +6,16 @@ extends Node2D
 var block = ["transport", 0] # list, index
 var block_data : BuildsBase
 
+const grasses : Array[Vector2i] = [Vector2i(0,0), Vector2i(1,2), Vector2i(2,2)]
+
 func _ready() -> void:
 	Managment.tilemap = $TileMapLayer
+	load("res://scripts/save_managment.gd").new().load(tilemap_layer)
+	Managment.init()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Managment.totally_pause:
+		return
 	if event is InputEventMouseButton and event.pressed:
 		block_data = load("res://Builds/buildsList.tres").get(block[0])[block[1]]
 		var mouse_pos = get_global_mouse_position()
@@ -74,7 +80,7 @@ func _can_afford() -> bool:
 
 func _can_place_block(tile_coords: Vector2i) -> bool:
 	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
-	return not (cell == Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) or cell != Vector2i(0,0))
+	return not (cell == Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) or cell not in grasses)
 
 func _place_block(tile_coords: Vector2i) -> void:
 	if block_data.type == "betting":

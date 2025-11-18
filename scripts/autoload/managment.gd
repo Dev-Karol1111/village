@@ -26,13 +26,17 @@ var was_edit_menu_opened := false
 
 @onready var running := true
 
+var totally_pause := false
+
+const water := Vector2i(0,2)
+
 func _ready() -> void:
 	init()
 	production_loop()
 
 func production_loop() -> void:
 	while running:
-		if speed_time > 0:
+		if speed_time > 0 and !totally_pause:
 			for _betting in betting:
 				if was_edit_menu_opened:
 					betting[_betting]["gotta_update"] = true
@@ -65,6 +69,7 @@ func production_loop() -> void:
 			await get_tree().process_frame
 			
 func init():
+	Managment.totally_pause = false
 	avaible_workers = people
 	var build_list = load("res://Builds/buildsList.tres")
 	for bett in build_list.betting:
@@ -90,8 +95,8 @@ func check_connection(form_tile: Vector2i, to_tile: Vector2i) -> bool:
 		
 func make_transport_map(tile_map_layer: TileMapLayer):	
 	var AStar_grid = AStarGrid2D.new()
-	AStar_grid.region = Rect2i(0,0,41,32)
-	AStar_grid.cell_size = Vector2i(16,16)
+	AStar_grid.region = Rect2i(0,0,55,32)
+	AStar_grid.cell_size = Vector2i(32,32)
 	AStar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	AStar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	AStar_grid.update()

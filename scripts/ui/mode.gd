@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @onready var mode_button : Button = $"Mode"
 @onready var edit_menu : Node  = $"Edit"
+@onready var info_painting : TextureRect = $"info/TextureRect"
+@onready var info : VBoxContainer = $"info/VBoxContainer"
+
 
 @export var map : NodePath
 
@@ -15,10 +18,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
-
+	if Input.is_action_just_pressed("escape"):
+		info_painting.visible = !info_painting.visible
+		info.visible = !info.visible
+		Managment.totally_pause = !Managment.totally_pause
+		$info/AnimationPlayer.play("open")
 
 func _on_mode_pressed() -> void:
+	if Managment.totally_pause:
+		return
 	#var map_node = get_node(map)
 	Managment.mode = ("normal" if Managment.mode == "edit" else "edit")
 	if Managment.mode == "edit":
@@ -38,13 +46,12 @@ func _on_mode_pressed() -> void:
 
 func _on_save_pressed() -> void:
 	load("res://scripts/save_managment.gd").new().save(get_node(map).get_child(0))
-
-
-func _on_load_pressed() -> void:
-	load("res://scripts/save_managment.gd").new().load(get_node(map).get_child(0))
+	
 
 
 func _on_pause_pressed() -> void:
+	if Managment.totally_pause:
+		return
 	Managment.speed_time = 0
 	var new_icon = AtlasTexture.new()
 	new_icon.atlas = load("res://assets/ui/ui-tileset.png")
@@ -53,6 +60,8 @@ func _on_pause_pressed() -> void:
 
 
 func _on_unpause_pressed() -> void:
+	if Managment.totally_pause:
+		return
 	if Managment.mode == "edit":
 		return
 	Managment.speed_time = 1
@@ -60,3 +69,14 @@ func _on_unpause_pressed() -> void:
 	new_icon.atlas = load("res://assets/ui/ui-tileset.png")
 	new_icon.region = Rect2(16,16,16,16)
 	$timeManagment/pause.icon = new_icon
+
+
+func _on_resume_pressed() -> void:
+	info_painting.visible = !info_painting.visible
+	info.visible = !info.visible
+	Managment.totally_pause = !Managment.totally_pause
+
+
+func _on_exit_pressed() -> void:
+	load("res://scripts/save_managment.gd").new().save(get_node(map).get_child(0))
+	get_tree().change_scene_to_file("res://scenes/ui/menu.tscn")

@@ -4,8 +4,8 @@ var path_to_save = "user://save.json"
 
 func load(tilemap: TileMapLayer):
 	if not FileAccess.file_exists(path_to_save):
-		push_warning("WARNING: File not fund")
-		return
+		#push_warning("WARNING: File not fund")
+		save(tilemap)
 
 	var file = FileAccess.open(path_to_save, FileAccess.READ)
 
@@ -73,3 +73,8 @@ func save(tilemap: TileMapLayer):
 		info["houses"].append({"x" : h.x, "y" : h.y, "living_people" : Managment.houses[h]["people"]})
 	file.store_string(JSON.stringify(info))
 	file.close()
+
+
+func clear():
+	if FileAccess.file_exists(path_to_save):
+		DirAccess.remove_absolute(path_to_save)

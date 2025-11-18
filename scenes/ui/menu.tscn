@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bps35u6fatjlg"]
+[gd_scene load_steps=28 format=3 uid="uid://bps35u6fatjlg"]
 
 [ext_resource type="Script" uid="uid://t0jrtkbeupv3" path="res://scripts/ui/menu.gd" id="1_7w7rl"]
 [ext_resource type="Texture2D" uid="uid://g03swrjysxhi" path="res://assets/ui/manu-bc.png" id="2_wedc3"]
@@ -25,6 +25,216 @@ region = Rect2(0, 32, 16, 16)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6y0u"]
 texture = SubResource("AtlasTexture_c2n5p")
 
+[sub_resource type="Animation" id="Animation_c2n5p"]
+resource_name = "moving"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(451, 174), Vector2(89, 41)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.7412228]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w6y0u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(451, 174)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cx0sj"]
+_data = {
+&"RESET": SubResource("Animation_w6y0u"),
+&"moving": SubResource("Animation_c2n5p")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntye7"]
+atlas = ExtResource("3_c2n5p")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cghgw"]
+texture = SubResource("AtlasTexture_ntye7")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cghgw"]
+atlas = ExtResource("3_c2n5p")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pxh0"]
+texture = SubResource("AtlasTexture_cghgw")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e11en"]
+atlas = ExtResource("3_c2n5p")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_288ov"]
+texture = SubResource("AtlasTexture_e11en")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pxh0"]
+atlas = ExtResource("3_c2n5p")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e11en"]
+texture = SubResource("AtlasTexture_1pxh0")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_288ov"]
+atlas = ExtResource("3_c2n5p")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tub5d"]
+texture = SubResource("AtlasTexture_288ov")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tub5d"]
+atlas = ExtResource("3_c2n5p")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dnmb1"]
+texture = SubResource("AtlasTexture_tub5d")
+
+[sub_resource type="Animation" id="Animation_ntye7"]
+resource_name = "moving"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(800, 78), Vector2(452, 284)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.6678292, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cghgw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(452, 284)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1pxh0"]
+_data = {
+&"RESET": SubResource("Animation_cghgw"),
+&"moving": SubResource("Animation_ntye7")
+}
+
 [node name="menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -43,7 +253,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_wedc3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="main" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -52,13 +262,13 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -125.0
 offset_top = -150.0
-offset_right = 125.0
+offset_right = 125.000244
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="start" type="Button" parent="VBoxContainer"]
+[node name="start" type="Button" parent="main"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
@@ -67,7 +277,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
 text = "start"
 
-[node name="settings" type="Button" parent="VBoxContainer"]
+[node name="settings" type="Button" parent="main"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
@@ -76,7 +286,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
 text = "settings"
 
-[node name="exit" type="Button" parent="VBoxContainer"]
+[node name="exit" type="Button" parent="main"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
@@ -85,6 +295,52 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
 text = "exit"
 
-[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="main"]
+libraries = {
+&"": SubResource("AnimationLibrary_cx0sj")
+}
+speed_scale = 7.0
+
+[node name="game_choose" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 452.0
+offset_top = 284.0
+offset_right = 701.99976
+offset_bottom = 360.0001
+
+[node name="Label" type="Label" parent="game_choose"]
+layout_mode = 2
+text = "wanna continue"
+
+[node name="buttons" type="HBoxContainer" parent="game_choose"]
+layout_mode = 2
+
+[node name="continue" type="Button" parent="game_choose/buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_cghgw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1pxh0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_288ov")
+text = "continue"
+
+[node name="new_game" type="Button" parent="game_choose/buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxTexture_e11en")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tub5d")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dnmb1")
+text = "new game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="game_choose"]
+libraries = {
+&"": SubResource("AnimationLibrary_1pxh0")
+}
+speed_scale = 7.0
+
+[connection signal="pressed" from="main/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="main/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="main/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="game_choose/buttons/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="game_choose/buttons/new_game" to="." method="_on_new_game_pressed"]

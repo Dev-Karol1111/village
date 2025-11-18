@@ -1,8 +1,12 @@
+CanvasLayer
+CenterContainer
+AnimationPlayer
 Button
-HSlider
-Label
-HBoxContainer
 VBoxContainer
 TextureRect
+Node
+Label
+HBoxContainer
+HSlider
 TileMapLayer
 Control
