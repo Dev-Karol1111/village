@@ -10,3 +10,5 @@ signal edit_menu_opened
 signal pause_game
 @warning_ignore("unused_signal")
 signal unpause_game
+@warning_ignore("unused_signal")
+signal close_ui

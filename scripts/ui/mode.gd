@@ -80,3 +80,7 @@ func _on_resume_pressed() -> void:
 func _on_exit_pressed() -> void:
 	load("res://scripts/save_managment.gd").new().save(get_node(map).get_child(0))
 	get_tree().change_scene_to_file("res://scenes/ui/menu.tscn")
+
+
+func _on_people_managment_pressed() -> void:
+	self.add_child(load("res://scenes/ui/people_managment.tscn").instantiate())

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://badikxqh2pubs"]
+[gd_scene load_steps=22 format=3 uid="uid://badikxqh2pubs"]
 
 [ext_resource type="Script" uid="uid://duapvbu2xv16c" path="res://scripts/ui/mode.gd" id="1_plch7"]
 [ext_resource type="Texture2D" uid="uid://byyyb76oisrqs" path="res://assets/ui/edit.png" id="1_tpjst"]
@@ -6,6 +6,10 @@
 [ext_resource type="Resource" uid="uid://d3o634eslqrqu" path="res://Builds/buildsList.tres" id="4_o0g5u"]
 [ext_resource type="Script" uid="uid://b6mcpo1cueccd" path="res://scripts/ui/ui.gd" id="5_4kt5k"]
 [ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="5_ycatb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7xle"]
+atlas = ExtResource("5_ycatb")
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycatb"]
 atlas = ExtResource("5_ycatb")
@@ -47,81 +51,6 @@ region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k7xle"]
 texture = SubResource("AtlasTexture_l3toe")
-
-[sub_resource type="Animation" id="Animation_4kt5k"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(700, 39), Vector2(422, 176)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.50199443, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.033333335, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(726, 115), Vector2(451, 256.5)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("VBoxContainer:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.5015373, 0.0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("VBoxContainer:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_skuhn"]
 length = 0.001
@@ -198,6 +127,81 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_4kt5k"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(700, 39), Vector2(422, 176)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.50199443, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(726, 115), Vector2(451, 256.5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainer:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5015373, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jb44s"]
 _data = {
 &"RESET": SubResource("Animation_skuhn"),
@@ -220,6 +224,22 @@ scale = Vector2(2, 2)
 size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = ExtResource("1_tpjst")
+
+[node name="people_managment" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.86200005
+anchor_top = 0.074
+anchor_right = 0.86200005
+anchor_bottom = 0.074
+offset_left = -48.024048
+offset_top = 0.048000336
+offset_right = -24.024048
+offset_bottom = 24.048
+grow_horizontal = 0
+scale = Vector2(2, 2)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = SubResource("AtlasTexture_k7xle")
 
 [node name="Edit" type="Node" parent="."]
 script = ExtResource("3_ycatb")
@@ -365,6 +385,7 @@ libraries = {
 speed_scale = 7.0
 
 [connection signal="pressed" from="Mode" to="." method="_on_mode_pressed"]
+[connection signal="pressed" from="people_managment" to="." method="_on_people_managment_pressed"]
 [connection signal="pressed" from="timeManagment/unpause" to="." method="_on_unpause_pressed"]
 [connection signal="pressed" from="timeManagment/pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="info/VBoxContainer/resume" to="." method="_on_resume_pressed"]

@@ -50,8 +50,7 @@ func _handle_right_click(tile_coords: Vector2i) -> void:
 	_remove_block(tile_coords)
 	
 func _open_build_ui(tile_coords: Vector2i) -> void:
-	for child in ui_opened_node.get_children():
-		child.queue_free()
+	Signals.close_ui.emit()	
 
 	for bett in Managment.betting.values():
 		var new_bett = bett["data"]
@@ -139,7 +138,7 @@ func check_road(x : int, y : int, second := false):
 		90 : flip_h + transpose,
 		180 : flip_v + flip_h,
 		270 : flip_v + transpose
-				  }
+	}
 	
 	var block_map: Array[bool] = []
 	var pos = Vector2i(x, y)

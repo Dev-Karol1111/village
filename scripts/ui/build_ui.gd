@@ -18,6 +18,7 @@ func _ready() -> void:
 	Signals.edit_menu_opened.connect(func():
 		visible = false
 	)
+	Signals.close_ui.connect(func(): queue_free())
 
 func update_data():
 	build_name.text = data.name

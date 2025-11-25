@@ -1,7 +1,7 @@
 extends Node
 
 var moneys := 500
-var people := 0
+var people_count := 0
 
 var tilemap: TileMapLayer
 
@@ -29,6 +29,10 @@ var was_edit_menu_opened := false
 var totally_pause := false
 
 const water := Vector2i(0,2)
+
+var people : Array[People]
+
+var avaible_works : Array = ["TEST1", "TEST2", "TEST3"]
 
 func _ready() -> void:
 	init()
@@ -70,7 +74,7 @@ func production_loop() -> void:
 			
 func init():
 	Managment.totally_pause = false
-	avaible_workers = people
+	avaible_workers = people_count
 	var build_list = load("res://Builds/buildsList.tres")
 	for bett in build_list.betting:
 		if bett.free_places > 0:
@@ -78,9 +82,22 @@ func init():
 	for house in build_list.house:
 		if house.free_places > 0:
 			free_places.set(house, house.free_places)
+	
+	for i in range(10):
+		var data : People = load("res://scripts/bases/people.gd").new()
+		data.generate_data("adult")
+		people.append(data)
+	for i in range(6):
+		var data : People = load("res://scripts/bases/people.gd").new()
+		data.generate_data("child")
+		people.append(data)	
+	for i in range(2):
+		var data : People = load("res://scripts/bases/people.gd").new()
+		data.generate_data("greybeard")
+		people.append(data)
 			
 func add_people(value: int):
-	people += value
+	people_count += value
 	avaible_workers += value
 	Signals.data_changed_ui.emit()
 	

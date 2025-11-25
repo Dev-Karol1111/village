@@ -21,7 +21,7 @@ func load(tilemap: TileMapLayer):
 	var info = JSON.parse_string(json_text)
 	if info != null:
 		Managment.moneys = info.get("money", 0)
-		Managment.people = info.get("people", 0)
+		Managment.people_count = info.get("people", 0)
 		if info.has("bettings_builds"):
 			Managment.betting.clear()
 			print(info["bettings_builds"])
@@ -56,7 +56,7 @@ func save(tilemap: TileMapLayer):
 
 	var info := {
 				   "money": Managment.moneys,
-				   "people": Managment.people, 
+				   "people": Managment.people_count, 
 				   "bettings_builds": [],
 				   "free_places" : [],
 				   "products" : Managment.products,
