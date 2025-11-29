@@ -1,11 +1,12 @@
-res://scenes/ui/work_choose.tscn
+res://scripts/autoload/managment.gd
+res://scripts/autoload/people_managment.gd
+res://scripts/bases/people.gd
+res://scripts/autoload/time_managment.gd
+res://scenes/ui/person_data.tscn
 res://Builds/road.tres
 res://Builds/house.tres
 res://Builds/lumberjack.tres
 res://Builds/mill.tres
 res://Builds/mine.tres
+res://scripts/ui/person_data.gd
 res://scripts/ui/work_choose.gd
-res://scripts/map.gd
-res://scripts/autoload/signals.gd
-res://scripts/ui/people_managment.gd
-res://scripts/ui/build_ui.gd

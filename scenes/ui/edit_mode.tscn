@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://badikxqh2pubs"]
+[gd_scene load_steps=23 format=3 uid="uid://badikxqh2pubs"]
 
 [ext_resource type="Script" uid="uid://duapvbu2xv16c" path="res://scripts/ui/mode.gd" id="1_plch7"]
 [ext_resource type="Texture2D" uid="uid://byyyb76oisrqs" path="res://assets/ui/edit.png" id="1_tpjst"]
@@ -10,6 +10,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7xle"]
 atlas = ExtResource("5_ycatb")
 region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67fba"]
+atlas = ExtResource("5_ycatb")
+region = Rect2(33, 52, 31, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycatb"]
 atlas = ExtResource("5_ycatb")
@@ -241,6 +245,21 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = SubResource("AtlasTexture_k7xle")
 
+[node name="time" type="TextureRect" parent="."]
+offset_left = 462.0
+offset_top = 25.0
+offset_right = 695.0
+offset_bottom = 65.0
+texture = SubResource("AtlasTexture_67fba")
+
+[node name="Label" type="Label" parent="time"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 8.0
+offset_right = 218.0
+offset_bottom = 31.0
+text = "DD MM YYYY - HH:MM"
+
 [node name="Edit" type="Node" parent="."]
 script = ExtResource("3_ycatb")
 Build_list_resource = ExtResource("4_o0g5u")
@@ -291,9 +310,9 @@ offset_bottom = 58.0
 text = "$ 0"
 
 [node name="timeManagment" type="ColorRect" parent="."]
-offset_left = 552.0
+offset_left = 712.0
 offset_top = 18.0
-offset_right = 652.0
+offset_right = 812.0
 offset_bottom = 66.0
 color = Color(0.08235294, 0.08235294, 0.27450982, 1)
 

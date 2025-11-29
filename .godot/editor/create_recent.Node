@@ -1,9 +1,9 @@
-ColorRect
+Label
 TextureRect
+ColorRect
 Button
 CanvasLayer
 ItemList
-Label
 VBoxContainer
 ScrollContainer
 Line2D
@@ -12,4 +12,3 @@ AnimationPlayer
 Node
 HBoxContainer
 HSlider
-TileMapLayer

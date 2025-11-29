@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 Managment="*res://scripts/autoload/managment.gd"
 Signals="*res://scripts/autoload/signals.gd"
 WorkersManagement="*res://scripts/autoload/workers_management.gd"
+PeopleManagment="*res://scripts/autoload/people_managment.gd"
+TimeManagment="*res://scripts/autoload/time_managment.gd"
 
 [display]
 

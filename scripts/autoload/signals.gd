@@ -12,3 +12,9 @@ signal pause_game
 signal unpause_game
 @warning_ignore("unused_signal")
 signal close_ui
+@warning_ignore("unused_signal")
+signal time_updated
+@warning_ignore("unused_signal")
+signal hour_passed
+@warning_ignore("unused_signal")
+signal day_passed

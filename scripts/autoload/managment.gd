@@ -32,15 +32,17 @@ const water := Vector2i(0,2)
 
 var people : Array[People]
 
-var avaible_works : Array = ["TEST1", "TEST2", "TEST3"]
+var avaible_works : Array = [{"name" : "fruit picking", "time" : 6, "count" : 3, "output" : "fruit"}, {"name" : "child care", "time" : -1, "minimal people" : 2, "looking after" : "child", "taking damage" : 5}, {"name" : "care for the elderly", "time" : -1, "minimal people" : 1, "looking after" : "greybeard", "taking damage" : 2}]
 
 func _ready() -> void:
 	init()
 	production_loop()
+	TimeManagment.time_loop()
 
 func production_loop() -> void:
 	while running:
 		if speed_time > 0 and !totally_pause:
+			PeopleManagment.working()
 			for _betting in betting:
 				if was_edit_menu_opened:
 					betting[_betting]["gotta_update"] = true

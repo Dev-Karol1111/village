@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var edit_menu : Node  = $"Edit"
 @onready var info_painting : TextureRect = $"info/TextureRect"
 @onready var info : VBoxContainer = $"info/VBoxContainer"
-
+@onready var time_label : Label = $"time/Label"
 
 @export var map : NodePath
 
@@ -15,6 +15,7 @@ func _ready() -> void:
 	edit_menu.map = get_node(map) 
 	Signals.pause_game.connect(_on_pause_pressed)
 	Signals.unpause_game.connect(_on_unpause_pressed)
+	Signals.time_updated.connect(update_time)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -84,3 +85,8 @@ func _on_exit_pressed() -> void:
 
 func _on_people_managment_pressed() -> void:
 	self.add_child(load("res://scenes/ui/people_managment.tscn").instantiate())
+
+func update_time():
+	var minutes: int = TimeManagment.time % 60
+	var hours: int = TimeManagment.time / 60
+	time_label.text = "%s:%s" % [hours, minutes]
