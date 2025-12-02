@@ -6,6 +6,7 @@ class_name BuildsBase
 @export var decription := "Description"
 @export var game_texture_tileset_x : int
 @export var game_texture_tileset_y : int
+@export_enum("1x1", "1x2", "2x1", "2x2") var size : String = "1x1"
 @export var edit_texture : Texture2D
 @export var products_need_to_build : Dictionary[ProductBase, int] = {}
 @export var free_places : int = 0

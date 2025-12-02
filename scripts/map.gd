@@ -79,7 +79,18 @@ func _can_afford() -> bool:
 
 func _can_place_block(tile_coords: Vector2i) -> bool:
 	var cell = tilemap_layer.get_cell_atlas_coords(tile_coords)
-	return not (cell == Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) or cell not in grasses)
+	var output : Array[bool] = [false]
+	for y in range(int(block_data.size[2])):
+		for x in range(int(block_data.size[0])):
+			cell = tilemap_layer.get_cell_atlas_coords(tile_coords + Vector2i(x,y))
+			output.append(not (cell == Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) or cell not in grasses))
+	
+	output.remove_at(0)
+	
+	for i in output:
+		if !i:
+			return false	
+	return true
 
 func _place_block(tile_coords: Vector2i) -> void:
 	if block_data.type == "betting":
@@ -87,12 +98,14 @@ func _place_block(tile_coords: Vector2i) -> void:
 	if block_data.type == "house":
 		Managment.add_people(block_data.living_people)
 		Managment.houses.set(tile_coords, {"people" : block_data.living_people, "workers": block_data.living_people})
-	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # droga
+	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # road
 		var data = check_road(tile_coords.x, tile_coords.y)
 		tilemap_layer.set_cell(tile_coords, 0, data[0], data[1]) #0 - source
 		_update_roads_around(tile_coords)
 	else:
-		tilemap_layer.set_cell(tile_coords, 0, Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y)) #0 - source
+		for y in range(int(block_data.size[2])):
+			for x in range(int(block_data.size[0])): 
+				tilemap_layer.set_cell(tile_coords + Vector2i(x, y),0,Vector2i(block_data.game_texture_tileset_x + x,block_data.game_texture_tileset_y + y))# 0 - source_id
 
 	if block_data in Managment.free_places:
 		Managment.free_places[block_data] -= 1
