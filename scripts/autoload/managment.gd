@@ -34,6 +34,8 @@ var people : Array[People]
 
 var avaible_works : Array = [{"name" : "fruit picking", "time" : 6, "count" : 3, "output" : "fruit"}, {"name" : "child care", "time" : -1, "minimal people" : 2, "looking after" : "child", "taking damage" : 5}, {"name" : "care for the elderly", "time" : -1, "minimal people" : 1, "looking after" : "greybeard", "taking damage" : 2}]
 
+var avaible_experiments : Dictionary[ExperimentBase, Array] 
+
 func _ready() -> void:
 	init()
 	production_loop()
@@ -97,6 +99,11 @@ func init():
 		var data : People = load("res://scripts/bases/people.gd").new()
 		data.generate_data("greybeard")
 		people.append(data)
+	
+	var expetiment_list = load("res://resources/experiment_list.tres")
+	
+	for experiment in expetiment_list.experiments:
+		avaible_experiments.set(experiment, [])
 			
 func add_people(value: int):
 	people_count += value

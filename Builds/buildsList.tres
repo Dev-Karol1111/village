@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BuildsList" load_steps=10 format=3 uid="uid://d3o634eslqrqu"]
+[gd_resource type="Resource" script_class="BuildsList" load_steps=9 format=3 uid="uid://d3o634eslqrqu"]
 
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/bases/builds_base.gd" id="1_bkfmt"]
 [ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="1_o5stl"]
@@ -8,10 +8,9 @@
 [ext_resource type="Resource" uid="uid://c0hc4dawjk2of" path="res://Builds/mill.tres" id="4_jj75n"]
 [ext_resource type="Resource" uid="uid://b5hhayratixtc" path="res://Builds/mine.tres" id="4_scyvr"]
 [ext_resource type="Script" uid="uid://bdlax846wpf2t" path="res://scripts/bases/ItemList.gd" id="4_tqkvp"]
-[ext_resource type="Resource" uid="uid://bjwffq4ti4vb" path="res://Builds/campfire.tres" id="5_2nwwk"]
 
 [resource]
 script = ExtResource("4_tqkvp")
 transport = Array[ExtResource("1_bkfmt")]([ExtResource("2_jj75n")])
 house = Array[ExtResource("1_bkfmt")]([ExtResource("3_o5stl")])
-betting = Array[ExtResource("1_o5stl")]([ExtResource("3_tqkvp"), ExtResource("4_jj75n"), ExtResource("4_scyvr"), ExtResource("5_2nwwk")])
+betting = Array[ExtResource("1_o5stl")]([ExtResource("3_tqkvp"), ExtResource("4_jj75n"), ExtResource("4_scyvr")])

@@ -18,6 +18,9 @@ func _ready() -> void:
 	render_build_select()	
 
 func render_build_select():
+	for child in Builds_choos.get_children():
+		child.queue_free()
+		
 	var data = [Build_list_resource.transport, Build_list_resource.house, Build_list_resource.betting]
 	var build_index := 100
 	for current_array in data:
@@ -34,6 +37,8 @@ func render_build_select():
 				Builds_choos.add_child(tex_rect)
 				build_index -= 1
 func change_visible_func(visible):
+	if visible == true:
+		render_build_select()
 	for child in self.get_children():
 		child.visible = visible
 		
