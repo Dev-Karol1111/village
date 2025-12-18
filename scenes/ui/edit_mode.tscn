@@ -403,6 +403,18 @@ libraries = {
 }
 speed_scale = 7.0
 
+[node name="info_box" type="VBoxContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -261.0
+offset_top = -228.5
+offset_bottom = 228.5
+grow_horizontal = 0
+grow_vertical = 2
+
 [connection signal="pressed" from="Mode" to="." method="_on_mode_pressed"]
 [connection signal="pressed" from="people_managment" to="." method="_on_people_managment_pressed"]
 [connection signal="pressed" from="timeManagment/unpause" to="." method="_on_unpause_pressed"]

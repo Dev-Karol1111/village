@@ -32,7 +32,7 @@ const water := Vector2i(0,2)
 
 var people : Array[People]
 
-var avaible_works : Array = [{"name" : "fruit picking", "time" : 6, "count" : 3, "output" : "fruit"}, {"name" : "child care", "time" : -1, "minimal people" : 2, "looking after" : "child", "taking damage" : 5}, {"name" : "care for the elderly", "time" : -1, "minimal people" : 1, "looking after" : "greybeard", "taking damage" : 2}]
+#var avaible_works : Array = [{"name" : "fruit picking", "time" : 6, "count" : 3, "output" : "fruit"}, {"name" : "child care", "time" : -1, "minimal people" : 2, "looking after" : "child", "taking damage" : 5}, {"name" : "care for the elderly", "time" : -1, "minimal people" : 1, "looking after" : "greybeard", "taking damage" : 2}]
 
 var avaible_experiments : Dictionary[ExperimentBase, Array] 
 

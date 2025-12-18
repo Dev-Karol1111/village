@@ -16,6 +16,7 @@ func _ready() -> void:
 	Signals.pause_game.connect(_on_pause_pressed)
 	Signals.unpause_game.connect(_on_unpause_pressed)
 	Signals.time_updated.connect(update_time)
+	Signals.add_information.connect(add_info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -87,6 +88,9 @@ func _on_people_managment_pressed() -> void:
 	self.add_child(load("res://scenes/ui/people_managment.tscn").instantiate())
 
 func update_time():
-	var minutes: int = TimeManagment.time % 60
-	var hours: int = TimeManagment.time / 60
-	time_label.text = "%s:%s" % [hours, minutes]
+	time_label.text = "%s:%s" % [TimeManagment.time.hours, TimeManagment.time.minutes]
+
+func add_info(type, title, text):
+	var information = load("res://scenes/ui/information.tscn").instantiate()
+	$info_box.add_child(information)
+	information.add_information(type, title,text)

@@ -18,3 +18,5 @@ signal time_updated
 signal hour_passed
 @warning_ignore("unused_signal")
 signal day_passed
+@warning_ignore("unused_signal")
+signal add_information(type, title, text)

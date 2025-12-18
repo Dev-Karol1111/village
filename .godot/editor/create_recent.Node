@@ -1,12 +1,12 @@
-Button
+VBoxContainer
 Label
-TextureRect
+Line2D
 ColorRect
+Button
+TextureRect
 CanvasLayer
 ItemList
-VBoxContainer
 ScrollContainer
-Line2D
 CenterContainer
 AnimationPlayer
 Node

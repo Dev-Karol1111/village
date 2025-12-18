@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ExperimentsList" load_steps=7 format=3 uid="uid://bwsfbrbj3h3gy"]
+
+[ext_resource type="Script" uid="uid://48uurtwm161r" path="res://scripts/bases/experiment_base.gd" id="1_5chg7"]
+[ext_resource type="Script" uid="uid://bfat4ebyrkmq4" path="res://scripts/bases/experiments_list.gd" id="1_f1m4n"]
+[ext_resource type="Script" uid="uid://dhydnakgojmoc" path="res://scripts/bases/time_data.gd" id="2_bvpmf"]
+[ext_resource type="Resource" uid="uid://bjwffq4ti4vb" path="res://Builds/campfire.tres" id="3_0rayn"]
+
+[sub_resource type="Resource" id="Resource_5chg7"]
+script = ExtResource("2_bvpmf")
+hours = 1
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_47g6f"]
+script = ExtResource("1_5chg7")
+name_var = "Campfire"
+max_people = 1
+min_people = 1
+time = SubResource("Resource_5chg7")
+result = ExtResource("3_0rayn")
+metadata/_custom_type_script = "uid://48uurtwm161r"
+
+[resource]
+script = ExtResource("1_f1m4n")
+experiments = Array[ExtResource("1_5chg7")]([SubResource("Resource_47g6f")])
+metadata/_custom_type_script = "uid://bfat4ebyrkmq4"

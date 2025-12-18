@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://dictp1jpoxqg0"]
+
+[ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_2xyvn"]
+[ext_resource type="Script" uid="uid://dj1qox2dof74q" path="res://scripts/ui/person_data.gd" id="1_ru4gq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru4gq"]
+atlas = ExtResource("1_2xyvn")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g23pq"]
+atlas = ExtResource("1_2xyvn")
+region = Rect2(64, 0, 16, 16)
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 3
+anchor_right = 0.26200002
+anchor_bottom = 0.272
+offset_top = -4.0
+offset_right = 0.17596436
+offset_bottom = -0.25601196
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ru4gq")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 33.0
+offset_right = 174.0
+offset_bottom = 56.0
+text = "name"
+
+[node name="age" type="Label" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 60.0
+offset_right = 66.0
+offset_bottom = 83.0
+text = "age: "
+
+[node name="gender" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 86.0
+offset_right = 84.0
+offset_bottom = 109.0
+text = "gender: "
+
+[node name="work" type="Label" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 84.0
+offset_right = 261.0
+offset_bottom = 107.0
+text = "work: "
+
+[node name="health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 61.0
+offset_right = 262.0
+offset_bottom = 84.0
+text = "Health: "
+
+[node name="work_acces" type="Button" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 125.0
+offset_right = 45.0
+offset_bottom = 149.0
+scale = Vector2(1.5, 1.5)
+tooltip_text = "Assing to work"
+icon = SubResource("AtlasTexture_ru4gq")
+
+[node name="experiment" type="Button" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 124.0
+offset_right = 92.0
+offset_bottom = 148.0
+scale = Vector2(1.5, 1.5)
+icon = SubResource("AtlasTexture_g23pq")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(2, 19)
+scale = Vector2(0.90751445, 1)
+points = PackedVector2Array(0, 0, 326, 0, 326, 154, 0, 154, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="work_acces" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="experiment" to="." method="_on_experiment_pressed"]
