@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://dhydnakgojmoc"
 [sub_resource type="Resource" id="Resource_nhs8g"]
 script = ExtResource("2_nhs8g")
 name_var = "fruit picking"
-type = 0
+type = "collecting"
 time = SubResource("Resource_3yp2n")
 count = 3
 output = SubResource("Resource_sn34b")
@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
 [sub_resource type="Resource" id="Resource_d7xto"]
 script = ExtResource("2_nhs8g")
 name_var = "child care"
-type = 1
+type = "looking after"
 target_group = "child"
 minimal_people = 2
 taking_damage = 5
@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
 [sub_resource type="Resource" id="Resource_dh1wa"]
 script = ExtResource("2_nhs8g")
 name_var = "care for the elderly"
-type = 1
+type = "looking after"
 target_group = "greybeard"
 minimal_people = 1
 taking_damage = 2

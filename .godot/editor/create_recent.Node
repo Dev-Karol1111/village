@@ -1,5 +1,7 @@
-VBoxContainer
 Label
+LineEdit
+Control
+VBoxContainer
 Line2D
 ColorRect
 Button
@@ -10,5 +12,3 @@ ScrollContainer
 CenterContainer
 AnimationPlayer
 Node
-HBoxContainer
-HSlider

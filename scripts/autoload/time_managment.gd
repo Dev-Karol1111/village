@@ -18,6 +18,12 @@ func time_loop():
 				Signals.hour_passed.emit()
 			if time.hours % 12 == 0:
 				Signals.day_passed.emit()
-			await get_tree().create_timer(1).timeout
+			await get_tree().create_timer(float(Managment.speed_time) / Managment.multiple_speed).timeout
 		else:
 			await get_tree().process_frame
+
+
+func set_time(new_time : int):
+	time.minutes = new_time % 60
+	time.hours = (new_time / 60) % 24
+	time.days = new_time / 60 / 24

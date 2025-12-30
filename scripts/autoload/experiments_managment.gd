@@ -17,5 +17,6 @@ func proceed():
 			build_list.betting.append(experiment["result"])
 			experiment_progress.erase(experiment)
 			Managment.avaible_experiments.erase(experiment)
-			print('Experiment ended : ', experiment["name_var"])
+			var text = "Experiment %s\n has ended" % experiment["name_var"]
+			Signals.add_information.emit("info", "Experiment succeed", text)
 			

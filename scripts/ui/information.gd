@@ -20,11 +20,8 @@ var tween: Tween
 func _ready() -> void:
 	modulate.a = 0.0
 	visible = false
-	print("Children: ", get_children())
-	for child in get_children():
-		print("  - ", child.name, " (", child.get_class(), ")")
 
-func add_information(type := "info", title := "title", text := "text", duration := DISPLAY_DURATION) -> void:
+func add_information(type := "info", title := "title", text := "text", duration := DISPLAY_DURATION) -> void: # types - info, warning, error
 	# Validate type
 	if not type in COLORS:
 		push_error("Invalid notification type: %s" % type)

@@ -34,6 +34,8 @@ var people : Array[People]
 
 #var avaible_works : Array = [{"name" : "fruit picking", "time" : 6, "count" : 3, "output" : "fruit"}, {"name" : "child care", "time" : -1, "minimal people" : 2, "looking after" : "child", "taking damage" : 5}, {"name" : "care for the elderly", "time" : -1, "minimal people" : 1, "looking after" : "greybeard", "taking damage" : 2}]
 
+var multiple_speed : int = 1
+
 var avaible_experiments : Dictionary[ExperimentBase, Array] 
 
 func _ready() -> void:
@@ -72,7 +74,7 @@ func production_loop() -> void:
 			Signals.data_changed_build_info.emit()	
 			if was_edit_menu_opened:
 				was_edit_menu_opened = false	
-			await get_tree().create_timer(speed_time).timeout
+			await get_tree().create_timer(float(speed_time) / multiple_speed).timeout
 		else:
 			await get_tree().process_frame
 			

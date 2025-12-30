@@ -4,6 +4,7 @@
 
 [node name="information" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 248.0
 offset_bottom = 129.0
 grow_horizontal = 2
