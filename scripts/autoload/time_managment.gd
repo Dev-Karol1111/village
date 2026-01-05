@@ -2,6 +2,8 @@ extends Node
 
 var time : TimeData
 
+var day_summary_code = load("res://scripts/day_summary.gd").new()
+
 func _ready() -> void:
 	time = TimeData.new()
 	time.hours = 12
@@ -18,6 +20,10 @@ func time_loop():
 				Signals.hour_passed.emit()
 			if time.hours % 12 == 0:
 				Signals.day_passed.emit()
+			
+			if time.hours == 20 and time.minutes == 30:
+				day_summary_code.day_summary()
+			
 			await get_tree().create_timer(float(Managment.speed_time) / Managment.multiple_speed).timeout
 		else:
 			await get_tree().process_frame

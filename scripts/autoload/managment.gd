@@ -14,7 +14,7 @@ var houses : Dictionary[Vector2i, Dictionary] = {}
 var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase, connected_houses - Vector2i, workers_from - Vector21, gotta_update - bool, workers - int
 var production_time : Dictionary[Vector2i, int] = {}
 
-var products : Dictionary[String, int] = {"flour" : 100}
+var products : Dictionary[String, int] = {"flour" : 100, "fruit" : 0}
 
 var speed_time := 1
 
@@ -37,11 +37,6 @@ var people : Array[People]
 var multiple_speed : int = 1
 
 var avaible_experiments : Dictionary[ExperimentBase, Array] 
-
-func _ready() -> void:
-	init()
-	production_loop()
-	TimeManagment.time_loop()
 
 func production_loop() -> void:
 	while running:
@@ -106,7 +101,10 @@ func init():
 	
 	for experiment in expetiment_list.experiments:
 		avaible_experiments.set(experiment, [])
-			
+	
+	production_loop()
+	TimeManagment.time_loop()
+				
 func add_people(value: int):
 	people_count += value
 	avaible_workers += value

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://16rcdletv8pf" path="res://scripts/ui/information.gd" id="1_4mbif"]
 
 [node name="information" type="Control"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 248.0
@@ -18,7 +19,7 @@ offset_bottom = 127.0
 color = Color(1, 0.5529412, 1, 1)
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(5, 5, 244, 5, 244, 124, 5, 124, 5, 5)
+points = PackedVector2Array(5, 5, 247, 5, 247, 124, 5, 124, 5, 5)
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1

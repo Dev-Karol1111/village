@@ -10,34 +10,26 @@ func working():
 		if not person.work:
 			continue
 		
-		# Initialize or update working time
 		if person not in working_time:
-			print("aaaaa")
 			working_time[person] = TimeData.new()
 			print(working_time[person].to_one_data())
-		else:
-			print("aaa")
+
 		
+		working_time[person].add(1, 0, 0)
 		
-		working_time[person].add(0, 1, 0)
-		
-		# Process work completion
 		var works = load("res://resources/work_list.tres")
 		for work in works.works_list:
 			if person.work != work.name_var or work.type == "looking after":
 				continue
 			
 			if working_time[person].to_one_data() >= work.time.to_one_data():
-				# Reset working time
 				working_time[person].hours = 0
 				working_time[person].days = 0
 				
-				# Update products
 				print(work.count)
 				var product_name = work.output.name
 				Managment.products[product_name] = Managment.products.get(product_name, 0) + work.count
 				print(Managment.products)
-			# Note: Removed break - consider if you want to process multiple works or just first one			
 						
 						
 func checking_works():

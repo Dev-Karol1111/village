@@ -1,0 +1,18 @@
+extends Node
+
+func day_summary():
+	var did_everyone_eat := true
+	for people in Managment.people:
+		if !eat(people, Managment.products.get("fruit", 0)): 
+			people.healt -= 5
+			did_everyone_eat = false
+		else:
+			Managment.products["fruit"] -= people.need_food
+	
+	if !did_everyone_eat:
+		Signals.add_information.emit("warning", "Food", "Everyone didn't eat\nsome damage was taken")
+
+func eat(people: People, food_count: int) -> bool:
+	if food_count >= people.need_food:
+		return true
+	else: return false		
