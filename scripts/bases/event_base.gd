@@ -7,3 +7,5 @@ class_name EventBase
 @export var unlocked_builds : Array[BuildsBase]
 @export var unlocked_works : Array[WorkBase]
 @export var unlocked_experiments : Array[ExperimentBase]
+@export var message_title := ""
+@export var message_text := ""

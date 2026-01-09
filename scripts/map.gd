@@ -61,6 +61,15 @@ func _open_build_ui(tile_coords: Vector2i) -> void:
 			ui.cords = tile_coords
 			ui_opened_node.add_child(ui)
 			return
+	
+	for house in Managment.houses.keys(): ##### FIX THIS LIKE PLACAEING BIGGER BUILDS BUT THERE OPENEING 
+		for y in range(int(block_data.size[2])):
+			for x in range(int(block_data.size[0])): 
+				if tile_coords + Vector2i(x,y) == house + Vector2i(x,y):
+					var ui = load("res://scenes/ui/house_info_ui.tscn").instantiate()
+					ui.house_data = Managment.houses[house]["data"]
+					ui_opened_node.add_child(ui)
+					return
 
 func _can_afford() -> bool:
 	if block_data in Managment.free_places:
@@ -97,7 +106,7 @@ func _place_block(tile_coords: Vector2i) -> void:
 		Managment.betting.set(tile_coords, {"data" : block_data})
 	if block_data.type == "house":
 		Managment.add_people(block_data.living_people)
-		Managment.houses.set(tile_coords, {"people" : block_data.living_people, "workers": block_data.living_people})
+		Managment.houses.set(tile_coords, {"people" : block_data.living_people, "workers": block_data.living_people, "data" : block_data})
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # road
 		var data = check_road(tile_coords.x, tile_coords.y)
 		tilemap_layer.set_cell(tile_coords, 0, data[0], data[1]) #0 - source

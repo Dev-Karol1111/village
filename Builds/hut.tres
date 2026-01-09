@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="HouseBase" load_steps=5 format=3 uid="uid://crgkto0bpuxst"]
+
+[ext_resource type="Texture2D" uid="uid://douchfllq01w7" path="res://assets/ui/building_icon.png" id="1_k6l6k"]
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="1_xgmb0"]
+[ext_resource type="Script" uid="uid://dq4ajlu66q7uy" path="res://scripts/bases/house_base.gd" id="2_k6l6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wvo4"]
+atlas = ExtResource("1_k6l6k")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_k6l6k")
+max_people = 5
+name = "Hut"
+game_texture_tileset_x = 5
+game_texture_tileset_y = 2
+size = "3x2"
+edit_texture = SubResource("AtlasTexture_8wvo4")
+free_places = 1
+type = "house"
+metadata/_custom_type_script = "uid://dq4ajlu66q7uy"

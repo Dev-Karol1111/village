@@ -11,7 +11,6 @@ func _ready() -> void:
 func _on_item_list_item_selected(index: int) -> void:
 	var key = Managment.avaible_experiments.keys()[index]
 	Managment.avaible_experiments[key].append(people)
-	print(Managment.avaible_experiments)
 
 
 func _on_close_pressed() -> void:

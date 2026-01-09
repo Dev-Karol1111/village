@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnlockingTimeline" load_steps=9 format=3 uid="uid://d17bhdswfihsu"]
+[gd_resource type="Resource" script_class="UnlockingTimeline" load_steps=12 format=3 uid="uid://d17bhdswfihsu"]
 
 [ext_resource type="Script" uid="uid://bykcmpxw8wmje" path="res://scripts/bases/unlocking_timeline.gd" id="1_yd4ik"]
 [ext_resource type="Script" uid="uid://ysa21cm71y3h" path="res://scripts/bases/event_base.gd" id="2_v857h"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/bases/builds_base.gd" id="4_fukiu"]
 [ext_resource type="Script" uid="uid://48uurtwm161r" path="res://scripts/bases/experiment_base.gd" id="5_xgwxr"]
 [ext_resource type="Script" uid="uid://ccbw2jqlyy2gj" path="res://scripts/bases/work_base.gd" id="6_03227"]
+[ext_resource type="Resource" uid="uid://dkn10c4d4iqht" path="res://resources/experiments/hut_experiment.tres" id="7_fukiu"]
 
 [sub_resource type="Resource" id="Resource_4clfr"]
 script = ExtResource("3_sia6l")
@@ -18,7 +19,21 @@ name = "wolf attack"
 time = SubResource("Resource_4clfr")
 metadata/_custom_type_script = "uid://ysa21cm71y3h"
 
+[sub_resource type="Resource" id="Resource_xgwxr"]
+script = ExtResource("3_sia6l")
+hours = 18
+days = 1
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_03227"]
+script = ExtResource("2_v857h")
+name = "Hut unlocking"
+time = SubResource("Resource_xgwxr")
+unlocked_experiments = Array[ExtResource("5_xgwxr")]([ExtResource("7_fukiu")])
+message_title = "Hut unlocked"
+metadata/_custom_type_script = "uid://ysa21cm71y3h"
+
 [resource]
 script = ExtResource("1_yd4ik")
-unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih")])
+unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227")])
 metadata/_custom_type_script = "uid://bykcmpxw8wmje"

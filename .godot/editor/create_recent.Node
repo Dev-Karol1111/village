@@ -1,12 +1,12 @@
+CanvasLayer
+Button
 Label
 LineEdit
 Control
 VBoxContainer
 Line2D
 ColorRect
-Button
 TextureRect
-CanvasLayer
 ItemList
 ScrollContainer
 CenterContainer
