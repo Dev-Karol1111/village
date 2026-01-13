@@ -38,6 +38,14 @@ var multiple_speed : int = 1
 
 var avaible_experiments : Dictionary[ExperimentBase, Array] 
 
+var canvas_layer: CanvasLayer
+
+func _ready() -> void:
+	canvas_layer = CanvasLayer.new()
+	canvas_layer.name = "GlobalUI"
+	canvas_layer.layer = 100
+	get_tree().root.add_child.call_deferred(canvas_layer)
+
 func production_loop() -> void:
 	while running:
 		if speed_time > 0 and !totally_pause:
@@ -129,3 +137,9 @@ func make_transport_map(tile_map_layer: TileMapLayer):
 	for cell in tile_map_layer.get_used_cells():
 		AStar_grid.set_point_solid(cell, !tile_map_layer.get_cell_tile_data(cell).get_custom_data("transport"))
 	transport_connection_astartgrid = AStar_grid
+
+func spawn_ui(scene_path: String) -> void:
+	var ui = load(scene_path).instantiate()
+	canvas_layer.add_child(ui)
+	
+

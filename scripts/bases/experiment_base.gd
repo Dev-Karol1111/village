@@ -7,3 +7,4 @@ class_name ExperimentBase
 @export var min_people := 0
 @export var time : TimeData
 @export var result : BuildsBase
+@export var milstone : String = ""

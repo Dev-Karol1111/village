@@ -2,10 +2,14 @@ extends Node
 
 var working_time : Dictionary[People, TimeData]
 
+var can_work := true
+
 func _ready() -> void:
 	Signals.hour_passed.connect(checking_works)
 
 func working():
+	if !can_work:
+		return
 	for person in Managment.people:
 		if not person.work:
 			continue
@@ -50,4 +54,25 @@ func checking_works():
 	
 	if taked_damage:
 		Signals.add_information.emit("warning", "Careing", "Not enough people care\nabout other.")
+	
+	# SECTION - Hut
+	if GameEventsManagment.millstones.get("hut", false):
+		var are_all_greybeard_in_hut := true
+		
+		for person in Managment.people:
+			if person.type == "greybeard":
+				if !Managment.houses.values():
+					are_all_greybeard_in_hut = false
+					break
+				for house in Managment.houses.values():
+					if !person in house["data"].liveing_people:
+						are_all_greybeard_in_hut = false
+		if !are_all_greybeard_in_hut:
+			Signals.add_information.emit("warning", "HUT", "Greybeard should be\nassing to hut")
 	Signals.data_changed_ui.emit()
+
+func kill_person(person_name : String = ""):
+	if person_name:
+		for person in Managment.people:
+			if person.name == person_name:
+				Managment.people.erase(person)

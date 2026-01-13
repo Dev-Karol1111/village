@@ -20,6 +20,8 @@ func proceed():
 				build_list.house.append(experiment["result"])
 			if experiment["result"].type == "transport":
 				build_list.transport.append(experiment["result"])
+			if experiment["milstone"]:
+				GameEventsManagment.millstones.set(experiment["milstone"], true)
 			experiment_progress.erase(experiment)
 			Managment.avaible_experiments.erase(experiment)
 			var text = "Experiment %s\n has ended" % experiment["name_var"]

@@ -9,6 +9,8 @@ extends CanvasLayer
 @export var map : NodePath
 
 
+var selected := ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	edit_menu.change_visible.emit(false)
@@ -55,10 +57,9 @@ func _on_pause_pressed() -> void:
 	if Managment.totally_pause:
 		return
 	Managment.speed_time = 0
-	var new_icon = AtlasTexture.new()
-	new_icon.atlas = load("res://assets/ui/ui-tileset.png")
-	new_icon.region = Rect2(48,16,16,16)
-	$timeManagment/pause.icon = new_icon
+	set_button_image("pause", true)
+	set_button_image(selected, false)
+	selected = "pause"
 
 
 func _on_unpause_pressed() -> void:
@@ -67,10 +68,9 @@ func _on_unpause_pressed() -> void:
 	if Managment.mode == "edit":
 		return
 	Managment.speed_time = 1
-	var new_icon = AtlasTexture.new()
-	new_icon.atlas = load("res://assets/ui/ui-tileset.png")
-	new_icon.region = Rect2(16,16,16,16)
-	$timeManagment/pause.icon = new_icon
+	Managment.multiple_speed = 1
+	set_button_image(selected, false)
+	selected = ""
 
 
 func _on_resume_pressed() -> void:
@@ -94,3 +94,47 @@ func add_info(type, title, text):
 	var information = load("res://scenes/ui/information.tscn").instantiate()
 	$info_box.add_child(information)
 	information.add_information(type, title,text)
+
+
+func set_button_image(button := "", button_selected := false):
+	var avaible := ["pause", "speedx5", "speedx15"]
+	var button_data : Button
+	var new_icon : AtlasTexture
+	if button in avaible:
+		new_icon = AtlasTexture.new()
+		new_icon.atlas = load("res://assets/ui/ui-tileset.png")
+		if button == "pause":
+			button_data = $timeManagment/pause
+			if button_selected:
+				new_icon.region = Rect2(48,16,16,16)
+			else:
+				new_icon.region = Rect2(16,16,16,16)
+		elif button == "speedx5":
+			button_data = $timeManagment/speedx5
+			if button_selected:
+				new_icon.region = Rect2(80,0,16,16)
+			else:
+				new_icon.region = Rect2(64,32,16,16)
+		elif button == "speedx15":
+			button_data = $timeManagment/speedx15
+			if button_selected:
+				new_icon.region = Rect2(80,16,16,16)
+			else:
+				new_icon.region = Rect2(64,48,16,16)
+			
+	if button_data:
+		button_data.icon = new_icon
+
+func _on_speedx_15_pressed() -> void:
+	Managment.speed_time = 1
+	Managment.multiple_speed = 15
+	set_button_image(selected, false)
+	set_button_image("speedx15", true)
+	selected = "speedx15"
+
+func _on_speedx_5_pressed() -> void:
+	Managment.speed_time = 1
+	Managment.multiple_speed = 5
+	set_button_image(selected, false)
+	set_button_image("speedx5", true)
+	selected = "speedx5"

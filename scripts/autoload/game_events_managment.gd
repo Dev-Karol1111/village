@@ -1,5 +1,7 @@
 extends Node
 
+var millstones : Dictionary[String, bool] = {}
+
 func _ready() -> void:
 	Signals.time_updated.connect(check_events)
 
@@ -28,12 +30,22 @@ func check_events():
 				for experiment in event.unlocked_experiments: 
 					Managment.avaible_experiments.set(experiment, [])
 				text += "\nSome experiments was unlocked"
+			
+			if event.millstone:
+				millstones.set(event.millstone, true)
 
 			Signals.add_information.emit("info", event.message_title, text)
 			
-			# TODO: Add addig works, experiments, buildings 
-
 func special_events(event_name : String):
 	if event_name == "wolf attack":	
 		Signals.add_information.emit("error", "DEAD", "Wolf has attacked your\n village and one people died")
-		
+		PeopleManagment.kill_person(random_person("ault").name)
+
+func random_person(person_type := "") -> People:
+	var randoming = true
+	while randoming:
+		var person = Managment.people.pick_random()
+		if person.type == person_type:
+			return person
+	
+	return

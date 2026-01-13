@@ -1,6 +1,9 @@
 extends Node
 
 func day_summary():
+	#	SECTION - UI
+	Managment.spawn_ui("res://scenes/ui/day_summary_ui.tscn")
+	# SECTION - Eating
 	var did_everyone_eat := true
 	for people in Managment.people:
 		if !eat(people, Managment.products.get("fruit", 0)): 
@@ -11,7 +14,8 @@ func day_summary():
 	
 	if !did_everyone_eat:
 		Signals.add_information.emit("warning", "Food", "Everyone didn't eat\nsome damage was taken")
-
+	
+	
 func eat(people: People, food_count: int) -> bool:
 	if food_count >= people.need_food:
 		return true

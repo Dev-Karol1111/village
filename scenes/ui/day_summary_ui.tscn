@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://c31e8yrlhifp0"]
+
+[ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_7ng15"]
+[ext_resource type="Script" uid="uid://dryvjsut8xc30" path="res://scripts/ui/day_summary_ui.gd" id="1_oo8ik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo8ik"]
+atlas = ExtResource("1_7ng15")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6y0u"]
+atlas = ExtResource("1_7ng15")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nm5ur"]
+texture = SubResource("AtlasTexture_w6y0u")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx0sj"]
+atlas = ExtResource("1_7ng15")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_61xem"]
+texture = SubResource("AtlasTexture_cx0sj")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2n5p"]
+atlas = ExtResource("1_7ng15")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sr3a1"]
+texture = SubResource("AtlasTexture_c2n5p")
+
+[node name="day_summary_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oo8ik")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.31764707)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 81.0
+offset_right = 807.0
+offset_bottom = 537.0
+texture = SubResource("AtlasTexture_oo8ik")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 145.0
+offset_right = 651.0
+offset_bottom = 168.0
+text = "DAY SUMMARY"
+
+[node name="skip_night_button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+offset_left = 420.0
+offset_top = 436.0
+offset_right = 562.0
+offset_bottom = 486.0
+size_flags_stretch_ratio = 0.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_nm5ur")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_61xem")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sr3a1")
+text = "skip night"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 203.0
+offset_right = 723.0
+offset_bottom = 415.0
+
+[node name="close_button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 0
+offset_left = 608.0
+offset_top = 434.0
+offset_right = 751.0
+offset_bottom = 484.0
+size_flags_stretch_ratio = 0.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_nm5ur")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_61xem")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sr3a1")
+text = "close
+"
+
+[connection signal="pressed" from="skip_night_button" to="." method="_on_skip_night_button_pressed"]
+[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]

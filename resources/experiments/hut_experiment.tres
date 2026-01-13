@@ -16,4 +16,5 @@ max_people = 1
 min_people = 1
 time = SubResource("Resource_xt2jf")
 result = ExtResource("1_u72j2")
+milstone = "hut"
 metadata/_custom_type_script = "uid://48uurtwm161r"
