@@ -112,6 +112,7 @@ func init():
 	
 	production_loop()
 	TimeManagment.time_loop()
+	ToturialManagement.check_data()
 				
 func add_people(value: int):
 	people_count += value

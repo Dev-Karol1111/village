@@ -20,3 +20,9 @@ signal hour_passed
 signal day_passed
 @warning_ignore("unused_signal")
 signal add_information(type, title, text)
+@warning_ignore("unused_signal")
+signal remove_information(title, message)
+@warning_ignore("unused_signal")
+signal experiment_finished(name)
+@warning_ignore("unused_signal")
+signal experiment_unlocked(name)

@@ -24,6 +24,7 @@ PeopleManagment="*res://scripts/autoload/people_managment.gd"
 TimeManagment="*res://scripts/autoload/time_managment.gd"
 ExperimentsManagment="*res://scripts/autoload/experiments_managment.gd"
 GameEventsManagment="*res://scripts/autoload/game_events_managment.gd"
+ToturialManagement="*res://scripts/autoload/toturial_management.gd"
 
 [display]
 

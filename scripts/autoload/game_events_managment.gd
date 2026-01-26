@@ -27,9 +27,13 @@ func check_events():
 				text += "\nSome works was unlocked"
 
 			if event.unlocked_experiments:
+				var expetiment_name
 				for experiment in event.unlocked_experiments: 
 					Managment.avaible_experiments.set(experiment, [])
+					expetiment_name = experiment["name_var"]
 				text += "\nSome experiments was unlocked"
+				Signals.experiment_unlocked.emit(expetiment_name)
+				
 			
 			if event.millstone:
 				millstones.set(event.millstone, true)
@@ -39,7 +43,7 @@ func check_events():
 func special_events(event_name : String):
 	if event_name == "wolf attack":	
 		Signals.add_information.emit("error", "DEAD", "Wolf has attacked your\n village and one people died")
-		PeopleManagment.kill_person(random_person("ault").name)
+		#PeopleManagment.kill_person(random_person("ault").name) #TODO: Fix it
 
 func random_person(person_type := "") -> People:
 	var randoming = true

@@ -9,7 +9,8 @@ extends Control
 const COLORS := {
 	"info": [Color("#2e64c9"), Color("#1a3a75")],
 	"warning": [Color("#c2c229"), Color("#75751a")],
-	"error": [Color("#c22933"), Color("#821e25")]
+	"error": [Color("#c22933"), Color("#821e25")],
+	"toturial": [Color("#03fc0f"), Color("#0e3810")]
 }
 
 const FADE_DURATION := 0.3
@@ -17,15 +18,23 @@ const DISPLAY_DURATION := 5.0
 
 var tween: Tween
 
+var title_setted
+var message_setted
+
 func _ready() -> void:
 	modulate.a = 0.0
 	visible = false
 
-func add_information(type := "info", title := "title", text := "text", duration := DISPLAY_DURATION) -> void: # types - info, warning, error
+func add_information(type := "info", title := "title", text := "text", duration := DISPLAY_DURATION, need_proceed := false) -> void: # types - info, warning, error, toturial
 	# Validate type
 	if not type in COLORS:
 		push_error("Invalid notification type: %s" % type)
 		type = "info"
+	
+	$Button.visible = need_proceed
+	
+	title_setted = title
+	message_setted = text
 	
 	# Set colors
 	bc.color = COLORS[type][0]
@@ -66,3 +75,8 @@ func _animate_out() -> void:
 
 func hide_notification() -> void:
 	_animate_out()
+
+
+func _on_button_pressed() -> void:
+	queue_free()
+	ToturialManagement.delete(title_setted, message_setted)

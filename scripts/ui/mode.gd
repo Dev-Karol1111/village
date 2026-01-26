@@ -19,6 +19,7 @@ func _ready() -> void:
 	Signals.unpause_game.connect(_on_unpause_pressed)
 	Signals.time_updated.connect(update_time)
 	Signals.add_information.connect(add_info)
+	Signals.remove_information.connect(remove_info)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -90,10 +91,17 @@ func _on_people_managment_pressed() -> void:
 func update_time():
 	time_label.text = "%s:%s" % [TimeManagment.time.hours, TimeManagment.time.minutes]
 
-func add_info(type, title, text):
+func add_info(type, title, text, time := 5, need_proceed:=false):
 	var information = load("res://scenes/ui/information.tscn").instantiate()
-	$info_box.add_child(information)
-	information.add_information(type, title,text)
+
+	$info_box.add_child(information)	
+	information.add_information(type, title, text, time, need_proceed)
+	
+
+func remove_info(title, message):
+	for mess in $info_box.get_children():
+		if mess.title_setted == title and mess.message_setted == message:
+			mess.queue_free()
 
 
 func set_button_image(button := "", button_selected := false):

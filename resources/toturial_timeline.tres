@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="ToturialTimeline" load_steps=11 format=3 uid="uid://bb81dkoqlkoo5"]
+
+[ext_resource type="Script" uid="uid://r53bbermn5rh" path="res://scripts/bases/toturial_timeline.gd" id="1_153be"]
+[ext_resource type="Script" uid="uid://b436ldi6imdfy" path="res://scripts/bases/toturial_data.gd" id="2_qw56b"]
+[ext_resource type="Script" uid="uid://dhydnakgojmoc" path="res://scripts/bases/time_data.gd" id="3_qw56b"]
+
+[sub_resource type="Resource" id="Resource_l5pu1"]
+script = ExtResource("3_qw56b")
+minutes = 15
+hours = 12
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_153be"]
+script = ExtResource("2_qw56b")
+title = "TIME"
+message = "First stop time"
+time_from = SubResource("Resource_l5pu1")
+special_type = "pause"
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
+[sub_resource type="Resource" id="Resource_qw56b"]
+script = ExtResource("2_qw56b")
+title = "WORKS"
+message = "Assing: 1 person to care for elderly
+ 2 for care children
+ 7 for fruit picking
+1 to the experimet"
+need_proceed = true
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
+[sub_resource type="Resource" id="Resource_5sn6v"]
+script = ExtResource("2_qw56b")
+title = "UNPAUE"
+message = "Unpause the game"
+special_type = "unpause"
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
+[sub_resource type="Resource" id="Resource_67k6k"]
+script = ExtResource("2_qw56b")
+title = "CAMPFIRE"
+message = "Build your first campfire."
+need_proceed = true
+after_unlocked_experiment = "Campfire"
+cannot_be_first = true
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
+[sub_resource type="Resource" id="Resource_3s0vq"]
+script = ExtResource("2_qw56b")
+title = "UNLOCKED"
+message = "New experiment is unlocked, assing
+one person to this"
+need_proceed = true
+after_unlocked_experiment = "Hut unlocking"
+cannot_be_first = true
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
+[sub_resource type="Resource" id="Resource_eehbe"]
+script = ExtResource("2_qw56b")
+title = "HUT"
+message = "Build your first hut"
+need_proceed = true
+after_finished_experiment = "Hut experiment"
+cannot_be_first = true
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
+[resource]
+script = ExtResource("1_153be")
+toturial_data = Array[ExtResource("2_qw56b")]([SubResource("Resource_153be"), SubResource("Resource_qw56b"), SubResource("Resource_5sn6v"), SubResource("Resource_67k6k"), SubResource("Resource_3s0vq"), SubResource("Resource_eehbe")])
