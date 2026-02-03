@@ -24,7 +24,7 @@ func time_loop():
 			if time.hours == 20 and time.minutes == 30:
 				day_summary_code.day_summary()
 			
-			if time.hours == 6 and time.minutes == 0:
+			if time.hours == 6 and time.minutes == 10:
 				PeopleManagment.can_work = true
 			elif time.hours == 18 and time.minutes == 0:
 				PeopleManagment.can_work = false

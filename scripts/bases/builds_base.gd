@@ -11,7 +11,12 @@ class_name BuildsBase
 @export var products_need_to_build : Dictionary[ProductBase, int] = {}
 @export var free_places : int = 0
 @export_enum("transport", "house" ,"betting") var type := "Chose type"
-
+@export_subgroup("building")
+@export var need_building : bool = false
+@export var min_workers_to_build : int = 1
+@export var building_time : TimeData
+@export var building_texture_x := 0
+@export var building_texture_y := 0
 func get_data() -> Array:
 
 	var data := []

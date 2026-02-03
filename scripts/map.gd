@@ -8,10 +8,13 @@ var block_data : BuildsBase
 
 const grasses : Array[Vector2i] = [Vector2i(0,0), Vector2i(1,2), Vector2i(2,2)]
 
+var placed_block_cords : Dictionary[Vector2i, BuildsBase]
+
 func _ready() -> void:
 	Managment.tilemap = $TileMapLayer
 	load("res://scripts/save_managment.gd").new().load(tilemap_layer)
 	Managment.init()
+	Signals.buidling_ended.connect(finish_building)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Managment.totally_pause:
@@ -62,7 +65,7 @@ func _open_build_ui(tile_coords: Vector2i) -> void:
 			ui_opened_node.add_child(ui)
 			return
 	
-	for house in Managment.houses.keys(): ##### FIX THIS LIKE PLACAEING BIGGER BUILDS BUT THERE OPENEING 
+	for house in Managment.houses.keys(): ##### TODO: FIX THIS LIKE PLACAEING BIGGER BUILDS BUT THERE OPENEING 
 		for y in range(int(block_data.size[2])):
 			for x in range(int(block_data.size[0])): 
 				if tile_coords + Vector2i(x,y) == house + Vector2i(x,y):
@@ -102,19 +105,25 @@ func _can_place_block(tile_coords: Vector2i) -> bool:
 	return true
 
 func _place_block(tile_coords: Vector2i) -> void:
-	if block_data.type == "betting":
-		Managment.betting.set(tile_coords, {"data" : block_data})
-	if block_data.type == "house":
-		Managment.add_people(block_data.living_people)
-		Managment.houses.set(tile_coords, {"people" : block_data.living_people, "workers": block_data.living_people, "data" : block_data})
+	if !block_data.need_building:
+		if block_data.type == "betting":
+			Managment.betting.set(tile_coords, {"data" : block_data})
+		elif block_data.type == "house":
+			Managment.add_people(block_data.living_people)
+			Managment.houses.set(tile_coords, {"people" : block_data.living_people, "workers": block_data.living_people, "data" : block_data})
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0): # road
 		var data = check_road(tile_coords.x, tile_coords.y)
 		tilemap_layer.set_cell(tile_coords, 0, data[0], data[1]) #0 - source
 		_update_roads_around(tile_coords)
 	else:
-		for y in range(int(block_data.size[2])):
-			for x in range(int(block_data.size[0])): 
-				tilemap_layer.set_cell(tile_coords + Vector2i(x, y),0,Vector2i(block_data.game_texture_tileset_x + x,block_data.game_texture_tileset_y + y))# 0 - source_id
+		if (block_data.building_texture_x or block_data.building_texture_y) and block_data.need_building:
+			set_block_on_tilemap(tile_coords.x, tile_coords.y, block_data.building_texture_x, block_data.building_texture_y, block_data.size)
+			placed_block_cords.set(tile_coords, block_data)
+			Signals.start_building.emit(block_data)
+		else:
+			set_block_on_tilemap(tile_coords.x, tile_coords.y, block_data.game_texture_tileset_x, block_data.game_texture_tileset_y, block_data.size)
+			placed_block_cords.set(tile_coords, block_data)
+			
 
 	if block_data in Managment.free_places:
 		Managment.free_places[block_data] -= 1
@@ -136,6 +145,10 @@ func _remove_block(tile_coords: Vector2i) -> void:
 			#break
 	if tile_coords in Managment.houses:
 		Managment.add_people(-4) # 4 - value of people in house
+	
+	set_block_on_tilemap(tile_coords.x, tile_coords.y, 0,0,placed_block_cords[tile_coords].size)
+	placed_block_cords.erase(tile_coords)
+	
 	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0,0))
 	if Vector2i(block_data.game_texture_tileset_x, block_data.game_texture_tileset_y) == Vector2i(1,0):
 		_update_roads_around(tile_coords)
@@ -146,7 +159,26 @@ func _update_roads_around(tile_coords: Vector2i) -> void:
 	check_road(tile_coords.x+1, tile_coords.y, true)
 	check_road(tile_coords.x-1, tile_coords.y, true)
 
+
+func set_block_on_tilemap(x_map : int, y_map : int, x_tileset : int, y_tileset : int, size : String = "1x1"):
+	for y in range(int(size[2])):
+		for x in range(int(size[0])):
+			tilemap_layer.set_cell(Vector2i(x_map, y_map) + Vector2i(x, y),0,Vector2i(x_tileset + x,y_tileset + y))# 0 - source_id
+
+
+func finish_building(build_data: BuildsBase):
+	var cords
+	for i in placed_block_cords.keys():
+		if placed_block_cords[i] == build_data:
+			cords = i
+	set_block_on_tilemap(cords.x, cords.y, block_data.game_texture_tileset_x, block_data.game_texture_tileset_y, block_data.size)
+	if block_data.type == "betting":
+		Managment.betting.set(cords, {"data" : block_data})
+	elif block_data.type == "house":
+		Managment.add_people(block_data.living_people)
+		Managment.houses.set(cords, {"people" : block_data.living_people, "workers": block_data.living_people, "data" : block_data})
 	
+	Signals.add_information.emit("info", "Building finished", "Building %s is done" % build_data.name)
 	
 func check_road(x : int, y : int, second := false):
 	
