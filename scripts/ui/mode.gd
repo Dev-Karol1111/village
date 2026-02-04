@@ -41,7 +41,7 @@ func _on_mode_pressed() -> void:
 		Signals.pause_game.emit()
 	else:
 		Managment.make_transport_map(get_node(map).get_child(0))
-		WorkersManagement.determine_betting_house_connetion()
+		WorkersManagement.determine_betting_house_connection()
 		Managment.was_edit_menu_opened = true
 		mode_button.icon = load("res://assets/ui/edit.png")
 		edit_menu.change_visible.emit(false)

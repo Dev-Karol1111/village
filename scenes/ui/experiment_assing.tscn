@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://kih532yks084"]
+[gd_scene format=3 uid="uid://dhrgfvugbw8wl"]
 
-[ext_resource type="Script" uid="uid://wea37tl54dw3" path="res://scripts/ui/experiment_assing.gd" id="1_6ilj5"]
+[ext_resource type="Script" path="res://scripts/ui/experiment_assing.gd" id="1_6ilj5"]
 [ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="2_ewkax"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62e2m"]
@@ -11,7 +11,7 @@ region = Rect2(0, 16, 16, 16)
 atlas = ExtResource("2_ewkax")
 region = Rect2(16, 48, 16, 16)
 
-[node name="Experiment Assing" type="Control"]
+[node name="Experiment Assing" type="Control" unique_id=2029664093]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6ilj5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1121508207]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.31764707)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1772161825]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_62e2m")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1727655133]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -59,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Experiment Assing"
 
-[node name="ItemList" type="ItemList" parent="."]
+[node name="ItemList" type="ItemList" parent="." unique_id=213533888]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.49800003
@@ -71,7 +71,7 @@ offset_top = 0.047973633
 offset_right = 195.30396
 offset_bottom = 117.04797
 
-[node name="close" type="Button" parent="."]
+[node name="close" type="Button" parent="." unique_id=279198222]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.698

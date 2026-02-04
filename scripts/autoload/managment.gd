@@ -1,42 +1,52 @@
 extends Node
 
-var moneys := 500
-var people_count := 0
+## Main game management singleton handling resources, buildings, and game state
+
+var money: int = 500
+var people_count: int = 0
 
 var tilemap: TileMapLayer
 
-var avaible_workers : int
-#var working_places : Dictionary[Vector2i, int] =  {}
+var available_workers: int
 
-var mode := "normal"
+var mode: String = "normal"
 
-var houses : Dictionary[Vector2i, Dictionary] = {}
-var betting : Dictionary[Vector2i, Dictionary] = {} # data - BettingBase, connected_houses - Vector2i, workers_from - Vector21, gotta_update - bool, workers - int
-var production_time : Dictionary[Vector2i, int] = {}
+## Dictionary mapping house coordinates to house data
+## Structure: {coords: {"people": int, "workers": int, "data": HouseBase}}
+var houses: Dictionary[Vector2i, Dictionary] = {}
 
-var products : Dictionary[String, int] = {"flour" : 100, "fruit" : 0}
+## Dictionary mapping workplace coordinates to workplace data
+## Structure: {coords: {"data": BettingBase, "connected_houses": Array, "workers_from": Dictionary, "gotta_update": bool, "workers": int}}
+var betting: Dictionary[Vector2i, Dictionary] = {}
 
-var speed_time := 1
+## Dictionary tracking production progress for each workplace
+var production_time: Dictionary[Vector2i, int] = {}
 
-var free_places : Dictionary[BuildsBase, int]
+## Dictionary of available products and their quantities
+var products: Dictionary[String, int] = {"flour": 100, "fruit": 0}
 
-var transport_connection_astartgrid : AStarGrid2D
+## Game speed multiplier (1 = normal speed)
+var speed_time: int = 1
 
-var was_edit_menu_opened := false
+## Dictionary of buildings available for free placement
+var free_places: Dictionary[BuildsBase, int]
 
-@onready var running := true
+## A* grid for pathfinding between buildings
+var transport_connection_astar_grid: AStarGrid2D
 
-var totally_pause := false
+var was_edit_menu_opened: bool = false
 
-const water := Vector2i(0,2)
+@onready var running: bool = true
 
-var people : Array[People]
+var totally_pause: bool = false
 
-#var avaible_works : Array = [{"name" : "fruit picking", "time" : 6, "count" : 3, "output" : "fruit"}, {"name" : "child care", "time" : -1, "minimal people" : 2, "looking after" : "child", "taking damage" : 5}, {"name" : "care for the elderly", "time" : -1, "minimal people" : 1, "looking after" : "greybeard", "taking damage" : 2}]
+const WATER_TILE: Vector2i = Vector2i(0, 2)
 
-var multiple_speed : int = 1
+var people: Array[People]
 
-var avaible_experiments : Dictionary[ExperimentBase, Array] 
+var multiple_speed: int = 1
+
+var available_experiments: Dictionary[ExperimentBase, Array]
 
 var canvas_layer: CanvasLayer
 
@@ -46,99 +56,119 @@ func _ready() -> void:
 	canvas_layer.layer = 100
 	get_tree().root.add_child.call_deferred(canvas_layer)
 
+## Main production loop that processes workplace production every game tick
 func production_loop() -> void:
 	while running:
-		if speed_time > 0 and !totally_pause:
+		if speed_time > 0 and not totally_pause:
 			PeopleManagment.working()
-			for _betting in betting:
+			
+			# Mark workplaces for worker update if edit menu was opened
+			for workplace_coords in betting:
 				if was_edit_menu_opened:
-					betting[_betting]["gotta_update"] = true
+					betting[workplace_coords]["gotta_update"] = true
 				WorkersManagement.check_workers()
-			for _betting in betting:
+			
+			# Process production for each workplace
+			for workplace_coords in betting:
 				if was_edit_menu_opened:
-					betting[_betting]["gotta_update"] = true 		
-				var bett = betting[_betting]["data"]
+					betting[workplace_coords]["gotta_update"] = true
 				
-				#WorkersManagement.check_workers(_betting)
-
-				if Managment.betting[_betting].get("workers", 0) != bett.need_workers:
+				var workplace_data = betting[workplace_coords]["data"]
+				
+				# Skip if not fully staffed
+				if betting[workplace_coords].get("workers", 0) != workplace_data.need_workers:
 					continue
+				
+				# Increment production timer
+				production_time.set(workplace_coords, production_time.get(workplace_coords, 0) + 1)
+				
+				# Check if production cycle is complete
+				if production_time[workplace_coords] >= workplace_data.product_time:
+					production_time.set(workplace_coords, 0)
 					
-				production_time.set(_betting, production_time.get(_betting, 0) + 1)
-				if production_time[_betting] >= bett.product_time:
-					production_time.set(_betting, 0)
-
-					for input_product in bett.input_products.keys():
-						products[input_product.name] -= bett.input_products[input_product]
-
-					for output_product in bett.output_products.keys():
-						products[output_product.name] = products.get(output_product.name, 0) + bett.output_products[output_product]
-						print(products)
-			Signals.data_changed_build_info.emit()	
+					# Consume input products
+					for input_product in workplace_data.input_products.keys():
+						products[input_product.name] -= workplace_data.input_products[input_product]
+					
+					# Produce output products
+					for output_product in workplace_data.output_products.keys():
+						products[output_product.name] = products.get(output_product.name, 0) + workplace_data.output_products[output_product]
+			
+			Signals.data_changed_build_info.emit()
 			if was_edit_menu_opened:
-				was_edit_menu_opened = false	
+				was_edit_menu_opened = false
+			
 			await get_tree().create_timer(float(speed_time) / multiple_speed).timeout
 		else:
 			await get_tree().process_frame
 			
+## Initializes the game state
 func init():
-	Managment.totally_pause = false
-	avaible_workers = people_count
+	totally_pause = false
+	available_workers = people_count
+	
+	# Load free building places
 	var build_list = load("res://Builds/buildsList.tres")
-	for bett in build_list.betting:
-		if bett.free_places > 0:
-			free_places.set(bett, bett.free_places)
+	for building in build_list.betting:
+		if building.free_places > 0:
+			free_places.set(building, building.free_places)
 	for house in build_list.house:
 		if house.free_places > 0:
 			free_places.set(house, house.free_places)
 	
+	# Initialize starting population
 	for i in range(10):
-		var data : People = load("res://scripts/bases/people.gd").new()
-		data.generate_data("adult")
-		people.append(data)
+		var person: People = load("res://scripts/bases/people.gd").new()
+		person.generate_data("adult")
+		people.append(person)
 	for i in range(6):
-		var data : People = load("res://scripts/bases/people.gd").new()
-		data.generate_data("child")
-		people.append(data)	
+		var person: People = load("res://scripts/bases/people.gd").new()
+		person.generate_data("child")
+		people.append(person)
 	for i in range(2):
-		var data : People = load("res://scripts/bases/people.gd").new()
-		data.generate_data("greybeard")
-		people.append(data)
+		var person: People = load("res://scripts/bases/people.gd").new()
+		person.generate_data("greybeard")
+		people.append(person)
 	
-	var expetiment_list = load("res://resources/experiment_list.tres")
+	# Initialize available experiments
+	var experiment_list = load("res://resources/experiment_list.tres")
+	for experiment in experiment_list.experiments:
+		available_experiments.set(experiment, [])
 	
-	for experiment in expetiment_list.experiments:
-		avaible_experiments.set(experiment, [])
-	
+	# Start game loops
 	production_loop()
 	TimeManagment.time_loop()
 	ToturialManagement.check_data()
 				
+## Adds or removes people from the population
 func add_people(value: int):
 	people_count += value
-	avaible_workers += value
+	available_workers += value
 	Signals.data_changed_ui.emit()
-	
-func check_connection(form_tile: Vector2i, to_tile: Vector2i) -> bool:
-	if transport_connection_astartgrid:
-		var path = transport_connection_astartgrid.get_id_path(form_tile, to_tile)
-		if len(path) > 0:
-			return true
-		else:
-			return false
-	return false
-		
-func make_transport_map(tile_map_layer: TileMapLayer):	
-	var AStar_grid = AStarGrid2D.new()
-	AStar_grid.region = Rect2i(0,0,55,32)
-	AStar_grid.cell_size = Vector2i(32,32)
-	AStar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
-	AStar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
-	AStar_grid.update()
-	for cell in tile_map_layer.get_used_cells():
-		AStar_grid.set_point_solid(cell, !tile_map_layer.get_cell_tile_data(cell).get_custom_data("transport"))
-	transport_connection_astartgrid = AStar_grid
 
+## Checks if there's a valid path between two tiles
+func check_connection(from_tile: Vector2i, to_tile: Vector2i) -> bool:
+	if transport_connection_astar_grid:
+		var path = transport_connection_astar_grid.get_id_path(from_tile, to_tile)
+		return len(path) > 0
+	return false
+
+## Creates the A* pathfinding grid for transport connections
+func make_transport_map(tile_map_layer: TileMapLayer):
+	var astar_grid = AStarGrid2D.new()
+	astar_grid.region = Rect2i(0, 0, 55, 32)
+	astar_grid.cell_size = Vector2i(32, 32)
+	astar_grid.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
+	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	astar_grid.update()
+	
+	for cell in tile_map_layer.get_used_cells():
+		var is_transportable = tile_map_layer.get_cell_tile_data(cell).get_custom_data("transport")
+		astar_grid.set_point_solid(cell, not is_transportable)
+	
+	transport_connection_astar_grid = astar_grid
+
+## Spawns a UI scene on the global canvas layer
 func spawn_ui(scene_path: String) -> void:
 	var ui = load(scene_path).instantiate()
 	canvas_layer.add_child(ui)

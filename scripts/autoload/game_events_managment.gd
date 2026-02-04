@@ -6,10 +6,9 @@ func _ready() -> void:
 	Signals.time_updated.connect(check_events)
 
 func check_events():
-	var avaible_events = load("res://resources/unlocking_timeline.tres")
+	var available_events = load("res://resources/unlocking_timeline.tres")
 	
-	
-	for event in avaible_events.unlock:
+	for event in available_events.unlock:
 		if event.time.to_one_data() < TimeManagment.time.to_one_data():
 			continue
 		if event.time.to_one_data() > TimeManagment.time.to_one_data():
@@ -27,12 +26,12 @@ func check_events():
 				text += "\nSome works was unlocked"
 
 			if event.unlocked_experiments:
-				var expetiment_name
-				for experiment in event.unlocked_experiments: 
-					Managment.avaible_experiments.set(experiment, [])
-					expetiment_name = experiment["name_var"]
-				text += "\nSome experiments was unlocked"
-				Signals.experiment_unlocked.emit(expetiment_name)
+				var experiment_name
+				for experiment in event.unlocked_experiments:
+					Managment.available_experiments.set(experiment, [])
+					experiment_name = experiment["name_var"]
+				text += "\nSome experiments were unlocked"
+				Signals.experiment_unlocked.emit(experiment_name)
 				
 			
 			if event.millstone:

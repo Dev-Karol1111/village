@@ -10,5 +10,5 @@ func _ready() -> void:
 
 	
 func update_data():
-	money_label.text = "$ %s" % Managment.moneys
+	money_label.text = "$ %s" % Managment.money
 	people_label.text = "%s" % Managment.people_count

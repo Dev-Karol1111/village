@@ -1,33 +1,29 @@
 extends Control
 
+## UI panel displaying individual person information
+var person: People
 
-var people : People
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	update()
-	Signals.data_changed_ui.connect(update)
-	
+	update_display()
+	Signals.data_changed_ui.connect(update_display)
 
-func update():
-	$name.text = people.name
-	$age.text = tr("age") + ': ' + str(people.age)
-	$gender.text = tr("gender") + ': ' + tr(people.gender)
-	$health.text = tr("health") + ': ' + str(people.healt)
-	$work.text = tr("work") + ': ' + tr(people.work)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+func update_display():
+	$name.text = person.name
+	$age.text = tr("age") + ": " + str(person.age)
+	$gender.text = tr("gender") + ": " + tr(person.gender)
+	$health.text = tr("health") + ": " + str(person.healt)
+	$work.text = tr("work") + ": " + tr(person.work)
 
 func _on_button_pressed() -> void:
-	var work_select = load("res://scenes/ui/work_choose.tscn").instantiate()
-	work_select.people = people
-	$CanvasLayer.add_child(work_select)
-
+	var selection_ui = load("res://scenes/ui/selection_ui.tscn").instantiate()
+	selection_ui.selection_mode = selection_ui.SelectionMode.WORK_CHOOSE
+	selection_ui.title_text = "Choose Work"
+	selection_ui.person = person
+	$CanvasLayer.add_child(selection_ui)
 
 func _on_experiment_pressed() -> void:
-	var work_select = load("res://scenes/ui/experiment_assing.tscn").instantiate()
-	work_select.people = people
-	$CanvasLayer.add_child(work_select)
+	var selection_ui = load("res://scenes/ui/selection_ui.tscn").instantiate()
+	selection_ui.selection_mode = selection_ui.SelectionMode.EXPERIMENT_ASSIGN
+	selection_ui.title_text = "Assign to Experiment"
+	selection_ui.person = person
+	$CanvasLayer.add_child(selection_ui)

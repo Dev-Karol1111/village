@@ -1,33 +1,37 @@
 extends Control
 
-var data : BettingBase
-var cords: Vector2i
+## UI panel displaying building information and production status
+var building_data: BettingBase
+var building_coords: Vector2i
 
-var actual_workers = 0
-var IPD = 11
+var current_workers: int = 0
+const ITEMS_PER_DAY: int = 11
 
-@onready var build_name : Label = $TextureRect/name
-@onready var workers : Label = $TextureRect/workers
-@onready var products : Label = $TextureRect/products
-@onready var production_time : Label = $TextureRect/ProTime
-@onready var items_per_day : Label = $TextureRect/IPD
+@onready var build_name_label: Label = $TextureRect/name
+@onready var workers_label: Label = $TextureRect/workers
+@onready var products_label: Label = $TextureRect/products
+@onready var production_time_label: Label = $TextureRect/ProTime
+@onready var items_per_day_label: Label = $TextureRect/IPD
 
 func _ready() -> void:
-	update_data()
-	Signals.data_changed_build_info.connect(update_data)
-	Signals.edit_menu_opened.connect(func():
-		visible = false
-	)
+	update_display()
+	Signals.data_changed_build_info.connect(update_display)
+	Signals.edit_menu_opened.connect(func(): visible = false)
 	Signals.close_ui.connect(func(): queue_free())
 
-func update_data():
-	build_name.text = data.name
-	actual_workers = Managment.betting[cords].get("workers", 0)
-	workers.text = tr("workers") + ": %s/%s" % [actual_workers, data.need_workers]
-	var text = tr("products") + ":\n"
-	for product in data.input_products.keys():
+## Updates all UI elements with current building data
+func update_display():
+	build_name_label.text = building_data.name
+	current_workers = Managment.betting[building_coords].get("workers", 0)
+	workers_label.text = tr("workers") + ": %s/%s" % [current_workers, building_data.need_workers]
+	
+	var products_text = tr("products") + ":\n"
+	for product in building_data.input_products.keys():
 		var product_name = tr(product.name)
-		text += " * %s %s/%s \n" % [product_name, Managment.products[product.name], data.input_products[product]]
-	products.text = text
-	production_time.text = tr("production time") + ": %s" % [data.product_time]
-	items_per_day.text = tr("items per day") + ": %s" % [IPD]
+		var available = Managment.products.get(product.name, 0)
+		var required = building_data.input_products[product]
+		products_text += " * %s %s/%s \n" % [product_name, available, required]
+	
+	products_label.text = products_text
+	production_time_label.text = tr("production time") + ": %s" % [building_data.product_time]
+	items_per_day_label.text = tr("items per day") + ": %s" % [ITEMS_PER_DAY]

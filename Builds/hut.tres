@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HouseBase" load_steps=7 format=3 uid="uid://crgkto0bpuxst"]
+[gd_resource type="Resource" script_class="HouseBase" format=3 uid="uid://crgkto0bpuxst"]
 
 [ext_resource type="Script" uid="uid://dhydnakgojmoc" path="res://scripts/bases/time_data.gd" id="1_8wvo4"]
 [ext_resource type="Texture2D" uid="uid://douchfllq01w7" path="res://assets/ui/building_icon.png" id="1_k6l6k"]

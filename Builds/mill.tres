@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BettingBase" load_steps=8 format=3 uid="uid://c0hc4dawjk2of"]
+[gd_resource type="Resource" script_class="BettingBase" format=3 uid="uid://c0hc4dawjk2of"]
 
 [ext_resource type="Texture2D" uid="uid://c2mcgxfi3cwqb" path="res://assets/tileset.png" id="1_g5vrv"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_3k1jn"]

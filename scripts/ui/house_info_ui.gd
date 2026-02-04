@@ -1,49 +1,47 @@
 extends Control
 
-@onready var label_name : Label = $TextureRect/name
-@onready var people_label : Label = $TextureRect/Label
+## UI panel displaying house information and allowing people assignment
+@onready var house_name_label: Label = $TextureRect/name
+@onready var people_label: Label = $TextureRect/Label
 
-var house_data : HouseBase
+var house_data: HouseBase
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Signals.close_ui.connect(func(): queue_free())
-	update()
+	update_display()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func update():
-	label_name.text = house_data.name
-	var text = ""
+func update_display():
+	house_name_label.text = house_data.name
+	var people_text = ""
 	var count = 0
+	
 	for person in house_data.liveing_people:
 		count += 1
 		if count > house_data.max_people:
 			break
-		text += " * " + person.name + "\n"	
+		people_text += " * " + person.name + "\n"
 	
-	var text2 = "People (%s/%s):\n" % [count, house_data.max_people]
-	people_label.text = text2 + text
+	var header_text = "People (%s/%s):\n" % [count, house_data.max_people]
+	people_label.text = header_text + people_text
 
 func _on_button_pressed() -> void:
-	var people_assing = load("res://scenes/ui/people_assing.tscn").instantiate()
-	var	items = []
+	var selection_ui = load("res://scenes/ui/selection_ui.tscn").instantiate()
+	var person_names = []
 	
 	for person in Managment.people:
-		items.append(person.name)
+		person_names.append(person.name)
 	
-	people_assing.items = items
-	people_assing.max_select = house_data.max_people
-	people_assing.closed.connect(read_data)
-	$CanvasLayer.add_child(people_assing)
+	selection_ui.selection_mode = selection_ui.SelectionMode.PEOPLE_ASSIGN
+	selection_ui.title_text = "People Assignment"
+	selection_ui.items = person_names
+	selection_ui.max_select = house_data.max_people
+	selection_ui.closed.connect(_on_people_assigned)
+	$CanvasLayer.add_child(selection_ui)
 
-func read_data(data: Array):
+func _on_people_assigned(selected_names: Array):
 	house_data.liveing_people.clear()
 	for person in Managment.people:
-		for person1 in data:
-			if person1 == person.name:
+		for selected_name in selected_names:
+			if selected_name == person.name:
 				house_data.liveing_people.append(person)
-	update()
+	update_display()

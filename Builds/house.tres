@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="HouseBase" load_steps=7 format=3 uid="uid://bn360vh53v05u"]
+[gd_resource type="Resource" script_class="HouseBase" format=3 uid="uid://bn360vh53v05u"]
 
 [ext_resource type="Texture2D" uid="uid://c2mcgxfi3cwqb" path="res://assets/tileset.png" id="1_36o3r"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="2_13vpj"]

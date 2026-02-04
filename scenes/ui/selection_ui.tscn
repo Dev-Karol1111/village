@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://caa682d0fu6g3"]
+
+[ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_texture"]
+[ext_resource type="Script" path="res://scripts/ui/selection_ui.gd" id="2_script"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg"]
+atlas = ExtResource("1_texture")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_close"]
+atlas = ExtResource("1_texture")
+region = Rect2(16, 48, 16, 16)
+
+[node name="selection_ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.31764707)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.50003
+offset_top = -130.0
+offset_right = 286.50003
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_bg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.351
+anchor_right = 0.5
+anchor_bottom = 0.351
+offset_left = -68.0
+offset_top = 6.0519867
+offset_right = 68.0
+offset_bottom = 29.051987
+grow_horizontal = 2
+grow_vertical = 2
+text = "Select"
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49800003
+anchor_top = 0.44900003
+anchor_right = 0.49800003
+anchor_bottom = 0.44900003
+offset_left = -194.69604
+offset_top = 0.047973633
+offset_right = 195.30396
+offset_bottom = 117.04797
+
+[node name="close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.698
+anchor_top = 0.33
+anchor_right = 0.698
+anchor_bottom = 0.33
+offset_left = -18.096008
+offset_top = 0.1599884
+offset_right = 5.9039917
+offset_bottom = 24.159988
+scale = Vector2(1.5, 1.5)
+icon = SubResource("AtlasTexture_close")
+
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

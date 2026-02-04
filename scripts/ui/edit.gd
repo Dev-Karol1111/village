@@ -9,7 +9,7 @@ signal change_visible(visible: bool)
 var map : Node
 
 func set_block(block_data: BuildsBase):
-	map.block = [block_data.type, load("res://Builds/buildsList.tres").get(block_data.type).find(block_data)]
+	map.selected_building = [block_data.type, load("res://Builds/buildsList.tres").get(block_data.type).find(block_data)]
 
 
 func _ready() -> void:
