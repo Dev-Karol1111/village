@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsy4btfqw3bfb"]
+[gd_scene format=3 uid="uid://dsy4btfqw3bfb"]
 
 [ext_resource type="Script" uid="uid://16rcdletv8pf" path="res://scripts/ui/information.gd" id="1_4mbif"]
 
@@ -6,7 +6,7 @@
 line_spacing = 0.5
 font_size = 12
 
-[node name="information" type="Control"]
+[node name="information" type="Control" unique_id=911582685]
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 3
 anchors_preset = 0
@@ -16,16 +16,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4mbif")
 
-[node name="bc" type="ColorRect" parent="."]
+[node name="bc" type="ColorRect" parent="." unique_id=1657481300]
 layout_mode = 0
 offset_right = 252.0
 offset_bottom = 127.0
 color = Color(1, 0.5529412, 1, 1)
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=1955412568]
 points = PackedVector2Array(5, 5, 247, 5, 247, 124, 5, 124, 5, 5)
 
-[node name="title" type="Label" parent="."]
+[node name="title" type="Label" parent="." unique_id=1523080556]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -39,7 +39,7 @@ offset_bottom = 32.989
 grow_horizontal = 2
 text = "TITLE"
 
-[node name="text" type="Label" parent="."]
+[node name="text" type="Label" parent="." unique_id=1891064869]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.056
@@ -54,7 +54,7 @@ text = "xxxxxxxxxxxxxxxxxxxxxx
 xxxxxxxxxxxxxxxxxxxxxx"
 label_settings = SubResource("LabelSettings_4mbif")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1021932794]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 88.5

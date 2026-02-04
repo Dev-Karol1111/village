@@ -4,10 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://douchfllq01w7" path="res://assets/ui/building_icon.png" id="1_k6l6k"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="1_xgmb0"]
 [ext_resource type="Script" uid="uid://dq4ajlu66q7uy" path="res://scripts/bases/house_base.gd" id="2_k6l6k"]
+[ext_resource type="Resource" uid="uid://c3hisiedmmmc1" path="res://resources/products/wood.tres" id="4_dusr1"]
 
 [sub_resource type="Resource" id="Resource_dusr1"]
 script = ExtResource("1_8wvo4")
-hours = 8
+hours = 6
 metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8wvo4"]
@@ -22,10 +23,11 @@ game_texture_tileset_x = 5
 game_texture_tileset_y = 2
 size = "3x2"
 edit_texture = SubResource("AtlasTexture_8wvo4")
-free_places = 1
+products_need_to_build = Dictionary[ExtResource("1_xgmb0"), int]({
+ExtResource("4_dusr1"): 25
+})
 type = "house"
 need_building = true
-min_workers_to_build = 2
 building_time = SubResource("Resource_dusr1")
 building_texture_x = 5
 metadata/_custom_type_script = "uid://dq4ajlu66q7uy"

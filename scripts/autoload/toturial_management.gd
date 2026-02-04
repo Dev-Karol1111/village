@@ -66,6 +66,8 @@ func experiment_check(experiment_name : String):
 					Signals.add_information.emit("toturial",tot.title, tot.message, 0)
 					active.append(tot)
 					emitted.append(tot)
+				elif tot.special_type == "first hut":
+					GameEventsManagment.millstones.set('Hut unlocked', true)
 			else:
 				Signals.add_information.emit("toturial",tot.title, tot.message, 0, true)
 				data.erase(tot)

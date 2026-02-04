@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WorkList" load_steps=10 format=3 uid="uid://ckuugyi3nei3b"]
+[gd_resource type="Resource" script_class="WorkList" format=3 uid="uid://ckuugyi3nei3b"]
 
 [ext_resource type="Script" uid="uid://bbad48x7j0oid" path="res://scripts/bases/work_list.gd" id="1_7h5e8"]
 [ext_resource type="Script" uid="uid://ccbw2jqlyy2gj" path="res://scripts/bases/work_base.gd" id="2_nhs8g"]
@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://bam7get7v1om5"
 
 [sub_resource type="Resource" id="Resource_3yp2n"]
 script = ExtResource("4_dh1wa")
-hours = 2
+hours = 3
 metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [sub_resource type="Resource" id="Resource_nhs8g"]
@@ -20,7 +20,7 @@ script = ExtResource("2_nhs8g")
 name_var = "fruit picking"
 type = "collecting"
 time = SubResource("Resource_3yp2n")
-count = 3
+count = 4
 output = SubResource("Resource_sn34b")
 metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
 
@@ -28,8 +28,8 @@ metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
 script = ExtResource("2_nhs8g")
 name_var = "child care"
 type = "looking after"
-target_group = "child"
 minimal_people = 2
+target_group = "child"
 taking_damage = 5
 metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
 
@@ -37,12 +37,32 @@ metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
 script = ExtResource("2_nhs8g")
 name_var = "care for the elderly"
 type = "looking after"
-target_group = "greybeard"
 minimal_people = 1
+target_group = "greybeard"
 taking_damage = 2
+metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
+
+[sub_resource type="Resource" id="Resource_p75ya"]
+script = ExtResource("3_d7xto")
+name = "wood"
+metadata/_custom_type_script = "uid://bam7get7v1om5"
+
+[sub_resource type="Resource" id="Resource_mgk4h"]
+script = ExtResource("4_dh1wa")
+hours = 3
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_33mow"]
+script = ExtResource("2_nhs8g")
+name_var = "Wood picking"
+type = "collecting"
+minimal_people = 1
+time = SubResource("Resource_mgk4h")
+count = 4
+output = SubResource("Resource_p75ya")
 metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"
 
 [resource]
 script = ExtResource("1_7h5e8")
-works_list = Array[ExtResource("2_nhs8g")]([SubResource("Resource_nhs8g"), SubResource("Resource_d7xto"), SubResource("Resource_dh1wa")])
+works_list = Array[ExtResource("2_nhs8g")]([SubResource("Resource_nhs8g"), SubResource("Resource_d7xto"), SubResource("Resource_dh1wa"), SubResource("Resource_33mow")])
 metadata/_custom_type_script = "uid://bbad48x7j0oid"

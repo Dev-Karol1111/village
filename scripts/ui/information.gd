@@ -44,6 +44,8 @@ func add_information(type := "info", title := "title", text := "text", duration 
 	title_label.text = title
 	text_label.text = text
 	
+	print(title)
+	
 	# Show with animation
 	visible = true
 	_animate_in()

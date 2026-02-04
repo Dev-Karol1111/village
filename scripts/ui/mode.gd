@@ -134,6 +134,10 @@ func set_button_image(button := "", button_selected := false):
 		button_data.icon = new_icon
 
 func _on_speedx_15_pressed() -> void:
+	if Managment.mode == "edit":
+		return
+	if Managment.totally_pause:
+		return
 	Managment.speed_time = 1
 	Managment.multiple_speed = 15
 	set_button_image(selected, false)
@@ -141,6 +145,10 @@ func _on_speedx_15_pressed() -> void:
 	selected = "speedx15"
 
 func _on_speedx_5_pressed() -> void:
+	if Managment.mode == "edit":
+		return
+	if Managment.totally_pause:
+		return
 	Managment.speed_time = 1
 	Managment.multiple_speed = 5
 	set_button_image(selected, false)

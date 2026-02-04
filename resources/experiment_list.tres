@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ExperimentsList" load_steps=7 format=3 uid="uid://bwsfbrbj3h3gy"]
+[gd_resource type="Resource" script_class="ExperimentsList" format=3 uid="uid://bwsfbrbj3h3gy"]
 
 [ext_resource type="Script" uid="uid://48uurtwm161r" path="res://scripts/bases/experiment_base.gd" id="1_5chg7"]
 [ext_resource type="Script" uid="uid://bfat4ebyrkmq4" path="res://scripts/bases/experiments_list.gd" id="1_f1m4n"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_5chg7"]
 script = ExtResource("2_bvpmf")
-hours = 13
+hours = 4
 metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [sub_resource type="Resource" id="Resource_47g6f"]

@@ -35,11 +35,11 @@ func generate_data(preset_type: String, preset_name:= "", preset_age:=0, preset_
 	type = preset_type
 	if preset_type == "child":
 		age = int(randf_range(4,14))
-		need_food = 3
+		need_food = 2
 	elif preset_type == "adult":
 		age = int(randf_range(20,45))
-		need_food = 4
+		need_food = 6
 	elif preset_type == "greybeard":
-		need_food = 5
+		need_food = 3
 		age = int(randf_range(65, 70))		
 	

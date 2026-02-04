@@ -22,7 +22,7 @@ func check_events():
 				text += "\nSome building was unlocked"
 			if event.unlocked_works:
 				for work in event.unlocked_works:
-					load("res://scripts/bases/work_list.gd").works_list.append_array(event.unlocked_works)
+					PeopleManagment.available_works.append_array(event.unlocked_works)
 				text += "\nSome works was unlocked"
 
 			if event.unlocked_experiments:

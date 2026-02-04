@@ -1,9 +1,15 @@
-[gd_resource type="Resource" script_class="BettingBase" load_steps=6 format=3 uid="uid://bjwffq4ti4vb"]
+[gd_resource type="Resource" script_class="BettingBase" format=3 uid="uid://bjwffq4ti4vb"]
 
 [ext_resource type="Texture2D" uid="uid://douchfllq01w7" path="res://assets/ui/building_icon.png" id="1_jkf8x"]
+[ext_resource type="Script" uid="uid://dhydnakgojmoc" path="res://scripts/bases/time_data.gd" id="1_ocy4u"]
 [ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="1_tuqfs"]
 [ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="2_tuqfs"]
 [ext_resource type="Resource" uid="uid://c3hisiedmmmc1" path="res://resources/products/wood.tres" id="3_jkf8x"]
+
+[sub_resource type="Resource" id="Resource_yjn5j"]
+script = ExtResource("1_ocy4u")
+hours = 2
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkf8x"]
 atlas = ExtResource("1_jkf8x")
@@ -17,8 +23,10 @@ game_texture_tileset_y = 2
 size = "2x2"
 edit_texture = SubResource("AtlasTexture_jkf8x")
 products_need_to_build = Dictionary[ExtResource("1_tuqfs"), int]({
-ExtResource("3_jkf8x"): 5
+ExtResource("3_jkf8x"): 6
 })
 free_places = 1
 type = "betting"
+need_building = true
+building_time = SubResource("Resource_yjn5j")
 metadata/_custom_type_script = "uid://cp850ln8fgsvp"
