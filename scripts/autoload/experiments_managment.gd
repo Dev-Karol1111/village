@@ -24,6 +24,6 @@ func proceed():
 				GameEventsManagment.millstones.set(experiment["milstone"], true)
 			experiment_progress.erase(experiment)
 			Managment.available_experiments.erase(experiment)
-			var text = "Experiment %s\nhas ended" % experiment["name_var"]
+			var text = tr("experiment has ended") % experiment["name_var"]
 			Signals.experiment_finished.emit(experiment["name_var"])
-			Signals.add_information.emit("info", "Experiment succeeded", text)
+			Signals.add_information.emit("info", tr("experiment succeeded"), text)

@@ -12,11 +12,21 @@ signal value_changed(string: String)
 
 func _ready() -> void :
 	selected = option_selected - 1
-	option_label.text = options[selected]
+	# Translate option labels if they are translation keys
+	var translated_option = options[selected]
+	if translated_option in ["fullscreen", "windowed", "english", "polish"]:
+		option_label.text = tr(translated_option)
+	else:
+		option_label.text = translated_option
 
 func update(change: int):
 	selected = (selected + change + len(options)) % len(options)
-	option_label.text = options[selected]
+	# Translate option labels if they are translation keys
+	var translated_option = options[selected]
+	if translated_option in ["fullscreen", "windowed", "english", "polish"]:
+		option_label.text = tr(translated_option)
+	else:
+		option_label.text = translated_option
 	value_changed.emit(options[selected])
 
 func select(change: int):

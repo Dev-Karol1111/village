@@ -46,7 +46,8 @@ icon = SubResource("AtlasTexture_0sx1g")
 
 [node name="Label" type="Label" parent="HBox"]
 layout_mode = 2
-text = "FULLSCREEN"
+text = "fullscreen"
+localization_priority = 1
 
 [node name="Button" type="Button" parent="HBox"]
 layout_mode = 2

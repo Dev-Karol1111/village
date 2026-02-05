@@ -86,7 +86,7 @@ func checking_works():
 						took_damage = true
 	
 	if took_damage:
-		Signals.add_information.emit("warning", "Caring", "Not enough people care\nabout others.")
+		Signals.add_information.emit("warning", tr("caring"), tr("not enough care"))
 	
 	# SECTION - Hut
 	if GameEventsManagment.millstones.get("hut", false):
@@ -101,7 +101,7 @@ func checking_works():
 					if !person in house["data"].liveing_people:
 						are_all_greybeard_in_hut = false
 		if !are_all_greybeard_in_hut:
-			Signals.add_information.emit("warning", "HUT", "Greybeard should be\nassigned to hut")
+			Signals.add_information.emit("warning", tr("hut"), tr("greybeard hut warning"))
 	Signals.data_changed_ui.emit()
 
 func kill_person(person_name : String = ""):

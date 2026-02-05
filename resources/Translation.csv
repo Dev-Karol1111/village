@@ -25,3 +25,73 @@ continue,Continue,Kontynułuj
 new game,New Game,Nowa Gra
 wanna continue,Do you want to continue?,Chcesz kontynuować?
 resume,RESUME,WZNÓW
+skip night,Skip Night,Pomiń noc
+close,Close,Zamknij
+people assing,People Assignment,Przydzielanie osób
+experiment assing,Experiment Assignment,Przydzielanie eksperymentu
+select,Select,Wybierz
+people managment,People Management,Zarządzanie ludźmi
+age,Age,Wiek
+gender,Gender,Płeć
+male,Male,Mężczyzna
+female,Female,Kobieta
+health,Health,Zdrowie
+work,Work,Praca
+name,Name,Imię
+day summary,Day Summary,Podsumowanie dnia
+choose work,Choose Work,Wybierz pracę
+assign to experiment,Assign to Experiment,Przypisz do eksperymentu
+assing to work,Assign to Work,Przypisz do pracy
+english,English,Angielski
+polish,Polish,Polski
+done,Done,Gotowe
+living people,Living people,Żyjące osoby
+experiment succeeded,Experiment Succeeded,Eksperyment powiódł się
+experiment has ended,Experiment %s has ended,Eksperyment %s się zakończył
+available works,Available Works,Dostępne prace
+work type,Work Type,Typ pracy
+time required,Time Required,Wymagany czas
+people required,People Required,Wymagane osoby
+collecting,Collecting,Zbieranie
+looking after,Looking After,Opiekowanie się
+building,Building,Budowanie
+target,Target,Cel
+damage taken,Damage Taken,Wyrządzona szkoda
+new experiment unlocked,New Experiment Unlocked!,Odblokowano nowy eksperyment!
+experiment result,Experiment Result,Wynik eksperymentu
+building unlocked,Some buildings were unlocked,Odblokowane nowe budynki
+works unlocked,Some works were unlocked,Odblokowane nowe prace
+experiments unlocked,Some experiments were unlocked,Odblokowane nowe eksperymenty
+wolf attack,WOLF ATTACK,ATAK WILKÓW
+wolf attack message,Wolf has attacked your village and one person died,Wilk zaatakował waszą wioskę i\njedna osoba zginęła
+caring,Caring,Opieka
+not enough care,Not enough people to care about others,Niewystarczająca liczba osób do opieki nad innymi
+hut,HUT,SZAŁAS
+greybeard hut warning,Greybeard should be assigned to hut,Starcy powinni\n być przypisani do szałasu
+fruit picking,Fruit Picking,Zbieranie owoców
+child care,Child Care,Opieka nad dziećmi
+care for the elderly,Care for the Elderly,Opieka nad starszymi
+wood picking,Wood Picking,Zbieranie drewna
+campfire,Campfire,Ognisko
+hut experiment,Hut experiment,Eksperyment z szałasem
+hut unlocking,Hut unlocking,Odblokowanie szałasu
+tutorial.time,TIME,CZAS
+tutorial.time.message,First stop time, Najpierw zatrzym czas
+tutorial.works,WORKS,PRACE
+tutorial.works.message,Assign: 1 person to care for elderly\n 2 for care children\n 5 for fruit picking & 1 wood picking\n1 to the experiment (campfire),Przypisz: 1 osobę do opieki nad starszymi\n 2 do opieki nad dziećmi\n 5 do zbierania owoców i 1 do zbierania drewna\n1 do eksperymentu (ognisko)
+tutorial.unpause,UNPAUSE,WZNÓW
+tutorial.unpause.message,Unpause the game,Wznów grę
+tutorial.wait,WAIT,CZEKAJ
+tutorial.wait.message,Wait until experiment finish,Czekaj aż eksperyment się skończy
+tutorial.campfire,CAMPFIRE,OGNISKO
+tutorial.campfire.message,Experimenting with campfire finished.\nBuild your first campfire.,Eksperyment z ogniskiem zakończony.\nZbuduj swoje pierwsze ognisko.
+tutorial.unlocked,UNLOCKED,ODBLOKOWANE
+tutorial.unlocked.message,Hut was unlocked.\nAssign one person to this experiment.,Chata została odblokowana.\nPrzypisz jedną osobę do tego eksperymentu.
+tutorial.building,BUILDING,BUDOWANIE
+tutorial.building.message,Experiments with hut has ended.\nNow you can place it.,Eksperyment z chatą się zakończył.\nTeraz możesz ją postawić.
+tutorial.hut.build,HUT,SZAŁAS
+tutorial.hut.build.message,Build your first hut.\nAssign 1 person into this work,Zbuduj swój pierwszy szałas.\nPrzypisz 1 osobę do tej pracy
+tutorial.hut.check,HUT,SZAŁAS
+tutorial.hut.check.message,Check it when hut is finished,Sprawdź kiedy szałas będzie gotowy
+tutorial.greybeard,GREYBEARD,STARZEC
+tutorial.greybeard.message,Assign greybeard into hut unless you want to lose them ...,Przypisz starców do szałasu inaczej go stracisz ...

@@ -52,13 +52,15 @@ func _populate_items() -> void:
 			# Load works from PeopleManagment
 			works_list = PeopleManagment.available_works
 			for work in works_list:
-				item_list.add_item(work.name_var)
+				var work_name = work.name_var.to_lower().replace(" ", " ")
+				item_list.add_item(tr(work_name))
 		
 		SelectionMode.EXPERIMENT_ASSIGN:
 			# Load experiments from Managment
 			experiments_list = Managment.available_experiments.keys()
 			for experiment in experiments_list:
-				item_list.add_item(experiment.name_var)
+				var experiment_name = experiment.name_var.to_lower()
+				item_list.add_item(tr(experiment_name))
 
 func _on_item_toggled(index: int, selected: bool) -> void:
 	# Only used for PEOPLE_ASSIGN mode (multi-select)

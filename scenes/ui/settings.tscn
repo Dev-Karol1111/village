@@ -46,6 +46,7 @@ offset_right = 37.0
 offset_bottom = 12.847992
 grow_horizontal = 2
 text = "settings"
+localization_priority = 1
 label_settings = SubResource("LabelSettings_vrkq3")
 
 [node name="VBox" type="VBoxContainer" parent="."]
@@ -75,6 +76,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "volume"
+localization_priority = 1
 
 [node name="volume_slider" type="HSlider" parent="VBox/volume"]
 custom_minimum_size = Vector2(150, 0)
@@ -103,6 +105,7 @@ offset_bottom = 45.063965
 grow_horizontal = 2
 grow_vertical = 0
 text = "back to menu"
+localization_priority = 1
 
 [connection signal="value_changed" from="VBox/volume/volume_slider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="back_to_menu" to="." method="_on_back_to_menu_pressed"]

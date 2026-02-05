@@ -17,13 +17,13 @@ func update_display():
 func _on_button_pressed() -> void:
 	var selection_ui = load("res://scenes/ui/selection_ui.tscn").instantiate()
 	selection_ui.selection_mode = selection_ui.SelectionMode.WORK_CHOOSE
-	selection_ui.title_text = "Choose Work"
+	selection_ui.title_text = tr("choose work")
 	selection_ui.person = person
 	$CanvasLayer.add_child(selection_ui)
 
 func _on_experiment_pressed() -> void:
 	var selection_ui = load("res://scenes/ui/selection_ui.tscn").instantiate()
 	selection_ui.selection_mode = selection_ui.SelectionMode.EXPERIMENT_ASSIGN
-	selection_ui.title_text = "Assign to Experiment"
+	selection_ui.title_text = tr("assign to experiment")
 	selection_ui.person = person
 	$CanvasLayer.add_child(selection_ui)

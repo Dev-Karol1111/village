@@ -21,7 +21,7 @@ func update_display():
 			break
 		people_text += " * " + person.name + "\n"
 	
-	var header_text = "People (%s/%s):\n" % [count, house_data.max_people]
+	var header_text = tr("living people") + " (%s/%s):\n" % [count, house_data.max_people]
 	people_label.text = header_text + people_text
 
 func _on_button_pressed() -> void:
@@ -32,7 +32,7 @@ func _on_button_pressed() -> void:
 		person_names.append(person.name)
 	
 	selection_ui.selection_mode = selection_ui.SelectionMode.PEOPLE_ASSIGN
-	selection_ui.title_text = "People Assignment"
+	selection_ui.title_text = tr("people assing")
 	selection_ui.items = person_names
 	selection_ui.max_select = house_data.max_people
 	selection_ui.closed.connect(_on_people_assigned)

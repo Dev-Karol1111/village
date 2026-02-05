@@ -57,7 +57,8 @@ offset_right = 68.0
 offset_bottom = 29.051987
 grow_horizontal = 2
 grow_vertical = 2
-text = "People Assing"
+text = "people assing"
+localization_priority = 1
 
 [node name="ItemList" type="ItemList" parent="." unique_id=571484797]
 layout_mode = 1

@@ -276,6 +276,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_c2n5p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
 text = "start"
+localization_priority = 1
 
 [node name="settings" type="Button" parent="main"]
 custom_minimum_size = Vector2(0, 50)
@@ -285,6 +286,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_c2n5p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
 text = "settings"
+localization_priority = 1
 
 [node name="exit" type="Button" parent="main"]
 custom_minimum_size = Vector2(0, 50)
@@ -294,6 +296,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_c2n5p")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ntye7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_w6y0u")
 text = "exit"
+localization_priority = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="main"]
 libraries = {
@@ -312,6 +315,7 @@ offset_bottom = 360.0001
 [node name="Label" type="Label" parent="game_choose"]
 layout_mode = 2
 text = "wanna continue"
+localization_priority = 1
 
 [node name="buttons" type="HBoxContainer" parent="game_choose"]
 layout_mode = 2
@@ -324,6 +328,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cghgw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1pxh0")
 theme_override_styles/hover = SubResource("StyleBoxTexture_288ov")
 text = "continue"
+localization_priority = 1
 
 [node name="new_game" type="Button" parent="game_choose/buttons"]
 layout_mode = 2
@@ -332,6 +337,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_e11en")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_tub5d")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dnmb1")
 text = "new game"
+localization_priority = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="game_choose"]
 libraries = {

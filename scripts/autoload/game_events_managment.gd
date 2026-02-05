@@ -19,18 +19,18 @@ func check_events():
 			text = event.message_text
 			if event.unlocked_builds:
 				load("res://Builds/buildsList.tres").betting.append_array(event.unlocked_builds)
-				text += "\nSome building was unlocked"
+				text += "\n" + tr("building unlocked")
 			if event.unlocked_works:
 				for work in event.unlocked_works:
 					PeopleManagment.available_works.append_array(event.unlocked_works)
-				text += "\nSome works was unlocked"
+				text += "\n" + tr("works unlocked")
 
 			if event.unlocked_experiments:
 				var experiment_name
 				for experiment in event.unlocked_experiments:
 					Managment.available_experiments.set(experiment, [])
 					experiment_name = experiment["name_var"]
-				text += "\nSome experiments were unlocked"
+				text += "\n" + tr("experiments unlocked")
 				Signals.experiment_unlocked.emit(experiment_name)
 				
 			
@@ -41,7 +41,7 @@ func check_events():
 			
 func special_events(event_name : String):
 	if event_name == "wolf attack":	
-		Signals.add_information.emit("error", "DEAD", "Wolf has attacked your\n village and one people died")
+		Signals.add_information.emit("error", tr("wolf attack"), tr("wolf attack message"))
 		#PeopleManagment.kill_person(random_person("ault").name) #TODO: Fix it, when returning None
 
 func random_person(person_type := "") -> People:
