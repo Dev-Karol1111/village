@@ -50,6 +50,8 @@ var available_experiments: Dictionary[ExperimentBase, Array]
 
 var canvas_layer: CanvasLayer
 
+var continue_preevious_game : bool
+
 func _ready() -> void:
 	canvas_layer = CanvasLayer.new()
 	canvas_layer.name = "GlobalUI"
@@ -83,7 +85,7 @@ func production_loop() -> void:
 				production_time.set(workplace_coords, production_time.get(workplace_coords, 0) + 1)
 				
 				# Check if production cycle is complete
-				if production_time[workplace_coords] >= workplace_data.product_time:
+				if production_time[workplace_coords] >= workplace_data.prozduct_time:
 					production_time.set(workplace_coords, 0)
 					
 					# Consume input products

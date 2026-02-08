@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="BuildingIndex" format=3 uid="uid://x1mly2eyg5sr"]
+
+[ext_resource type="Script" uid="uid://bls4r4qwk6hao" path="res://scripts/bases/Building_index.gd" id="1_7q6nk"]
+[ext_resource type="Resource" uid="uid://bjwffq4ti4vb" path="res://Builds/campfire.tres" id="1_byiqa"]
+[ext_resource type="Resource" uid="uid://bn360vh53v05u" path="res://Builds/house.tres" id="2_in0oc"]
+[ext_resource type="Resource" uid="uid://crgkto0bpuxst" path="res://Builds/hut.tres" id="3_umb6w"]
+[ext_resource type="Resource" uid="uid://thnxnsx4ylwu" path="res://Builds/lumberjack.tres" id="4_i87mt"]
+[ext_resource type="Resource" uid="uid://c0hc4dawjk2of" path="res://Builds/mill.tres" id="5_r4rko"]
+[ext_resource type="Resource" uid="uid://b5hhayratixtc" path="res://Builds/mine.tres" id="6_cjo2d"]
+[ext_resource type="Resource" uid="uid://devk7oguqlrg0" path="res://Builds/road.tres" id="7_j6bkd"]
+
+[resource]
+script = ExtResource("1_7q6nk")
+indexes = {
+"campfire_base": ExtResource("1_byiqa"),
+"house_first": ExtResource("2_in0oc"),
+"hut_first": ExtResource("3_umb6w"),
+"lumberjack_first": ExtResource("4_i87mt"),
+"mill_first": ExtResource("5_r4rko"),
+"mine_first": ExtResource("6_cjo2d"),
+"road_first": ExtResource("7_j6bkd")
+}
+metadata/_custom_type_script = "uid://bls4r4qwk6hao"

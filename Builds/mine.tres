@@ -18,6 +18,7 @@ ExtResource("3_bc7so"): 5
 product_time = 5
 need_workers = 4
 name = "Mine"
+id = "mine_first"
 game_texture_tileset_x = 1
 game_texture_tileset_y = 1
 edit_texture = SubResource("AtlasTexture_bc7so")

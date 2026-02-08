@@ -9,6 +9,8 @@ func proceed():
 	for experiment in Managment.available_experiments.keys():
 		if Managment.available_experiments[experiment].size() < experiment["min_people"]:
 			continue
+		print("proceeeeeed")
+		
 		if not experiment in experiment_progress:
 			experiment_progress.set(experiment, TimeData.new())
 		experiment_progress[experiment].add(1)
@@ -24,6 +26,6 @@ func proceed():
 				GameEventsManagment.millstones.set(experiment["milstone"], true)
 			experiment_progress.erase(experiment)
 			Managment.available_experiments.erase(experiment)
-			var text = tr("experiment has ended") % experiment["name_var"]
+			var text = tr("experiment has ended") % tr(experiment["name_var"])
 			Signals.experiment_finished.emit(experiment["name_var"])
 			Signals.add_information.emit("info", tr("experiment succeeded"), text)

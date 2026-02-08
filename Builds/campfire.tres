@@ -18,6 +18,7 @@ region = Rect2(0, 0, 32, 32)
 [resource]
 script = ExtResource("2_tuqfs")
 name = "campfire"
+id = "campfire_base"
 game_texture_tileset_x = 3
 game_texture_tileset_y = 2
 size = "2x2"

@@ -14,6 +14,7 @@ region = Rect2(64, 0, 32, 32)
 script = ExtResource("5_36o3r")
 living_people = 4
 name = "House"
+id = "house_first"
 game_texture_tileset_x = 2
 edit_texture = SubResource("AtlasTexture_ks6p0")
 products_need_to_build = Dictionary[ExtResource("2_13vpj"), int]({

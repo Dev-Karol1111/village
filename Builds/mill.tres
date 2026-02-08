@@ -22,6 +22,7 @@ ExtResource("3_g5vrv"): 10
 product_time = 3
 need_workers = 3
 name = "Mill"
+id = "mill_first"
 game_texture_tileset_x = 3
 edit_texture = SubResource("AtlasTexture_3k1jn")
 products_need_to_build = Dictionary[ExtResource("2_3k1jn"), int]({

@@ -19,8 +19,9 @@ func _on_settings_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/settings.tscn")
 
 func _on_new_game_pressed() -> void:
-	load("res://scripts/save_managment.gd").new().clear()
+	Managment.continue_preevious_game = false
 	get_tree().change_scene_to_file("res://scenes/map.tscn")
 
 func _on_continue_pressed() -> void:
+	Managment.continue_preevious_game = true
 	get_tree().change_scene_to_file("res://scenes/map.tscn")

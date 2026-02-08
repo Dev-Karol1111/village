@@ -42,4 +42,6 @@ func generate_data(preset_type: String, preset_name:= "", preset_age:=0, preset_
 	elif preset_type == "greybeard":
 		need_food = 3
 		age = int(randf_range(65, 70))		
-	
+
+func get_data_in_dictionary() -> Dictionary:
+	return {"name" : name, "age" : age, "type" : type, "gender" : gender, "health" : healt}

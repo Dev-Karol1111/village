@@ -17,6 +17,7 @@ ExtResource("3_bwo3i"): 4
 product_time = 4
 need_workers = 3
 name = "lumberjack"
+id = "lumberjack_first"
 game_texture_tileset_y = 1
 edit_texture = SubResource("AtlasTexture_xaw56")
 products_need_to_build = Dictionary[ExtResource("2_bwo3i"), int]({

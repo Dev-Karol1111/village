@@ -19,6 +19,7 @@ region = Rect2(32, 0, 32, 32)
 script = ExtResource("2_k6l6k")
 max_people = 5
 name = "Hut"
+id = "hut_first"
 game_texture_tileset_x = 5
 game_texture_tileset_y = 2
 size = "3x2"

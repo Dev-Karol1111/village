@@ -14,6 +14,7 @@ metadata/_custom_type_script = "uid://dhydnakgojmoc"
 script = ExtResource("2_qw56b")
 title = "TIME"
 message = "First stop time"
+id = "time_stop"
 time_from = SubResource("Resource_l5pu1")
 special_type = "pause"
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
@@ -25,6 +26,7 @@ message = "Assing: 1 person to care for elderly
  2 for care children
  5 for fruit picking & 1 wood picking
 1 to the experimet (campfire)"
+id = "work_assing"
 need_proceed = true
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
@@ -32,6 +34,7 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 script = ExtResource("2_qw56b")
 title = "UNPAUSE"
 message = "Unpause the game"
+id = "time_unstop"
 special_type = "unpause"
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
@@ -39,6 +42,7 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 script = ExtResource("2_qw56b")
 title = "WAIT"
 message = "Wait until experiment finish"
+id = "wait"
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
 [sub_resource type="Resource" id="Resource_67k6k"]
@@ -46,6 +50,7 @@ script = ExtResource("2_qw56b")
 title = "CAMPFIRE"
 message = "Experimenting with campfire finished.
 Build your first campfire."
+id = "campfire_finished"
 need_proceed = true
 after_unlocked_experiment = "Campfire"
 cannot_be_first = true
@@ -56,6 +61,7 @@ script = ExtResource("2_qw56b")
 title = "UNLOCKED"
 message = "Hut was unlocked.
 Assing one people to this experiment."
+id = "hut_unlocked"
 need_proceed = true
 after_unlocked_experiment = "Hut unlocking"
 cannot_be_first = true
@@ -65,6 +71,7 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 script = ExtResource("2_qw56b")
 title = "WAIT"
 message = "Wait until experiment finish"
+id = "wait"
 need_proceed = true
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
@@ -73,6 +80,7 @@ script = ExtResource("2_qw56b")
 title = "BUILDING"
 message = "Experiments with hut has ended. 
 Now you can place it."
+id = "build_building"
 need_proceed = true
 after_finished_experiment = "Hut experiment"
 cannot_be_first = true
@@ -83,6 +91,7 @@ script = ExtResource("2_qw56b")
 title = "HUT"
 message = "Build your first hut.
 Assing  1 person into this work"
+id = "build_hut"
 need_proceed = true
 after_finished_experiment = "Hut experiment"
 cannot_be_first = true
@@ -92,6 +101,7 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 script = ExtResource("2_qw56b")
 title = "HUT"
 message = "Check it when hut is finished"
+id = "hut_wait"
 special_type = "first hut"
 need_proceed = true
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
@@ -101,6 +111,7 @@ script = ExtResource("2_qw56b")
 title = "GREYBEARD"
 message = "Assing greybeard into hut unless you want
 to lose them ..."
+id = "assing_greybeard"
 need_proceed = true
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 

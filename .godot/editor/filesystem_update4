@@ -1,10 +1,8 @@
-res://resources/Translation.en.translation
-res://resources/Translation.pl.translation
-res://scripts/ui/person_data.gd
-res://scripts/ui/house_info_ui.gd
-res://scripts/ui/select.gd
+res://scripts/save_managment.gd
+res://scripts/bases/experiment_base.gd
 res://scripts/autoload/experiments_managment.gd
-res://scripts/autoload/game_events_managment.gd
-res://scripts/autoload/people_managment.gd
-res://scripts/autoload/toturial_management.gd
-res://scripts/ui/selection_ui.gd
+res://scripts/bases/people.gd
+res://scripts/bases/work_base.gd
+res://scripts/map.gd
+res://scripts/autoload/managment.gd
+res://scripts/ui/menu.gd

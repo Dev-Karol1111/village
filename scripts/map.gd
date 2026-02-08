@@ -16,7 +16,8 @@ var placed_buildings: Dictionary[Vector2i, BuildsBase]
 
 func _ready() -> void:
 	Managment.tilemap = $TileMapLayer
-	load("res://scripts/save_managment.gd").new().load(tilemap_layer)
+	if Managment.continue_preevious_game:
+		load("res://scripts/save_managment.gd").new().load(tilemap_layer)
 	Managment.init()
 	Signals.building_ended.connect(_on_building_finished)
 

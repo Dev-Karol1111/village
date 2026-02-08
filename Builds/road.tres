@@ -11,6 +11,7 @@ region = Rect2(32, 0, 32, 32)
 [resource]
 script = ExtResource("2_ps3xv")
 name = "Road"
+id = "road_first"
 game_texture_tileset_x = 1
 edit_texture = SubResource("AtlasTexture_nkwov")
 type = "transport"
