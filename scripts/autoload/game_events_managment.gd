@@ -42,11 +42,11 @@ func check_events():
 func special_events(event_name : String):
 	if event_name == "wolf attack":	
 		Signals.add_information.emit("error", tr("wolf attack"), tr("wolf attack message"))
-		#PeopleManagment.kill_person(random_person("ault").name) #TODO: Fix it, when returning None
+		PeopleManagment.kill_person(random_person("adult").name)
 
 func random_person(person_type := "") -> People:
 	var randoming = true
-	while randoming:
+	for p in Managment.people:
 		var person = Managment.people.pick_random()
 		if person.type == person_type:
 			return person

@@ -108,6 +108,7 @@ func kill_person(person_name : String = ""):
 	if person_name:
 		for person in Managment.people:
 			if person.name == person_name:
+				print(person.name)
 				Managment.people.erase(person)
 
 func start_building(building_data: BuildsBase):

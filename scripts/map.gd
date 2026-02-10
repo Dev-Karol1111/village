@@ -75,14 +75,24 @@ func _open_building_ui(tile_coords: Vector2i) -> void:
 
 	# Check for houses
 	# TODO: Fix this to handle bigger buildings properly
-	for house_coords in Managment.houses.keys():
-		for y in range(int(current_building_data.size[2])):
-			for x in range(int(current_building_data.size[0])):
-				if tile_coords + Vector2i(x, y) == house_coords + Vector2i(x, y):
-					var ui = load("res://scenes/ui/house_info_ui.tscn").instantiate()
-					ui.house_data = Managment.houses[house_coords]["data"]
-					ui_opened_node.add_child(ui)
-					return
+		
+	for b in placed_buildings.keys():
+		var temporary_data = placed_buildings[b]
+		for y in range(int(temporary_data.size[2])):
+			for x in range(int(temporary_data.size[0])):
+				if tile_coords == b + Vector2i(x, y):
+					if temporary_data.type == "house":
+						var ui = load("res://scenes/ui/house_info_ui.tscn").instantiate()
+						ui.house_data = Managment.houses[b]["data"]
+						ui_opened_node.add_child(ui)
+						return
+					elif temporary_data.type == "betting":
+						var ui = load("res://scenes/ui/build_ui.tscn").instantiate()
+						ui.data = temporary_data
+						ui.cords = tile_coords
+						ui_opened_node.add_child(ui)
+						return
+						
 
 ## Checks if the player can afford to build the current building
 func _can_afford_building() -> bool:

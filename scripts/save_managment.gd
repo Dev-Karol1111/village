@@ -53,7 +53,6 @@ func load(tilemap: TileMapLayer):
 		
 		if info.has("experiments"):
 			Managment.available_experiments.clear()
-			print(Managment.available_experiments)
 			for e in info["experiments"].keys():
 				var ep_data = ExperimentBase.new()
 				var plist = []
@@ -64,18 +63,15 @@ func load(tilemap: TileMapLayer):
 					pdata.generate_data(p["type"], p["name"],p["age"], p["gender"])
 					plist.append(pdata)
 				Managment.available_experiments.set(ep_data, plist)
-			print(Managment.available_experiments)
 		if info.has("experiment_progress"):
 			ExperimentsManagment.experiment_progress.clear()
 			for ep in info["experiment_progress"].keys():
 				var ep_dist = JSON.parse_string(ep)
 				var ep_data = ExperimentBase.new()
 				ep_data.set_data_from_dictionary(ep_dist)
-				print(ep_data.name_var, int(info["experiment_progress"][ep]))
 				var time_data = TimeData.new()
 				time_data.add(int(info["experiment_progress"][ep]))
 				ExperimentsManagment.experiment_progress.set(ep_data, time_data)
-				print(ExperimentsManagment.experiment_progress)
 		
 		if info.has("avaible_works"):
 			PeopleManagment.available_works.clear()
