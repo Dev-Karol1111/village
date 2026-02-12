@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="BettingBase" format=3 uid="uid://bmjwr8sdg4h8u"]
+
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="1_xyt38"]
+[ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="2_55opj"]
+[ext_resource type="Texture2D" uid="uid://c2mcgxfi3cwqb" path="res://assets/tileset.png" id="2_m1cn3"]
+[ext_resource type="Resource" uid="uid://c3hisiedmmmc1" path="res://resources/products/wood.tres" id="3_8hpto"]
+[ext_resource type="Resource" uid="uid://dnunteyxtqdik" path="res://resources/products/water.tres" id="3_m1cn3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v52hj"]
+atlas = ExtResource("2_m1cn3")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_55opj")
+output_products = Dictionary[ExtResource("1_xyt38"), int]({
+ExtResource("3_m1cn3"): 2
+})
+product_time = 2
+name = "rain catcher"
+id = "rain_catcher_base"
+game_texture_tileset_x = 4
+edit_texture = SubResource("AtlasTexture_v52hj")
+products_need_to_build = Dictionary[ExtResource("1_xyt38"), int]({
+ExtResource("3_8hpto"): 7
+})
+free_places = 4
+type = "betting"
+metadata/_custom_type_script = "uid://cp850ln8fgsvp"

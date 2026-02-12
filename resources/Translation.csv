@@ -95,4 +95,9 @@ tutorial.hut.check,HUT,SZAŁAS
 tutorial.hut.check.message,Check it when hut is finished,Sprawdź kiedy szałas będzie gotowy
 tutorial.greybeard,GREYBEARD,STARZEC
 tutorial.greybeard.message,Assign greybeard into hut unless you want to lose them ...,Przypisz starców do szałasu inaczej go stracisz ...
+tutorial.water.experiment, People are suffering from water shortage\nstart the experiment, Ludzie cierpią z powodu niedoboru wody\nrozpocznij eksperyment
+tutorial.water.build, Build minimum 2 rain catchers, Zbuduj co najmniej 2 łapacze deszczu 
 build hut, Build Hut, Budowanie szałasu
+water collecting, Water Collectiong, Zbieranie Wody
+rain catcher, Rain Catcher, Zbieracz Wody
+water collection, Water Collection, Zbieranie wody

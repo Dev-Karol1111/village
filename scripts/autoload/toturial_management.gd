@@ -27,7 +27,9 @@ var tutorial_messages := {
 	"Experiments with hut has ended. \nNow you can place it.": "tutorial.building.message",
 	"Build your first hut.\nAssingone  1 person into this work": "tutorial.hut.build.message",
 	"Check it when hut is finished": "tutorial.hut.check.message",
-	"Assing greybeard into hut unless you want\nto lose them ...": "tutorial.greybeard.message"
+	"Assing greybeard into hut unless you want\nto lose them ...": "tutorial.greybeard.message",
+	"People are suffering from water shortage\nstart the experiment" : "tutorial.water.experiment",
+	"Zbuduj co najmniej 2 łapacze deszczu" : "tutorial.water.build"
 }
 
 func _get_translated_title(title: String) -> String:

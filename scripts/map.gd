@@ -88,8 +88,8 @@ func _open_building_ui(tile_coords: Vector2i) -> void:
 						return
 					elif temporary_data.type == "betting":
 						var ui = load("res://scenes/ui/build_ui.tscn").instantiate()
-						ui.data = temporary_data
-						ui.cords = tile_coords
+						ui.building_data = temporary_data
+						ui.building_coords = tile_coords
 						ui_opened_node.add_child(ui)
 						return
 						

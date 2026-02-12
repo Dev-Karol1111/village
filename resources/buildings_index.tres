@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://c0hc4dawjk2of" path="res://Builds/mill.tres" id="5_r4rko"]
 [ext_resource type="Resource" uid="uid://b5hhayratixtc" path="res://Builds/mine.tres" id="6_cjo2d"]
 [ext_resource type="Resource" uid="uid://devk7oguqlrg0" path="res://Builds/road.tres" id="7_j6bkd"]
+[ext_resource type="Resource" uid="uid://bmjwr8sdg4h8u" path="res://Builds/rain_catcher.tres" id="8_in0oc"]
 
 [resource]
 script = ExtResource("1_7q6nk")
@@ -18,6 +19,7 @@ indexes = {
 "lumberjack_first": ExtResource("4_i87mt"),
 "mill_first": ExtResource("5_r4rko"),
 "mine_first": ExtResource("6_cjo2d"),
+"rain_catcher_base": ExtResource("8_in0oc"),
 "road_first": ExtResource("7_j6bkd")
 }
 metadata/_custom_type_script = "uid://bls4r4qwk6hao"

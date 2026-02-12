@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ProductBase" format=3 uid="uid://dnunteyxtqdik"]
+
+[ext_resource type="Script" uid="uid://bam7get7v1om5" path="res://scripts/bases/product_base.gd" id="1_ofykd"]
+
+[resource]
+script = ExtResource("1_ofykd")
+name = "water"
+metadata/_custom_type_script = "uid://bam7get7v1om5"

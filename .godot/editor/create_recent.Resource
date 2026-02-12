@@ -1,4 +1,4 @@
-res://scripts/bases/Building_index.gd
+res://scripts/bases/product_base.gd
 ToturialTimeline
 ExperimentBase
 EventBase

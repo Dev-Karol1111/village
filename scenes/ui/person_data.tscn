@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dictp1jpoxqg0"]
+[gd_scene format=3 uid="uid://dictp1jpoxqg0"]
 
 [ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_2xyvn"]
 [ext_resource type="Script" uid="uid://dj1qox2dof74q" path="res://scripts/ui/person_data.gd" id="1_ru4gq"]
@@ -11,7 +11,7 @@ region = Rect2(0, 48, 16, 16)
 atlas = ExtResource("1_2xyvn")
 region = Rect2(64, 0, 16, 16)
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=216185839]
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 3
 anchor_right = 0.26200002
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ru4gq")
 
-[node name="name" type="Label" parent="."]
+[node name="name" type="Label" parent="." unique_id=1020505039]
 layout_mode = 0
 offset_left = 130.0
 offset_top = 33.0
@@ -31,7 +31,7 @@ offset_right = 174.0
 offset_bottom = 56.0
 text = "name"
 
-[node name="age" type="Label" parent="."]
+[node name="age" type="Label" parent="." unique_id=770503259]
 layout_mode = 0
 offset_left = 22.0
 offset_top = 60.0
@@ -39,7 +39,7 @@ offset_right = 66.0
 offset_bottom = 83.0
 text = "age: "
 
-[node name="gender" type="Label" parent="."]
+[node name="gender" type="Label" parent="." unique_id=687932200]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 86.0
@@ -47,7 +47,7 @@ offset_right = 84.0
 offset_bottom = 109.0
 text = "gender: "
 
-[node name="work" type="Label" parent="."]
+[node name="work" type="Label" parent="." unique_id=841488399]
 layout_mode = 0
 offset_left = 137.0
 offset_top = 84.0
@@ -55,7 +55,7 @@ offset_right = 261.0
 offset_bottom = 107.0
 text = "work: "
 
-[node name="health" type="Label" parent="."]
+[node name="health" type="Label" parent="." unique_id=77186477]
 layout_mode = 0
 offset_left = 136.0
 offset_top = 61.0
@@ -63,7 +63,7 @@ offset_right = 262.0
 offset_bottom = 84.0
 text = "Health: "
 
-[node name="work_acces" type="Button" parent="."]
+[node name="work_acces" type="Button" parent="." unique_id=708058176]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 125.0
@@ -73,7 +73,7 @@ scale = Vector2(1.5, 1.5)
 tooltip_text = "Assing to work"
 icon = SubResource("AtlasTexture_ru4gq")
 
-[node name="experiment" type="Button" parent="."]
+[node name="experiment" type="Button" parent="." unique_id=1256019998]
 layout_mode = 0
 offset_left = 68.0
 offset_top = 124.0
@@ -82,12 +82,12 @@ offset_bottom = 148.0
 scale = Vector2(1.5, 1.5)
 icon = SubResource("AtlasTexture_g23pq")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=700759804]
 position = Vector2(2, 19)
 scale = Vector2(0.90751445, 1)
 points = PackedVector2Array(0, 0, 326, 0, 326, 154, 0, 154, 0, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1698826236]
 
 [connection signal="pressed" from="work_acces" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="experiment" to="." method="_on_experiment_pressed"]

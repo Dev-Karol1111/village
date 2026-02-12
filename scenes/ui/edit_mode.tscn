@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://badikxqh2pubs"]
+[gd_scene format=3 uid="uid://badikxqh2pubs"]
 
 [ext_resource type="Script" uid="uid://duapvbu2xv16c" path="res://scripts/ui/mode.gd" id="1_plch7"]
 [ext_resource type="Texture2D" uid="uid://byyyb76oisrqs" path="res://assets/ui/edit.png" id="1_tpjst"]
@@ -220,10 +220,10 @@ _data = {
 &"open": SubResource("Animation_4kt5k")
 }
 
-[node name="Mode" type="CanvasLayer"]
+[node name="Mode" type="CanvasLayer" unique_id=150484268]
 script = ExtResource("1_plch7")
 
-[node name="Mode" type="Button" parent="."]
+[node name="Mode" type="Button" parent="." unique_id=658911558]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -237,7 +237,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = ExtResource("1_tpjst")
 
-[node name="people_managment" type="Button" parent="."]
+[node name="people_managment" type="Button" parent="." unique_id=1854900773]
 anchors_preset = -1
 anchor_left = 0.86200005
 anchor_top = 0.074
@@ -253,14 +253,14 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = SubResource("AtlasTexture_k7xle")
 
-[node name="time" type="TextureRect" parent="."]
+[node name="time" type="TextureRect" parent="." unique_id=843487162]
 offset_left = 462.0
 offset_top = 25.0
 offset_right = 695.0
 offset_bottom = 65.0
 texture = SubResource("AtlasTexture_67fba")
 
-[node name="Label" type="Label" parent="time"]
+[node name="Label" type="Label" parent="time" unique_id=892380343]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 8.0
@@ -268,11 +268,11 @@ offset_right = 218.0
 offset_bottom = 31.0
 text = "DD MM YYYY - HH:MM"
 
-[node name="Edit" type="Node" parent="."]
+[node name="Edit" type="Node" parent="." unique_id=698199038]
 script = ExtResource("3_ycatb")
 Build_list_resource = ExtResource("4_o0g5u")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Edit"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Edit" unique_id=595733653]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -284,17 +284,17 @@ offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="Node" parent="." unique_id=723687395]
 script = ExtResource("5_4kt5k")
 
-[node name="people" type="TextureRect" parent="UI"]
+[node name="people" type="TextureRect" parent="UI" unique_id=556462089]
 offset_left = 251.0
 offset_top = -3.0
 offset_right = 451.0
 offset_bottom = 97.0
 texture = SubResource("AtlasTexture_ycatb")
 
-[node name="Label" type="Label" parent="UI/people"]
+[node name="Label" type="Label" parent="UI/people" unique_id=1092650186]
 layout_mode = 0
 offset_left = 50.0
 offset_top = 35.0
@@ -302,14 +302,14 @@ offset_right = 177.0
 offset_bottom = 58.0
 text = "0"
 
-[node name="moneys" type="TextureRect" parent="UI"]
+[node name="moneys" type="TextureRect" parent="UI" unique_id=1652185517]
 offset_left = 12.0
 offset_top = -3.0
 offset_right = 212.0
 offset_bottom = 97.0
 texture = SubResource("AtlasTexture_4kt5k")
 
-[node name="Label" type="Label" parent="UI/moneys"]
+[node name="Label" type="Label" parent="UI/moneys" unique_id=342333752]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 35.0
@@ -317,14 +317,14 @@ offset_right = 175.0
 offset_bottom = 58.0
 text = "$ 0"
 
-[node name="timeManagment" type="ColorRect" parent="."]
+[node name="timeManagment" type="ColorRect" parent="." unique_id=1948071759]
 offset_left = 712.0
 offset_top = 18.0
 offset_right = 906.0
 offset_bottom = 66.0
 color = Color(0.08235294, 0.08235294, 0.27450982, 1)
 
-[node name="unpause" type="Button" parent="timeManagment"]
+[node name="unpause" type="Button" parent="timeManagment" unique_id=1196531310]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -338,14 +338,14 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 icon = SubResource("AtlasTexture_skuhn")
 
-[node name="pause" type="Button" parent="timeManagment"]
+[node name="pause" type="Button" parent="timeManagment" unique_id=1554294639]
 layout_mode = 0
 offset_right = 24.0
 offset_bottom = 24.0
 scale = Vector2(2, 2)
 icon = SubResource("AtlasTexture_jb44s")
 
-[node name="speedx5" type="Button" parent="timeManagment"]
+[node name="speedx5" type="Button" parent="timeManagment" unique_id=412495214]
 layout_mode = 0
 offset_left = 97.0
 offset_right = 121.0
@@ -353,7 +353,7 @@ offset_bottom = 24.0
 scale = Vector2(2, 2)
 icon = SubResource("AtlasTexture_5o274")
 
-[node name="speedx15" type="Button" parent="timeManagment"]
+[node name="speedx15" type="Button" parent="timeManagment" unique_id=220669135]
 layout_mode = 0
 offset_left = 146.0
 offset_right = 170.0
@@ -361,9 +361,9 @@ offset_bottom = 24.0
 scale = Vector2(2, 2)
 icon = SubResource("AtlasTexture_woa0w")
 
-[node name="info" type="Node" parent="."]
+[node name="info" type="Node" parent="." unique_id=403398075]
 
-[node name="TextureRect" type="TextureRect" parent="info"]
+[node name="TextureRect" type="TextureRect" parent="info" unique_id=803008584]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -379,7 +379,7 @@ grow_vertical = 2
 rotation = 0.50199443
 texture = SubResource("AtlasTexture_6s4id")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="info"]
+[node name="VBoxContainer" type="VBoxContainer" parent="info" unique_id=61260428]
 visible = false
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
@@ -397,7 +397,7 @@ grow_vertical = 2
 rotation = 0.5015373
 size_flags_horizontal = 4
 
-[node name="resume" type="Button" parent="info/VBoxContainer"]
+[node name="resume" type="Button" parent="info/VBoxContainer" unique_id=1328546096]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_w51h1")
@@ -405,7 +405,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_6s4id")
 theme_override_styles/hover = SubResource("StyleBoxTexture_k7xle")
 text = "resume"
 
-[node name="save" type="Button" parent="info/VBoxContainer"]
+[node name="save" type="Button" parent="info/VBoxContainer" unique_id=1298808606]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_w51h1")
@@ -413,7 +413,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_6s4id")
 theme_override_styles/hover = SubResource("StyleBoxTexture_k7xle")
 text = "save"
 
-[node name="exit" type="Button" parent="info/VBoxContainer"]
+[node name="exit" type="Button" parent="info/VBoxContainer" unique_id=1339561215]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_w51h1")
@@ -421,13 +421,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_6s4id")
 theme_override_styles/hover = SubResource("StyleBoxTexture_k7xle")
 text = "exit"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="info"]
-libraries = {
-&"": SubResource("AnimationLibrary_jb44s")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="info" unique_id=1009403262]
+libraries/ = SubResource("AnimationLibrary_jb44s")
 speed_scale = 7.0
 
-[node name="info_box" type="VBoxContainer" parent="."]
+[node name="info_box" type="VBoxContainer" parent="." unique_id=203835822]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5

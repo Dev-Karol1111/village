@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BuildsList" load_steps=10 format=3 uid="uid://d3o634eslqrqu"]
+[gd_resource type="Resource" script_class="BuildsList" format=3 uid="uid://d3o634eslqrqu"]
 
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/bases/builds_base.gd" id="1_bkfmt"]
 [ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="1_o5stl"]

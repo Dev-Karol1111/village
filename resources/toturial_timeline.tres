@@ -115,6 +115,24 @@ id = "assing_greybeard"
 need_proceed = true
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
+[sub_resource type="Resource" id="Resource_haq1n"]
+script = ExtResource("2_qw56b")
+title = "water collection"
+message = "People are suffering from water shortage\\nstart the experiment"
+id = "water_experiment"
+need_proceed = true
+after_unlocked_experiment = "water collection"
+cannot_be_first = true
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
+[sub_resource type="Resource" id="Resource_rlrhv"]
+script = ExtResource("2_qw56b")
+title = "water collection"
+message = "Build minimum 2 rain catchers"
+id = "water_build"
+need_proceed = true
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
 [resource]
 script = ExtResource("1_153be")
-toturial_data = Array[ExtResource("2_qw56b")]([SubResource("Resource_153be"), SubResource("Resource_qw56b"), SubResource("Resource_5sn6v"), SubResource("Resource_mf5yt"), SubResource("Resource_67k6k"), SubResource("Resource_3s0vq"), SubResource("Resource_vwklk"), SubResource("Resource_of6ny"), SubResource("Resource_eehbe"), SubResource("Resource_qbydd"), SubResource("Resource_iemwh")])
+toturial_data = Array[ExtResource("2_qw56b")]([SubResource("Resource_153be"), SubResource("Resource_qw56b"), SubResource("Resource_5sn6v"), SubResource("Resource_mf5yt"), SubResource("Resource_67k6k"), SubResource("Resource_3s0vq"), SubResource("Resource_vwklk"), SubResource("Resource_of6ny"), SubResource("Resource_eehbe"), SubResource("Resource_qbydd"), SubResource("Resource_iemwh"), SubResource("Resource_haq1n"), SubResource("Resource_rlrhv")])

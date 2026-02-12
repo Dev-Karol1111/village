@@ -83,10 +83,10 @@ func production_loop() -> void:
 				
 				# Increment production timer
 				production_time.set(workplace_coords, production_time.get(workplace_coords, 0) + 1)
-				
 				# Check if production cycle is complete
-				if production_time[workplace_coords] >= workplace_data.prozduct_time:
+				if production_time[workplace_coords] >= workplace_data.product_time:
 					production_time.set(workplace_coords, 0)
+					print("TTTTT")				
 					
 					# Consume input products
 					for input_product in workplace_data.input_products.keys():
@@ -175,4 +175,3 @@ func spawn_ui(scene_path: String) -> void:
 	var ui = load(scene_path).instantiate()
 	canvas_layer.add_child(ui)
 	
-
