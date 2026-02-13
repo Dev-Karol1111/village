@@ -1,12 +1,3 @@
+res://scripts/day_summary.gd
 res://resources/Translation.en.translation
 res://resources/Translation.pl.translation
-res://scenes/ui/person_data.tscn
-res://resources/toturial_timeline.tres
-res://Builds/road.tres
-res://Builds/house.tres
-res://Builds/lumberjack.tres
-res://Builds/mill.tres
-res://Builds/mine.tres
-res://Builds/rain_catcher.tres
-res://Builds/hut.tres
-res://Builds/buildsList.tres

@@ -13,10 +13,12 @@ func day_summary():
 		else:
 			Managment.products["fruit"] -= people.need_food
 		
-		if Managment.products.get("water", 0) >= 1:
-			Managment.products["water"] -= 1
+		var need_water = 1 if TimeManagment.time.days != 4 else 2
+		
+		if Managment.products.get("water", 0) >= need_water:
+			Managment.products["water"] -= need_water
 		else:
-			people.healt -= 10
+			people.healt -= 15
 			did_everyone_drank = false
 	
 	if !did_everyone_eat:
