@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="WorkBase" format=3 uid="uid://m4lpcrx4kwon"]
+
+[ext_resource type="Script" uid="uid://ccbw2jqlyy2gj" path="res://scripts/bases/work_base.gd" id="1_ff8b6"]
+[ext_resource type="Script" uid="uid://dhydnakgojmoc" path="res://scripts/bases/time_data.gd" id="2_rvmos"]
+
+[sub_resource type="Resource" id="Resource_1xhde"]
+script = ExtResource("2_rvmos")
+hours = 5
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[resource]
+script = ExtResource("1_ff8b6")
+name_var = "treatment"
+type = "special"
+minimal_people = 1
+time = SubResource("Resource_1xhde")
+target_group = "sick"
+taking_damage = 15
+metadata/_custom_type_script = "uid://ccbw2jqlyy2gj"

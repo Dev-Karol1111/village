@@ -80,7 +80,7 @@ func check_data():
 				else:
 					var time := 0
 					if not first:
-						time = tot.time_from.to_one_data() - tot.time_to.time_to_one_data()
+						time = tot.time_from.to_one_data() - tot.time_to.to_one_data()
 
 					Signals.add_information.emit(
 						"toturial",

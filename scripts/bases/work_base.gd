@@ -3,7 +3,7 @@ extends Resource
 class_name WorkBase
 
 @export var name_var := "Name"
-@export_enum("collecting", "looking after", "building") var type : String
+@export_enum("collecting", "looking after", "building", "special") var type : String
 @export var minimal_people := 0
 @export var time : TimeData
 

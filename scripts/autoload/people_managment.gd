@@ -16,6 +16,9 @@ func working():
 		return
 	for person in Managment.people:
 		
+		if person.is_sick:
+			continue
+		
 		if person not in working_time:
 			working_time[person] = TimeData.new()
 
@@ -46,7 +49,14 @@ func working():
 						if p.work == work.name_var:
 							p.work = ""
 					available_works.erase(work)
-					
+				elif work.type == "special":
+					check_special_work(work)
+
+func check_special_work(work : WorkBase):
+	if work.name_var == "treatment":
+		for p in Managment.people:
+			p.is_sick = false
+
 func map_works_by_assigned_people() -> Dictionary:
 	var works : Dictionary[String, int]= {}
 	var end_works : Dictionary[WorkBase, int] = {}

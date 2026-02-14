@@ -13,6 +13,7 @@ func update_display():
 	$gender.text = tr("gender") + ": " + tr(person.gender)
 	$health.text = tr("health") + ": " + str(person.healt)
 	$work.text = tr("work") + ": " + tr(person.work)
+	$is_sick_label.text = tr("is sick") + ": " + tr(str(person.is_sick))
 
 func _on_button_pressed() -> void:
 	var selection_ui = load("res://scenes/ui/selection_ui.tscn").instantiate()

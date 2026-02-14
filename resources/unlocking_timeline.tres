@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ccbw2jqlyy2gj" path="res://scripts/bases/work_base.gd" id="6_03227"]
 [ext_resource type="Resource" uid="uid://dkn10c4d4iqht" path="res://resources/experiments/hut_experiment.tres" id="7_fukiu"]
 [ext_resource type="Resource" uid="uid://cwd2brlrytjua" path="res://resources/experiments/water_collection_experiment.tres" id="8_xgwxr"]
+[ext_resource type="Resource" uid="uid://hp3op0q7oi4i" path="res://resources/experiments/natural_medicine_experiment.tres" id="9_03227"]
 
 [sub_resource type="Resource" id="Resource_4clfr"]
 script = ExtResource("3_sia6l")
@@ -49,7 +50,21 @@ message_title = "water collection"
 millstone = "water"
 metadata/_custom_type_script = "uid://ysa21cm71y3h"
 
+[sub_resource type="Resource" id="Resource_114lp"]
+script = ExtResource("3_sia6l")
+hours = 9
+days = 5
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_7sj0m"]
+script = ExtResource("2_v857h")
+name = "sickness"
+time = SubResource("Resource_114lp")
+unlocked_experiments = Array[ExtResource("5_xgwxr")]([ExtResource("9_03227")])
+message_title = "sickness"
+metadata/_custom_type_script = "uid://ysa21cm71y3h"
+
 [resource]
 script = ExtResource("1_yd4ik")
-unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_b7rl8")])
+unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_b7rl8"), SubResource("Resource_7sj0m")])
 metadata/_custom_type_script = "uid://bykcmpxw8wmje"

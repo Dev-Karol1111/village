@@ -133,6 +133,28 @@ id = "water_build"
 need_proceed = true
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
+[sub_resource type="Resource" id="Resource_cm0wg"]
+script = ExtResource("3_qw56b")
+hours = 8
+days = 4
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_e0v2l"]
+script = ExtResource("3_qw56b")
+hours = 12
+days = 4
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_fln4n"]
+script = ExtResource("2_qw56b")
+title = "drought"
+message = "drought people drink 2x water"
+id = "toturial.drought"
+time_from = SubResource("Resource_cm0wg")
+time_to = SubResource("Resource_e0v2l")
+need_proceed = true
+metadata/_custom_type_script = "uid://b436ldi6imdfy"
+
 [resource]
 script = ExtResource("1_153be")
-toturial_data = Array[ExtResource("2_qw56b")]([SubResource("Resource_153be"), SubResource("Resource_qw56b"), SubResource("Resource_5sn6v"), SubResource("Resource_mf5yt"), SubResource("Resource_67k6k"), SubResource("Resource_3s0vq"), SubResource("Resource_vwklk"), SubResource("Resource_of6ny"), SubResource("Resource_eehbe"), SubResource("Resource_qbydd"), SubResource("Resource_iemwh"), SubResource("Resource_haq1n"), SubResource("Resource_rlrhv")])
+toturial_data = Array[ExtResource("2_qw56b")]([SubResource("Resource_153be"), SubResource("Resource_qw56b"), SubResource("Resource_5sn6v"), SubResource("Resource_mf5yt"), SubResource("Resource_67k6k"), SubResource("Resource_3s0vq"), SubResource("Resource_vwklk"), SubResource("Resource_of6ny"), SubResource("Resource_eehbe"), SubResource("Resource_qbydd"), SubResource("Resource_iemwh"), SubResource("Resource_haq1n"), SubResource("Resource_rlrhv"), SubResource("Resource_fln4n")])

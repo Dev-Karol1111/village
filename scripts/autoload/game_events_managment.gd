@@ -43,6 +43,9 @@ func special_events(event_name : String):
 	if event_name == "wolf attack":	
 		Signals.add_information.emit("error", tr("wolf attack"), tr("wolf attack message"))
 		PeopleManagment.kill_person(random_person("adult").name)
+	elif event_name == "sickness":
+		Signals.add_information.emit("error", tr("sickness"), tr("one adult is sick"))
+		random_person("adult").is_sick = true
 
 func random_person(person_type := "") -> People:
 	var randoming = true

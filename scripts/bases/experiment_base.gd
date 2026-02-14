@@ -7,6 +7,7 @@ class_name ExperimentBase
 @export var min_people := 0
 @export var time : TimeData
 @export var result : BuildsBase
+@export var result_work : Array[WorkBase]
 @export var milstone : String = ""
 
 func get_data_in_dictionary() -> Dictionary:

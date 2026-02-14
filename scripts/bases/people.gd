@@ -10,6 +10,7 @@ var work := ""
 var type := ""
 var healt := 100
 var need_food := 0
+var is_sick := false
 
 var male_names := ["Michael", "James", "John", "Robert", "David","William", "Thomas", "Daniel", "Matthew", "Andrew","Christopher", "Joseph", "Brian", "Kevin", "Steven","George", "Edward", "Paul", "Mark", "Anthony","Benjamin", "Samuel", "Charles", "Timothy", "Jason","Alex", "Nathan", "Jonathan", "Scott", "Aaron","Oliver", "Henry", "Luke", "Logan", "Ethan","Jacob", "Owen", "Caleb", "Tyler", "Jack","Adam", "Patrick", "Gregory", "Sean", "Kyle","Zachary", "Leo", "Isaac", "Jordan", "Cole"]
 var female_names := ["Emma", "Olivia", "Sophia", "Ava", "Isabella","Mia", "Charlotte", "Amelia", "Harper", "Ella","Grace", "Chloe", "Abigail", "Lily", "Emily","Madison", "Elizabeth", "Scarlett", "Hannah", "Aria","Natalie", "Samantha", "Zoe", "Victoria", "Lucy","Evelyn", "Nora", "Ellie", "Aubrey", "Stella","Layla", "Riley", "Penelope", "Lillian", "Addison","Brooklyn", "Savannah", "Hazel", "Violet", "Aurora","Alice", "Claire", "Bella", "Maya", "Elena","Paisley", "Caroline", "Anna", "Sadie", "Kennedy"]
