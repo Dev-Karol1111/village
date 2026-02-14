@@ -46,7 +46,18 @@ func special_events(event_name : String):
 	elif event_name == "sickness":
 		Signals.add_information.emit("error", tr("sickness"), tr("one adult is sick"))
 		random_person("adult").is_sick = true
-
+	elif event_name == "young chosen":
+		var max_age : People
+		for p in Managment.people:
+			if p.type == "child":
+				if !max_age:
+					max_age = p
+				else:
+					if p.age > max_age.age:
+						max_age = p
+		
+		Managment.chosen_child = max_age
+		
 func random_person(person_type := "") -> People:
 	var randoming = true
 	for p in Managment.people:

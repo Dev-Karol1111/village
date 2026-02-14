@@ -25,3 +25,6 @@ res://resources/experiment_list.tres
 res://scripts/autoload/toturial_management.gd
 res://scripts/autoload/experiments_managment.gd
 res://scripts/bases/experiment_base.gd
+res://scripts/autoload/managment.gd
+res://scripts/ui/ui.gd
+res://scenes/ui/edit_mode.tscn

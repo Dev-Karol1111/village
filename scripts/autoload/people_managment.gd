@@ -112,6 +112,12 @@ func checking_works():
 						are_all_greybeard_in_hut = false
 		if !are_all_greybeard_in_hut:
 			Signals.add_information.emit("warning", tr("hut"), tr("greybeard hut warning"))
+	
+	# SECTION - LegacyPoints
+	
+	if Managment.chosen_child and Managment.chosen_child.healt >= 80:
+		Managment.legacy_points += 1
+	
 	Signals.data_changed_ui.emit()
 
 func kill_person(person_name : String = ""):

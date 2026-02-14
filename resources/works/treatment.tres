@@ -5,7 +5,8 @@
 
 [sub_resource type="Resource" id="Resource_1xhde"]
 script = ExtResource("2_rvmos")
-hours = 5
+minutes = 30
+hours = 4
 metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [resource]

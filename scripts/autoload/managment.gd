@@ -52,6 +52,10 @@ var canvas_layer: CanvasLayer
 
 var continue_preevious_game : bool
 
+# LegacyPoints collecting by chosen child for future evolution, avaible from 6th day 
+var legacy_points := 0
+var chosen_child : People
+
 func _ready() -> void:
 	canvas_layer = CanvasLayer.new()
 	canvas_layer.name = "GlobalUI"

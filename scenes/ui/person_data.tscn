@@ -66,14 +66,10 @@ text = "Health: "
 [node name="is_sick_label" type="Label" parent="." unique_id=1991995531]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.41400003
-anchor_top = 0.683
-anchor_right = 0.41400003
-anchor_bottom = 0.683
-offset_left = -0.028007507
-offset_top = 7.0599976
-offset_right = 39.971992
-offset_bottom = 30.059998
+offset_left = 109.0
+offset_top = 129.0
+offset_right = 231.0
+offset_bottom = 152.0
 text = "Is sick:                 "
 
 [node name="work_acces" type="Button" parent="." unique_id=708058176]

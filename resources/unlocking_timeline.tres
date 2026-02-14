@@ -64,7 +64,22 @@ unlocked_experiments = Array[ExtResource("5_xgwxr")]([ExtResource("9_03227")])
 message_title = "sickness"
 metadata/_custom_type_script = "uid://ysa21cm71y3h"
 
+[sub_resource type="Resource" id="Resource_1v25u"]
+script = ExtResource("3_sia6l")
+hours = 8
+days = 6
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_x4ghd"]
+script = ExtResource("2_v857h")
+name = "young chosen"
+time = SubResource("Resource_1v25u")
+message_title = "young chosen"
+message_text = "the oldest child will collect points"
+millstone = "young chosen"
+metadata/_custom_type_script = "uid://ysa21cm71y3h"
+
 [resource]
 script = ExtResource("1_yd4ik")
-unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_b7rl8"), SubResource("Resource_7sj0m")])
+unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_b7rl8"), SubResource("Resource_7sj0m"), SubResource("Resource_x4ghd")])
 metadata/_custom_type_script = "uid://bykcmpxw8wmje"
