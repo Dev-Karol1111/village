@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_l5pu1"]
 script = ExtResource("3_qw56b")
-minutes = 3
-hours = 6
+minutes = 33
+hours = 5
 metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [sub_resource type="Resource" id="Resource_153be"]

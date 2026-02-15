@@ -27,3 +27,6 @@ res://resources/buildings_index.tres
 res://scenes/map.tscn
 res://scripts/map.gd
 res://scripts/autoload/experiments_managment.gd
+res://scripts/autoload/time_managment.gd
+res://resources/work_list.tres
+res://resources/toturial_timeline.tres

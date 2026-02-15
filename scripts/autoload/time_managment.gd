@@ -6,7 +6,8 @@ var day_summary_code = load("res://scripts/day_summary.gd").new()
 
 func _ready() -> void:
 	time = TimeData.new()
-	time.hours = 6
+	time.hours = 5
+	time.minutes = 30
 
 func time_loop():
 	while Managment.running:

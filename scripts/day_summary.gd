@@ -15,7 +15,7 @@ func day_summary():
 		
 		var need_water = 1 if TimeManagment.time.days != 4 else 2
 		
-		if Managment.products.get("water", 0) >= need_water:
+		if Managment.products.get("water", 0) >= need_water and GameEventsManagment.millstones.get("water", true):
 			Managment.products["water"] -= need_water
 		else:
 			people.healt -= 15
