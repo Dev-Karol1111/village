@@ -21,6 +21,14 @@ func day_summary():
 			people.healt -= 15
 			did_everyone_drank = false
 	
+	if !GameEventsManagment.millstones.get("storage house", false):
+		var fruits = Managment.products.get("fruit", 0)
+		if fruits > 50:
+			var excess = fruits - 50
+			fruits = 50 + (excess / 2)
+			Managment.products.set("fruit", fruits)
+			Signals.add_information.emit("error", "fruits","half of the fruit rotted due to lack of storage")
+	
 	if !did_everyone_eat:
 		Signals.add_information.emit("warning", "Food", "Everyone didn't eat\nsome damage was taken")
 	if !did_everyone_drank:

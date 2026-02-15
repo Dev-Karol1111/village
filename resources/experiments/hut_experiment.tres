@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="ExperimentBase" format=3 uid="uid://dkn10c4d4iqht"]
 
 [ext_resource type="Resource" uid="uid://crgkto0bpuxst" path="res://Builds/hut.tres" id="1_u72j2"]
+[ext_resource type="Script" uid="uid://ccbw2jqlyy2gj" path="res://scripts/bases/work_base.gd" id="2_aybux"]
 [ext_resource type="Script" uid="uid://48uurtwm161r" path="res://scripts/bases/experiment_base.gd" id="2_bi7sj"]
 [ext_resource type="Script" uid="uid://dhydnakgojmoc" path="res://scripts/bases/time_data.gd" id="3_aybux"]
 

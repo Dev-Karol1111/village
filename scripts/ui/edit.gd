@@ -21,7 +21,7 @@ func render_build_select():
 	for child in Builds_choos.get_children():
 		child.queue_free()
 		
-	var data = [Build_list_resource.transport, Build_list_resource.house, Build_list_resource.betting]
+	var data = [Build_list_resource.transport, Build_list_resource.house, Build_list_resource.betting, Build_list_resource.other]
 	var build_index := 100
 	for current_array in data:
 		for build in current_array:

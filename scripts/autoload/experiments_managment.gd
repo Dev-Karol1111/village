@@ -20,8 +20,10 @@ func proceed():
 					build_list.betting.append(experiment["result"])
 				elif experiment["result"].type == "house":
 					build_list.house.append(experiment["result"])
-				if experiment["result"].type == "transport":
+				elif experiment["result"].type == "transport":
 					build_list.transport.append(experiment["result"])
+				elif experiment["result"].type == "other":
+					build_list.other.append(experiment["result"])
 				if experiment["milstone"]:
 					GameEventsManagment.millstones.set(experiment["milstone"], true)
 			if experiment["result_work"]:

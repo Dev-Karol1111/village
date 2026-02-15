@@ -72,9 +72,6 @@ func _open_building_ui(tile_coords: Vector2i) -> void:
 			ui.building_coords = tile_coords
 			ui_opened_node.add_child(ui)
 			return
-
-	# Check for houses
-	# TODO: Fix this to handle bigger buildings properly
 		
 	for b in placed_buildings.keys():
 		var temporary_data = placed_buildings[b]
@@ -142,6 +139,9 @@ func _place_building(tile_coords: Vector2i) -> void:
 				"workers": current_building_data.living_people,
 				"data": current_building_data
 			})
+	
+	if current_building_data.millstone and !current_building_data.need_building:
+		GameEventsManagment.millstones.set(current_building_data.millstone, true)	
 	
 	# Handle road placement with automatic connection logic
 	if Vector2i(current_building_data.game_texture_tileset_x, current_building_data.game_texture_tileset_y) == Vector2i(1, 0):
@@ -225,6 +225,9 @@ func _on_building_finished(build_data: BuildsBase):
 		if placed_buildings[coords] == build_data:
 			building_coords = coords
 			break
+	
+	if build_data.millstone:
+		GameEventsManagment.millstones.set(build_data.millstone, true)	
 	
 	_set_building_on_tilemap(building_coords.x, building_coords.y, build_data.game_texture_tileset_x, build_data.game_texture_tileset_y, build_data.size)
 	

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ExperimentBase" format=3 uid="uid://cng22o2qppny2"]
+
+[ext_resource type="Script" uid="uid://ccbw2jqlyy2gj" path="res://scripts/bases/work_base.gd" id="1_lu62o"]
+[ext_resource type="Resource" uid="uid://bl1pfxyjagrin" path="res://Builds/storage_house.tres" id="1_nt3ya"]
+[ext_resource type="Script" uid="uid://48uurtwm161r" path="res://scripts/bases/experiment_base.gd" id="2_vqj3w"]
+[ext_resource type="Script" uid="uid://dhydnakgojmoc" path="res://scripts/bases/time_data.gd" id="3_vqj3w"]
+
+[sub_resource type="Resource" id="Resource_nt3ya"]
+script = ExtResource("3_vqj3w")
+hours = 10
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[resource]
+script = ExtResource("2_vqj3w")
+name_var = "storage house"
+max_people = 1
+min_people = 1
+time = SubResource("Resource_nt3ya")
+result = ExtResource("1_nt3ya")
+metadata/_custom_type_script = "uid://48uurtwm161r"

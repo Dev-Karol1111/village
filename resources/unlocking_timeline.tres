@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://dkn10c4d4iqht" path="res://resources/experiments/hut_experiment.tres" id="7_fukiu"]
 [ext_resource type="Resource" uid="uid://cwd2brlrytjua" path="res://resources/experiments/water_collection_experiment.tres" id="8_xgwxr"]
 [ext_resource type="Resource" uid="uid://hp3op0q7oi4i" path="res://resources/experiments/natural_medicine_experiment.tres" id="9_03227"]
+[ext_resource type="Resource" uid="uid://cng22o2qppny2" path="res://resources/experiments/storage_house_experiment.tres" id="10_4clfr"]
 
 [sub_resource type="Resource" id="Resource_4clfr"]
 script = ExtResource("3_sia6l")
@@ -79,7 +80,22 @@ message_text = "the oldest child will collect points"
 millstone = "young chosen"
 metadata/_custom_type_script = "uid://ysa21cm71y3h"
 
+[sub_resource type="Resource" id="Resource_rcul2"]
+script = ExtResource("3_sia6l")
+minutes = 30
+hours = 6
+days = 7
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_tdb4p"]
+script = ExtResource("2_v857h")
+name = "storage house"
+time = SubResource("Resource_rcul2")
+unlocked_experiments = Array[ExtResource("5_xgwxr")]([ExtResource("10_4clfr")])
+message_title = "storage house"
+metadata/_custom_type_script = "uid://ysa21cm71y3h"
+
 [resource]
 script = ExtResource("1_yd4ik")
-unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_b7rl8"), SubResource("Resource_7sj0m"), SubResource("Resource_x4ghd")])
+unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_b7rl8"), SubResource("Resource_7sj0m"), SubResource("Resource_x4ghd"), SubResource("Resource_tdb4p")])
 metadata/_custom_type_script = "uid://bykcmpxw8wmje"
