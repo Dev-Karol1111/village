@@ -49,12 +49,12 @@ metadata/_custom_type_script = "uid://bam7get7v1om5"
 
 [sub_resource type="Resource" id="Resource_mgk4h"]
 script = ExtResource("4_dh1wa")
-hours = 3
+hours = 1
 metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [sub_resource type="Resource" id="Resource_33mow"]
 script = ExtResource("2_nhs8g")
-name_var = "Wood picking"
+name_var = "wood picking"
 type = "collecting"
 minimal_people = 1
 time = SubResource("Resource_mgk4h")

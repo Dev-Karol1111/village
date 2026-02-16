@@ -1,6 +1,6 @@
 extends Node
 
-var data : Array 
+var data : Array # toturial data
 
 var active_ids : Array[String] = []
 var emitted_ids : Array[String] = []
@@ -19,7 +19,7 @@ var tutorial_titles := {
 
 var tutorial_messages := {
 	"First stop time": "tutorial.time.message",
-	"Assing: 1 person to care for elderly\n 2 for care children\n 5 for fruit picking & 1 wood picking\n1 to the experimet (campfire)": "tutorial.works.message",
+	"assing to works": "tutorial.works.message",
 	"Unpause the game": "tutorial.unpause.message",
 	"Wait until experiment finish": "tutorial.wait.message",
 	"Experimenting with campfire finished.\nBuild your first campfire.": "tutorial.campfire.message",
@@ -29,7 +29,8 @@ var tutorial_messages := {
 	"Check it when hut is finished": "tutorial.hut.check.message",
 	"Assing greybeard into hut unless you want\nto lose them ...": "tutorial.greybeard.message",
 	"People are suffering from water shortage\nstart the experiment" : "tutorial.water.experiment",
-	"Zbuduj co najmniej 2 łapacze deszczu" : "tutorial.water.build"
+	"drought people drink 2x water": "tutorial.water.drought",
+	"build minimum 2 rain catchers" : "tutorial.water.build"
 }
 
 func _get_translated_title(title: String) -> String:
@@ -60,13 +61,13 @@ func check_data():
 		if Managment.totally_pause:
 			await get_tree().create_timer(2).timeout
 			continue
-
 		for tot in data:
 			if tot.id in emitted_ids:
 				continue
 
 			var first = (not tot.time_from and data[0] == tot and not tot.cannot_be_first)
-
+			
+				
 			if first or (tot.time_from and tot.time_from.to_one_data() <= TimeManagment.time.to_one_data()):
 				if tot.special_type:
 					Signals.add_information.emit(
@@ -80,7 +81,7 @@ func check_data():
 				else:
 					var time := 0
 					if not first:
-						time = tot.time_from.to_one_data() - tot.time_to.to_one_data()
+						time = tot.time_to.to_one_data() - tot.time_from.to_one_data()
 
 					Signals.add_information.emit(
 						"toturial",
@@ -102,26 +103,36 @@ func check_data():
 					_get_translated_title(ac.title),
 					_get_translated_message(ac.message)
 				)
-				active_ids.erase(id)
+				delete(ac.title, ac.message)
+				
 
 			elif ac.special_type == "unpause" and Managment.speed_time != 0:
 				Signals.remove_information.emit(
 					_get_translated_title(ac.title),
 					_get_translated_message(ac.message)
 				)
-				active_ids.erase(id)
-
+				delete(ac.title, ac.message)
+		
 		await get_tree().create_timer(2).timeout
 
+func is_first_available_tutorial(tutorial) -> bool:
+	for t in data:
+		if t.id in emitted_ids or t.cannot_be_first:
+			continue
+		return t == tutorial
+	return false
 
 func delete(title, message):
 	for tot in data:
-		if tot.id in emitted_ids:
-			continue
 		if tot.title == title or _get_translated_title(tot.title) == title:
 			if tot.message == message or _get_translated_message(tot.message) == message:
-				emitted_ids.append(tot.id)
-				active_ids.erase(tot.id)
+				if tot.id in active_ids:
+					Signals.remove_information.emit(
+						_get_translated_title(tot.title),
+						_get_translated_message(tot.message)
+					)
+					active_ids.erase(tot.id)
+				data.erase(tot)  # Safe - not using index
 				return
 
 func experiment_check(experiment_name : String):

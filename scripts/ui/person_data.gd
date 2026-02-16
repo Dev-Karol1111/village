@@ -8,6 +8,13 @@ func _ready() -> void:
 	Signals.data_changed_ui.connect(update_display)
 
 func update_display():
+	if person.type == "child":
+		$work_acces.disabled = true
+		$experiment.disabled = true
+	elif person.type == "greybeard":
+		$work_acces.disabled = true
+	elif person.type == "adult":
+		$experiment.disabled = true
 	$name.text = person.name
 	$age.text = tr("age") + ": " + str(person.age)
 	$gender.text = tr("gender") + ": " + tr(person.gender)

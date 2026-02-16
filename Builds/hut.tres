@@ -27,7 +27,7 @@ edit_texture = SubResource("AtlasTexture_8wvo4")
 products_need_to_build = Dictionary[ExtResource("1_xgmb0"), int]({
 ExtResource("4_dusr1"): 25
 })
-free_places = 1
+free_places = 3
 type = "house"
 need_building = true
 building_time = SubResource("Resource_dusr1")

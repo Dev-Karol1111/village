@@ -14,6 +14,8 @@ const GRASS_TILES: Array[Vector2i] = [Vector2i(0, 0), Vector2i(1, 2), Vector2i(2
 ## Dictionary mapping placed building coordinates to their data
 var placed_buildings: Dictionary[Vector2i, BuildsBase]
 
+var building_builds : Dictionary[Vector2i, BuildsBase]
+
 func _ready() -> void:
 	Managment.tilemap = $TileMapLayer
 	if Managment.continue_preevious_game:
@@ -60,6 +62,8 @@ func _handle_right_click(tile_coords: Vector2i) -> void:
 
 ## Opens the appropriate UI for a building at the given tile coordinates
 func _open_building_ui(tile_coords: Vector2i) -> void:
+	if tile_coords in building_builds:
+		return
 	Signals.close_ui.emit()
 
 	# Check for betting buildings (workplaces)
@@ -75,9 +79,12 @@ func _open_building_ui(tile_coords: Vector2i) -> void:
 		
 	for b in placed_buildings.keys():
 		var temporary_data = placed_buildings[b]
+		
 		for y in range(int(temporary_data.size[2])):
 			for x in range(int(temporary_data.size[0])):
 				if tile_coords == b + Vector2i(x, y):
+					if b in building_builds:
+							return
 					if temporary_data.type == "house":
 						var ui = load("res://scenes/ui/house_info_ui.tscn").instantiate()
 						ui.house_data = Managment.houses[b]["data"]
@@ -153,6 +160,7 @@ func _place_building(tile_coords: Vector2i) -> void:
 		if (current_building_data.building_texture_x or current_building_data.building_texture_y) and current_building_data.need_building:
 			_set_building_on_tilemap(tile_coords.x, tile_coords.y, current_building_data.building_texture_x, current_building_data.building_texture_y, current_building_data.size)
 			placed_buildings.set(tile_coords, current_building_data)
+			building_builds.set(tile_coords, current_building_data)
 			Signals.start_building.emit(current_building_data)
 		else:
 			# Place finished building immediately
@@ -191,7 +199,7 @@ func _remove_building(tile_coords: Vector2i) -> void:
 	
 	# Clear the tilemap
 	if tile_coords in placed_buildings:
-		_set_building_on_tilemap(tile_coords.x, tile_coords.y, 0, 0, placed_buildings[tile_coords].size)
+		_set_building_on_tilemap(tile_coords.x, tile_coords.y, 0, 0, placed_buildings[tile_coords].size, true)
 		placed_buildings.erase(tile_coords)
 	
 	tilemap_layer.set_cell(tile_coords, 0, Vector2i(0, 0))
@@ -208,15 +216,22 @@ func _update_adjacent_roads(tile_coords: Vector2i) -> void:
 	_calculate_road_tile(tile_coords.x - 1, tile_coords.y, true)
 
 ## Sets building tiles on the tilemap
-func _set_building_on_tilemap(x_map: int, y_map: int, x_tileset: int, y_tileset: int, size: String = "1x1"):
+func _set_building_on_tilemap(x_map: int, y_map: int, x_tileset: int, y_tileset: int, size: String = "1x1", removing := false):
 	const SOURCE_ID = 0
 	for y in range(int(size[2])):
 		for x in range(int(size[0])):
-			tilemap_layer.set_cell(
-				Vector2i(x_map, y_map) + Vector2i(x, y),
-				SOURCE_ID,
-				Vector2i(x_tileset + x, y_tileset + y)
-			)
+			if !removing:
+				tilemap_layer.set_cell(
+					Vector2i(x_map, y_map) + Vector2i(x, y),
+					SOURCE_ID,
+					Vector2i(x_tileset + x, y_tileset + y)
+				)
+			else:
+				tilemap_layer.set_cell(
+					Vector2i(x_map, y_map) + Vector2i(x, y),
+					SOURCE_ID,
+					Vector2i(x_tileset, y_tileset)
+				)
 
 ## Called when a building construction is finished
 func _on_building_finished(build_data: BuildsBase):
@@ -225,6 +240,8 @@ func _on_building_finished(build_data: BuildsBase):
 		if placed_buildings[coords] == build_data:
 			building_coords = coords
 			break
+	
+	building_builds.erase(building_coords)
 	
 	if build_data.millstone:
 		GameEventsManagment.millstones.set(build_data.millstone, true)	

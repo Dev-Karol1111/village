@@ -90,7 +90,6 @@ func production_loop() -> void:
 				# Check if production cycle is complete
 				if production_time[workplace_coords] >= workplace_data.product_time:
 					production_time.set(workplace_coords, 0)
-					print("TTTTT")				
 					
 					# Consume input products
 					for input_product in workplace_data.input_products.keys():

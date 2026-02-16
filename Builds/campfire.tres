@@ -26,8 +26,7 @@ edit_texture = SubResource("AtlasTexture_jkf8x")
 products_need_to_build = Dictionary[ExtResource("1_tuqfs"), int]({
 ExtResource("3_jkf8x"): 6
 })
-free_places = 1
-type = "betting"
+type = "other"
 need_building = true
 building_time = SubResource("Resource_yjn5j")
 metadata/_custom_type_script = "uid://cp850ln8fgsvp"
