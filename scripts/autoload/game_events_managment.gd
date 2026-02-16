@@ -1,6 +1,6 @@
 extends Node
 
-var millstones : Dictionary[String, bool] = {}
+var millstones : Dictionary[String, bool] = {"game" : true}
 
 func _ready() -> void:
 	Signals.time_updated.connect(check_events)

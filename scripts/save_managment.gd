@@ -49,6 +49,7 @@ func load(tilemap: TileMapLayer):
 				var new_pepople := People.new()
 				new_pepople.generate_data(p["type"], p["name"], p["age"], p["gender"])
 				new_pepople.healt = p["health"]
+				new_pepople.work = p["work"]
 				Managment.people.append(new_pepople)
 		
 		if info.has("experiments"):
@@ -104,6 +105,27 @@ func load(tilemap: TileMapLayer):
 					BuildList.house.append(BuildIndex[info["avaible_building"][ab]])
 				elif "transport" in ab:
 					BuildList.transport.append(BuildIndex[info["avaible_building"][ab]])
+		
+		if info.has("millstones"):
+			GameEventsManagment.millstones.clear()
+			for m in info["millstones"].keys():
+				GameEventsManagment.set(m, info["millstones"][m])		
+		if info.has('can_work'):
+			PeopleManagment.can_work = bool(info["can_work"])
+		
+		if info.has("time"):
+			TimeManagment.set_time(int(info["time"]))
+		
+		if info.has("toturial_active"):
+			ToturialManagement.active_ids.clear()
+			ToturialManagement.active_ids.append_array(info["toturial_active"])
+		
+		if info.has("toturial_emmited"):
+			ToturialManagement.emitted_ids.clear()
+			ToturialManagement.emitted_ids.append_array(info["toturial_emmited"])
+		
+		if info.has("legacy_points"):
+			Managment.legacy_points = int(info["legacy_points"])
 	Signals.data_changed_ui.emit()				
 
 func save(tilemap: TileMapLayer):
@@ -132,7 +154,8 @@ func save(tilemap: TileMapLayer):
 		"time" : TimeManagment.time.to_one_data(),
 		"toturial_active" : ToturialManagement.active_ids,
 		"toturial_emmited" : ToturialManagement.emitted_ids,
-		"avaible_building" : {}
+		"avaible_building" : {},
+		"legacy_points" : Managment.legacy_points,
 	}
 
 	for b in Managment.betting:

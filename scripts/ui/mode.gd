@@ -20,6 +20,10 @@ func _ready() -> void:
 	Signals.time_updated.connect(update_time)
 	Signals.add_information.connect(add_info)
 	Signals.remove_information.connect(remove_info)
+	if OS.is_debug_build():
+		print("ITS debuggg")
+		var console = load("res://dev/console.tscn").instantiate()
+		add_child(console)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

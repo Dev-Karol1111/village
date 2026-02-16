@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://c2mcgxfi3cwqb" path="res://assets/tileset.png" id="2_0cso3"]
 [ext_resource type="Script" uid="uid://c04pusap538xc" path="res://scripts/camera.gd" id="2_paxxb"]
 [ext_resource type="PackedScene" uid="uid://badikxqh2pubs" path="res://scenes/ui/edit_mode.tscn" id="3_gldc4"]
-[ext_resource type="PackedScene" uid="uid://dnduh6gbxsqos" path="res://dev/console.tscn" id="5_2klcf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cso3"]
 texture = ExtResource("2_0cso3")
@@ -100,12 +99,3 @@ script = ExtResource("2_paxxb")
 map = NodePath("..")
 
 [node name="opened" type="Node" parent="Mode" unique_id=391146998]
-
-[node name="console" parent="Mode" unique_id=222389498 instance=ExtResource("5_2klcf")]
-anchor_top = 0.84000003
-anchor_right = 0.469
-anchor_bottom = 1.5680001
-offset_left = 4.0
-offset_top = -377.32
-offset_right = 67.711975
-offset_bottom = -377.06403

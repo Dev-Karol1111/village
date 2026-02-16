@@ -5,7 +5,7 @@ class_name WorkBase
 @export var name_var := "Name"
 @export_enum("collecting", "looking after", "building", "special") var type : String
 @export var minimal_people := 0
-@export var time : TimeData
+@export var time : TimeData = TimeData.new()
 
 
 @export_subgroup("Collecting")
@@ -69,6 +69,7 @@ func set_data_from_dictionary(dict: Dictionary):
 			var new_output = ProductBase.new()
 			if dict["output"]:
 				new_output.name = dict["output"]
+			output = new_output
 
 		"looking after":
 			target_group = dict.get("target_group", target_group)
