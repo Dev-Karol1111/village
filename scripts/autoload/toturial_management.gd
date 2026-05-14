@@ -1,5 +1,5 @@
 extends Node
-
+'''
 var data : Array # toturial data
 
 var active_ids : Array[String] = []
@@ -162,3 +162,88 @@ func experiment_check(experiment_name : String):
 					true
 				)
 				emitted_ids.append(tot.id)
+'''
+
+var data : Array
+var emitted : Array[ToturialData]
+var queqe := []
+
+
+var tutorial_titles := {
+	"TIME": "tutorial.time",
+	"WORKS": "tutorial.works",
+	"UNPAUSE": "tutorial.unpause",
+	"WAIT": "tutorial.wait",
+	"CAMPFIRE": "tutorial.campfire",
+	"UNLOCKED": "tutorial.unlocked",
+	"BUILDING": "tutorial.building",
+	"HUT": "tutorial.hut.build",
+	"GREYBEARD": "tutorial.greybeard"
+}
+
+var tutorial_messages := {
+	"First stop time": "tutorial.time.message",
+	"assing to works": "tutorial.works.message",
+	"Unpause the game": "tutorial.unpause.message",
+	"Wait until experiment finish": "tutorial.wait.message",
+	"Experimenting with campfire finished.\nBuild your first campfire.": "tutorial.campfire.message",
+	"Hut was unlocked.\nAssingone people to this experiment.": "tutorial.unlocked.message",
+	"Experiments with hut has ended. \nNow you can place it.": "tutorial.building.message",
+	"Build your first hut.\nAssingone  1 person into this work": "tutorial.hut.build.message",
+	"Check it when hut is finished": "tutorial.hut.check.message",
+	"Assing greybeard into hut unless you want\nto lose them ...": "tutorial.greybeard.message",
+	"People are suffering from water shortage\nstart the experiment" : "tutorial.water.experiment",
+	"drought people drink 2x water": "tutorial.water.drought",
+	"build minimum 2 rain catchers" : "tutorial.water.build"
+}
+
+func _ready() -> void:
+	data = preload("res://resources/toturial_timeline.tres").toturial_data
+	Signals.event_happend.connect(notify_event)
+	Signals.del_toturial_backend.connect(del_toturial)
+
+# Avaible events:
+# "experiment-finished", "experiment-unlocked"
+# "start-building", "end-building"
+# "time" (pause, unpause)
+func notify_event(event_name: String, value = null) -> void:
+	print(event_name, " ", value)
+	if emitted and emitted[0].end_trigger == event_name and emitted[0].end_trigger_value == value:
+		del_toturial()
+	
+	var temp_data : ToturialData
+	for tot_i in range(data.size()):
+		var tot = data[tot_i]
+		if tot.trigger == event_name and tot.trigger_value == value:
+			temp_data = tot
+			data.remove_at(tot_i)
+			break
+	
+	
+	if !temp_data:
+		return
+	
+	if emitted:
+		queqe.append(temp_data)
+	else:
+		emit_toturial(temp_data)
+		emitted.append(temp_data)
+
+func emit_toturial(toturial_data: ToturialData):
+	Signals.add_toturial.emit(toturial_data.title, toturial_data.message, (true if !toturial_data.end_trigger else false))
+	
+func del_toturial():
+	Signals.del_toturial_frontend.emit()
+	emitted.clear()
+	if queqe:
+		emitted.append(queqe[0])
+		queqe.pop_front()
+		emit_toturial(emitted[0])
+	else:
+		if data and !data[0].trigger:
+			emit_toturial(data[0])
+		
+func init() -> void:
+	emit_toturial(data[0])
+	emitted.append(data[0])
+	data.remove_at(0)

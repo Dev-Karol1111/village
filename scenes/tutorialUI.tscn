@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://d0m28au0w1hu3"]
+
+[ext_resource type="Script" uid="uid://bdp1jo2svo61p" path="res://scripts/tutorial.gd" id="1_8ho6b"]
+[ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_c13y7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ho6b"]
+atlas = ExtResource("1_c13y7")
+region = Rect2(80, 32, 48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ho6b"]
+size = Vector2(47.72255, 31.966557)
+
+[node name="tutorialUI" type="Node2D" unique_id=1006029547]
+script = ExtResource("1_8ho6b")
+
+[node name="background" type="Sprite2D" parent="." unique_id=895854550]
+position = Vector2(598, 484)
+scale = Vector2(12.614583, 7.476561)
+texture = SubResource("AtlasTexture_8ho6b")
+
+[node name="Area2D" type="Area2D" parent="background" unique_id=1024423562]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Area2D" unique_id=207185279]
+position = Vector2(-1.1444092e-05, -0.06687164)
+scale = Vector2(1.0000002, 1)
+shape = SubResource("RectangleShape2D_8ho6b")
+
+[node name="message" type="Label" parent="." unique_id=2092376207]
+offset_left = 364.0
+offset_top = 434.0
+offset_right = 820.0
+offset_bottom = 561.0
+text = "[TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT]
+[TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT]
+[TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT]
+[TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT]
+[TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT][TEXT]"
+horizontal_alignment = 1
+
+[node name="title" type="Label" parent="." unique_id=1773556464]
+offset_left = 360.0
+offset_top = 389.0
+offset_right = 831.0
+offset_bottom = 419.0
+text = "[TITLE]"
+horizontal_alignment = 1
+
+[connection signal="input_event" from="background/Area2D" to="." method="_on_area_2d_input_event"]

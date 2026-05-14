@@ -31,7 +31,8 @@ func check_events():
 					Managment.available_experiments.set(experiment, [])
 					experiment_name = experiment["name_var"]
 				text += "\n" + tr("experiments unlocked")
-				Signals.experiment_unlocked.emit(experiment_name)
+				#Signals.experiment_unlocked.emit(experiment_name)
+				Signals.event_happend.emit("experiment-unlocked", experiment_name)
 				
 			
 			if event.millstone:

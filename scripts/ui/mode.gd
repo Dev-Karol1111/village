@@ -21,7 +21,7 @@ func _ready() -> void:
 	Signals.add_information.connect(add_info)
 	Signals.remove_information.connect(remove_info)
 	if OS.is_debug_build():
-		print("ITS debuggg")
+		print("It's debug")
 		var console = load("res://dev/console.tscn").instantiate()
 		add_child(console)
 
@@ -43,6 +43,7 @@ func _on_mode_pressed() -> void:
 		edit_menu.change_visible.emit(true)
 		Signals.edit_menu_opened.emit()
 		Signals.pause_game.emit()
+		Signals.event_happend.emit("time", "pause")
 	else:
 		Managment.make_transport_map(get_node(map).get_child(0))
 		WorkersManagement.determine_betting_house_connection()
@@ -50,6 +51,7 @@ func _on_mode_pressed() -> void:
 		mode_button.icon = load("res://assets/ui/edit.png")
 		edit_menu.change_visible.emit(false)
 		Signals.unpause_game.emit()
+		Signals.event_happend.emit("time", "unpause")
 		
 	
 
@@ -65,6 +67,7 @@ func _on_pause_pressed() -> void:
 	set_button_image("pause", true)
 	set_button_image(selected, false)
 	selected = "pause"
+	Signals.event_happend.emit("time", "pause")
 
 
 func _on_unpause_pressed() -> void:
@@ -76,6 +79,7 @@ func _on_unpause_pressed() -> void:
 	Managment.multiple_speed = 1
 	set_button_image(selected, false)
 	selected = ""
+	Signals.event_happend.emit("time", "unpause")
 
 
 func _on_resume_pressed() -> void:

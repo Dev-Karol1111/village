@@ -1,7 +1,7 @@
 extends Resource
 
 class_name ToturialData
-
+'''
 @export var title := "TITLE"
 @export_multiline var message := "MESSAGE"
 @export var id := "ID"
@@ -12,3 +12,12 @@ class_name ToturialData
 @export var after_unlocked_experiment : String # Experiment name
 @export var after_finished_experiment : String # Experiment name
 @export var cannot_be_first : bool = false
+'''
+@export var title := "TITLE"
+@export_multiline var message := "MESSAGE"
+@export var ID := "ID"
+@export var time_from := TimeData
+@export var trigger := ""
+@export var trigger_value := ""
+@export var end_trigger := ""
+@export var end_trigger_value := ""

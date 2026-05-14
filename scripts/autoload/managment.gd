@@ -143,7 +143,7 @@ func init():
 	# Start game loops
 	production_loop()
 	TimeManagment.time_loop()
-	ToturialManagement.check_data()
+	ToturialManagement.init()
 				
 ## Adds or removes people from the population
 func add_people(value: int):

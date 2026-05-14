@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://cmhbmbcpdtriw" path="res://scripts/bases/builds_base.gd" id="1_bkfmt"]
 [ext_resource type="Script" uid="uid://cp850ln8fgsvp" path="res://scripts/bases/betting_base.gd" id="1_o5stl"]
 [ext_resource type="Resource" uid="uid://devk7oguqlrg0" path="res://Builds/road.tres" id="2_jj75n"]
+[ext_resource type="Resource" uid="uid://b5hhayratixtc" path="res://Builds/mine.tres" id="2_o5stl"]
 [ext_resource type="Script" uid="uid://bdlax846wpf2t" path="res://scripts/bases/ItemList.gd" id="4_tqkvp"]
 
 [resource]
 script = ExtResource("4_tqkvp")
 transport = Array[ExtResource("1_bkfmt")]([ExtResource("2_jj75n")])
+betting = Array[ExtResource("1_o5stl")]([ExtResource("2_o5stl")])

@@ -45,6 +45,7 @@ func working():
 					print(Managment.products)
 				elif work.type == "building":
 					Signals.building_ended.emit(work.build_data)
+					Signals.event_happend.emit("end-building", work.build_data)
 					for p in Managment.people:
 						if p.work == work.name_var:
 							p.work = ""

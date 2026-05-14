@@ -1,4 +1,7 @@
+CollisionShape2D
+Area2D
 Label
+Sprite2D
 Button
 CanvasLayer
 TextureRect
@@ -10,5 +13,3 @@ Line2D
 ColorRect
 ItemList
 ScrollContainer
-CenterContainer
-AnimationPlayer

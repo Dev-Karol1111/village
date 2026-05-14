@@ -162,6 +162,7 @@ func _place_building(tile_coords: Vector2i) -> void:
 			placed_buildings.set(tile_coords, current_building_data)
 			building_builds.set(tile_coords, current_building_data)
 			Signals.start_building.emit(current_building_data)
+			Signals.event_happend.emit("start-building", current_building_data)
 		else:
 			# Place finished building immediately
 			_set_building_on_tilemap(tile_coords.x, tile_coords.y, current_building_data.game_texture_tileset_x, current_building_data.game_texture_tileset_y, current_building_data.size)
