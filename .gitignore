@@ -3,6 +3,8 @@
 .export/
 *.import
 *.tmp
+.godot/
+.idea/
 
 # System
 .DS_Store
