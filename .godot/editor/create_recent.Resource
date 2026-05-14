@@ -1,9 +1,0 @@
-res://scripts/bases/builds_base.gd
-ToturialTimeline
-ExperimentBase
-EventBase
-HouseBase
-UnlockingTimeline
-WorkList
-ExperimentsList
-BettingBase
