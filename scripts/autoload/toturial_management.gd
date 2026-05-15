@@ -201,11 +201,12 @@ func _ready() -> void:
 	data = preload("res://resources/toturial_timeline.tres").toturial_data
 	Signals.event_happend.connect(notify_event)
 	Signals.del_toturial_backend.connect(del_toturial)
+	Signals.time_updated.connect(time_updated)
 
 # Avaible events:
 # "experiment-finished", "experiment-unlocked"
 # "start-building", "end-building"
-# "time" (pause, unpause)
+# "time" (pause, unpause)s
 func notify_event(event_name: String, value = null) -> void:
 	print(event_name, " ", value)
 	if emitted and emitted[0].end_trigger == event_name and emitted[0].end_trigger_value == value:
@@ -242,7 +243,18 @@ func del_toturial():
 	else:
 		if data and !data[0].trigger:
 			emit_toturial(data[0])
-		
+			emitted.append(data[0])
+			data.pop_front()
+
+func time_updated():
+	for tot in data:
+		if tot.time_from and TimeManagment.time.to_one_data() == tot.time_from.to_one_data():
+			if emitted:
+				queqe.append(tot)
+			else:
+				emitted.append(tot)
+				emit_toturial(tot)
+
 func init() -> void:
 	emit_toturial(data[0])
 	emitted.append(data[0])

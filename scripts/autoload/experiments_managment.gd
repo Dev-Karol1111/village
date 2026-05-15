@@ -32,5 +32,5 @@ func proceed():
 			Managment.available_experiments.erase(experiment)
 			var text = tr("experiment has ended") % tr(experiment["name_var"])
 			#Signals.experiment_finished.emit(experiment["name_var"])
-			Signals.event_happend.emit("experiment-finished", experiment["name_var"])
+			Signals.event_happend.emit("experiment-finished", experiment["name_var"].to_lower())
 			Signals.add_information.emit("info", tr("experiment succeeded"), text)

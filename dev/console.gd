@@ -10,10 +10,6 @@ func _ready() -> void:
 	output.text = ""
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_J:
 		visible = not visible 

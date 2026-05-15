@@ -16,7 +16,7 @@ class_name ToturialData
 @export var title := "TITLE"
 @export_multiline var message := "MESSAGE"
 @export var ID := "ID"
-@export var time_from := TimeData
+@export var time_from : TimeData
 @export var trigger := ""
 @export var trigger_value := ""
 @export var end_trigger := ""
