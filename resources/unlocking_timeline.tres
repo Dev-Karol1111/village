@@ -36,6 +36,20 @@ unlocked_experiments = Array[ExtResource("5_xgwxr")]([ExtResource("7_fukiu")])
 message_title = "Hut unlocked"
 metadata/_custom_type_script = "uid://ysa21cm71y3h"
 
+[sub_resource type="Resource" id="Resource_g3cor"]
+script = ExtResource("3_sia6l")
+hours = 14
+days = 2
+metadata/_custom_type_script = "uid://dhydnakgojmoc"
+
+[sub_resource type="Resource" id="Resource_oq426"]
+script = ExtResource("2_v857h")
+time = SubResource("Resource_g3cor")
+message_title = "HUT"
+message_text = "now greaybeards will take damage"
+millstone = "hut"
+metadata/_custom_type_script = "uid://ysa21cm71y3h"
+
 [sub_resource type="Resource" id="Resource_j7kmt"]
 script = ExtResource("3_sia6l")
 hours = 8
@@ -97,5 +111,5 @@ metadata/_custom_type_script = "uid://ysa21cm71y3h"
 
 [resource]
 script = ExtResource("1_yd4ik")
-unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_b7rl8"), SubResource("Resource_7sj0m"), SubResource("Resource_x4ghd"), SubResource("Resource_tdb4p")])
+unlock = Array[ExtResource("2_v857h")]([SubResource("Resource_4nfih"), SubResource("Resource_03227"), SubResource("Resource_oq426"), SubResource("Resource_b7rl8"), SubResource("Resource_7sj0m"), SubResource("Resource_x4ghd"), SubResource("Resource_tdb4p")])
 metadata/_custom_type_script = "uid://bykcmpxw8wmje"

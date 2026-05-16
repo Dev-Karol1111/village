@@ -60,7 +60,6 @@ func special_events(event_name : String):
 		Managment.chosen_child = max_age
 		
 func random_person(person_type := "") -> People:
-	var randoming = true
 	for p in Managment.people:
 		var person = Managment.people.pick_random()
 		if person.type == person_type:
