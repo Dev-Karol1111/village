@@ -10,3 +10,7 @@ func _ready() -> void:
 	
 	Signals.close_ui.connect(func(): queue_free())
 		
+
+
+func _on_close_pressed() -> void:
+	queue_free()

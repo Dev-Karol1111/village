@@ -17,18 +17,20 @@ layout_mode = 3
 anchor_right = 0.26200002
 anchor_bottom = 0.272
 offset_top = -4.0
-offset_right = 0.17596436
+offset_right = 206.17596
 offset_bottom = -0.25601196
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ru4gq")
 
 [node name="name" type="Label" parent="." unique_id=1020505039]
-layout_mode = 0
-offset_left = 130.0
-offset_top = 33.0
-offset_right = 174.0
-offset_bottom = 56.0
+layout_mode = 1
+anchors_preset = -1
+offset_left = 200.939
+offset_top = 28.0
+offset_right = 244.939
+offset_bottom = 51.0
+grow_horizontal = 2
 text = "name"
 
 [node name="age" type="Label" parent="." unique_id=770503259]
@@ -42,59 +44,59 @@ text = "age: "
 [node name="gender" type="Label" parent="." unique_id=687932200]
 layout_mode = 0
 offset_left = 21.0
-offset_top = 86.0
+offset_top = 98.0
 offset_right = 84.0
-offset_bottom = 109.0
+offset_bottom = 121.0
 text = "gender: "
 
 [node name="work" type="Label" parent="." unique_id=841488399]
 layout_mode = 0
-offset_left = 137.0
-offset_top = 84.0
-offset_right = 261.0
-offset_bottom = 107.0
+offset_left = 269.0
+offset_top = 98.0
+offset_right = 393.0
+offset_bottom = 121.0
 text = "work: "
 
 [node name="health" type="Label" parent="." unique_id=77186477]
 layout_mode = 0
-offset_left = 136.0
+offset_left = 266.0
 offset_top = 61.0
-offset_right = 262.0
+offset_right = 392.0
 offset_bottom = 84.0
 text = "Health: "
 
 [node name="is_sick_label" type="Label" parent="." unique_id=1991995531]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 109.0
-offset_top = 129.0
-offset_right = 231.0
-offset_bottom = 152.0
+offset_left = 20.0
+offset_top = 136.0
+offset_right = 142.0
+offset_bottom = 159.0
 text = "Is sick:                 "
 
 [node name="work_acces" type="Button" parent="." unique_id=708058176]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 125.0
-offset_right = 45.0
-offset_bottom = 149.0
+offset_left = 155.0
+offset_top = 127.0
+offset_right = 179.0
+offset_bottom = 151.0
 scale = Vector2(1.5, 1.5)
 tooltip_text = "Assing to work"
 icon = SubResource("AtlasTexture_ru4gq")
 
 [node name="experiment" type="Button" parent="." unique_id=1256019998]
 layout_mode = 0
-offset_left = 68.0
-offset_top = 124.0
-offset_right = 92.0
-offset_bottom = 148.0
+offset_left = 261.0
+offset_top = 127.99999
+offset_right = 285.0
+offset_bottom = 152.0
 scale = Vector2(1.5, 1.5)
 icon = SubResource("AtlasTexture_g23pq")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=700759804]
 position = Vector2(2, 19)
 scale = Vector2(0.90751445, 1)
-points = PackedVector2Array(0, 0, 326, 0, 326, 154, 0, 154, 0, 0)
+points = PackedVector2Array(0, 0, 550, 0, 550, 160, 0, 160, 0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1698826236]
 

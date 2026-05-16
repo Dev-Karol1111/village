@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmm4o5lv43fel"]
+[gd_scene format=3 uid="uid://bmm4o5lv43fel"]
 
 [ext_resource type="Texture2D" uid="uid://b5cqp64nkv5bn" path="res://assets/ui/ui-tileset.png" id="1_rn3th"]
 [ext_resource type="Script" uid="uid://bc58es8jvitbm" path="res://scripts/ui/people_managment.gd" id="1_t3qm6"]
@@ -7,49 +7,92 @@
 atlas = ExtResource("1_rn3th")
 region = Rect2(0, 16, 16, 16)
 
-[node name="people_managment" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_t3qm6"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahdcp"]
+atlas = ExtResource("1_rn3th")
+region = Rect2(16, 48, 16, 16)
+
+[node name="people_managment" type="Control" unique_id=117333961]
 layout_mode = 3
-anchor_left = 0.693
-anchor_top = 0.068
+anchor_left = -0.002
+anchor_top = 0.006
 anchor_right = 1.0
-anchor_bottom = 0.943
-offset_left = -0.33599854
-offset_top = 0.935997
+anchor_bottom = 1.0
+offset_left = 0.30400014
+offset_top = 0.11199999
 offset_right = 6.0
-offset_bottom = -0.06402588
+offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t3qm6")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1350746252]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.961
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -5.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.31764707)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1764516381]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.961
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -352.96002
-offset_top = -288.0
-offset_right = -9.960022
-offset_bottom = 266.0
+offset_left = -391.0
+offset_top = -277.0
+offset_right = 391.0
+offset_bottom = 277.0
+grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_t3qm6")
 
-[node name="Label" type="Label" parent="TextureRect"]
-layout_mode = 0
-offset_left = 92.479996
-offset_top = 65.0
-offset_right = 243.48
-offset_bottom = 88.0
+[node name="Label" type="Label" parent="TextureRect" unique_id=1478874893]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.120000005
+anchor_right = 0.5
+anchor_bottom = 0.120000005
+offset_left = -147.0
+offset_top = -7.9800034
+offset_right = 154.0
+offset_bottom = 37.019997
+grow_horizontal = 2
 text = "people managment"
-localization_priority = 1
+label_settings = SubResource("LabelSettings_t3qm6")
 
-[node name="Scroll" type="ScrollContainer" parent="."]
+[node name="Scroll" type="ScrollContainer" parent="." unique_id=1286154423]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 119.0
-offset_right = 281.0
-offset_bottom = 455.0
+offset_left = 286.0
+offset_top = 163.0
+offset_right = 875.0
+offset_bottom = 499.0
 
-[node name="VBox" type="VBoxContainer" parent="Scroll"]
+[node name="VBox" type="VBoxContainer" parent="Scroll" unique_id=543848037]
 layout_mode = 2
+
+[node name="close" type="Button" parent="." unique_id=836403439]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.469
+anchor_top = 0.053000003
+anchor_right = 0.469
+anchor_bottom = 0.053000003
+offset_left = 377.95996
+offset_top = -0.29100037
+offset_right = 401.95996
+offset_bottom = 23.709
+scale = Vector2(2, 2)
+icon = SubResource("AtlasTexture_ahdcp")
+
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
