@@ -98,11 +98,11 @@ func _on_people_managment_pressed() -> void:
 func update_time():
 	time_label.text = "%s:%s" % [TimeManagment.time.hours, TimeManagment.time.minutes]
 
-func add_info(type, title, text, time := 5, need_proceed:=false):
+func add_info(type, title, text, time := 5):
 	var information = load("res://scenes/ui/information.tscn").instantiate()
 
 	$info_box.add_child(information)	
-	information.add_information(type, title, text, time, need_proceed)
+	information.add_information(type, title, text, time)
 	
 
 func remove_info(title, message):

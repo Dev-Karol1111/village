@@ -9,8 +9,7 @@ extends Control
 const COLORS := {
 	"info": [Color("#2e64c9"), Color("#1a3a75")],
 	"warning": [Color("#c2c229"), Color("#75751a")],
-	"error": [Color("#c22933"), Color("#821e25")],
-	"toturial": [Color("#03fc0f"), Color("#0e3810")]
+	"error": [Color("#c22933"), Color("#821e25")]
 }
 
 const FADE_DURATION := 0.3
@@ -25,16 +24,14 @@ func _ready() -> void:
 	modulate.a = 0.0
 	visible = false
 
-func add_information(type := "info", title := "title", text := "text", duration := DISPLAY_DURATION, need_proceed := false) -> void: # types - info, warning, error, toturial
+func add_information(type := "info", title := "title", text := "text", duration := DISPLAY_DURATION) -> void: # types - info, warning, error, toturial
 	# Validate type
 	if not type in COLORS:
 		push_error("Invalid notification type: %s" % type)
 		type = "info"
 	
-	$Button.visible = need_proceed
-	
 	title_setted = title
-	message_setted = text
+	message_setted = parse_text(text)
 	
 	# Set colors
 	bc.color = COLORS[type][0]
@@ -42,7 +39,7 @@ func add_information(type := "info", title := "title", text := "text", duration 
 	
 	# Set text
 	title_label.text = title
-	text_label.text = text
+	text_label.text = message_setted
 		
 	# Show with animation
 	visible = true
@@ -52,6 +49,23 @@ func add_information(type := "info", title := "title", text := "text", duration 
 	if duration > 0:
 		await get_tree().create_timer(duration).timeout
 		hide_notification()
+
+func parse_text(text: String, max_length: int = 36) -> String:
+	var lines: PackedStringArray = []
+	
+	for paragraph in text.split("\n"):
+		var current_line: String = ""
+		for word in paragraph.split(" "):
+			if current_line.is_empty():
+				current_line = word
+			elif current_line.length() + 1 + word.length() <= max_length:
+				current_line += " " + word
+			else:
+				lines.append(current_line)
+				current_line = word
+		lines.append(current_line)
+		
+	return "\n".join(lines)
 
 func _animate_in() -> void:
 	if tween:
