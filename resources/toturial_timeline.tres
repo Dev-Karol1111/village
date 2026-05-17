@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_153be"]
 script = ExtResource("2_qw56b")
-title = "TIME"
-message = "First stop time"
+title = "tutorial.time"
+message = "tutorial.stop.time"
 ID = "pause"
 end_trigger = "time"
 end_trigger_value = "pause"
@@ -15,13 +15,8 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
 [sub_resource type="Resource" id="Resource_qw56b"]
 script = ExtResource("2_qw56b")
-title = "WORK"
-message = "Assign  to work
-2 - care to care children
-1  -  care of elderly 
-1  -  for experiment campfire
-remain - fruit picking
- "
+title = "tutorial.work.title"
+message = "tutorial.work.message"
 ID = "work"
 trigger = "time"
 trigger_value = "pause"
@@ -29,8 +24,8 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
 [sub_resource type="Resource" id="Resource_l5pu1"]
 script = ExtResource("2_qw56b")
-title = "TIME"
-message = "Unpause game and wait until experiment will finish"
+title = "tutorial.time"
+message = "tutorial.time.unpause"
 ID = "unpause"
 end_trigger = "time"
 end_trigger_value = "unpause"
@@ -38,9 +33,8 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
 [sub_resource type="Resource" id="Resource_67k6k"]
 script = ExtResource("2_qw56b")
-title = "CAMPFIRE"
-message = "Your expariment has ended successfully 
-Now you can place it."
+title = "tutorial.campfire.title"
+message = "tutorial.campfire.message"
 ID = "campfire"
 trigger = "experiment-finished"
 trigger_value = "campfire"
@@ -53,20 +47,16 @@ metadata/_custom_type_script = "uid://dhydnakgojmoc"
 
 [sub_resource type="Resource" id="Resource_eehbe"]
 script = ExtResource("2_qw56b")
-title = "ATTACK"
-message = "Wolfs has attacked your village 
-and one person is gone.
-You have to check assignation 
-and correct it when it need"
+title = "tutorial.wolfattack.title"
+message = "tutorial.wolfattack.message"
 ID = "wolf-attack"
 time_from = SubResource("Resource_vwklk")
 metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
 [sub_resource type="Resource" id="Resource_5sn6v"]
 script = ExtResource("2_qw56b")
-title = "HUT"
-message = "New experiment 'Hut' is unlocked.
-Assign one persot to this."
+title = "tutorial.hut.title"
+message = "tutorial.hut.message"
 ID = "hut-experiment"
 trigger = "experiment-unlocked"
 trigger_value = "hut experiment"
@@ -74,12 +64,8 @@ metadata/_custom_type_script = "uid://b436ldi6imdfy"
 
 [sub_resource type="Resource" id="Resource_3s0vq"]
 script = ExtResource("2_qw56b")
-title = "HUT"
-message = "Your experiment is done, but
-before you will place this, you need
-to  build this first. Assign 1 person
-After building assign greagbeards into 
-this by clicking on the building"
+title = "tutorial.hut.title"
+message = "tutorial.hut.instruction"
 ID = "hut-placing"
 trigger = "experiment-finished"
 trigger_value = "hut experiment"

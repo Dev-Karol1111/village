@@ -241,7 +241,7 @@ func del_toturial():
 		queqe.pop_front()
 		emit_toturial(emitted[0])
 	else:
-		if data and !data[0].trigger:
+		if data and !data[0].trigger and !data[0].time_from:
 			emit_toturial(data[0])
 			emitted.append(data[0])
 			data.pop_front()

@@ -76,42 +76,64 @@ campfire,Campfire,Ognisko
 hut experiment,Hut experiment,Eksperyment z szałasem
 hut unlocking,Hut unlocking,Odblokowanie szałasu
 tutorial.time,TIME,CZAS
-tutorial.time.message,First stop time, Najpierw zatrzym czas
-tutorial.works,WORKS,PRACE
-tutorial.works.message,Assign: 1 person to care for elderly\n 2 for care children\n 5 for fruit picking & 1 wood picking\n1 to the experiment (campfire),Przypisz: 1 osobę do opieki nad starszymi\n 2 do opieki nad dziećmi\n 5 do zbierania owoców i 1 do zbierania drewna\n1 do eksperymentu (ognisko)
-tutorial.unpause,UNPAUSE,WZNÓW
-tutorial.unpause.message,Unpause the game,Wznów grę
-tutorial.wait,WAIT,CZEKAJ
-tutorial.wait.message,Wait until experiment finish,Czekaj aż eksperyment się skończy
-tutorial.campfire,CAMPFIRE,OGNISKO
-tutorial.campfire.message,Experimenting with campfire finished.\nBuild your first campfire.,Eksperyment z ogniskiem zakończony.\nZbuduj swoje pierwsze ognisko.
-tutorial.unlocked,UNLOCKED,ODBLOKOWANE
-tutorial.unlocked.message,Hut was unlocked.\nAssign one person to this experiment.,Chata została odblokowana.\nPrzypisz jedną osobę do tego eksperymentu.
-tutorial.building,BUILDING,BUDOWANIE
-tutorial.building.message,Experiments with hut has ended.\nNow you can place it.,Eksperyment z chatą się zakończył.\nTeraz możesz ją postawić.
-tutorial.hut.build,HUT,SZAŁAS
-tutorial.hut.build.message,Build your first hut.\nAssign 1 person into this work,Zbuduj swój pierwszy szałas.\nPrzypisz 1 osobę do tej pracy
-tutorial.hut.check,HUT,SZAŁAS
-tutorial.hut.check.message,Check it when hut is finished,Sprawdź kiedy szałas będzie gotowy
-tutorial.greybeard,GREYBEARD,STARZEC
-tutorial.greybeard.message,Assign greybeard into hut unless you want to lose them ...,Przypisz starców do szałasu inaczej go stracisz ...
-tutorial.water.experiment, People are suffering from water shortage\nstart the experiment, Ludzie cierpią z powodu niedoboru wody\nrozpocznij eksperyment
-tutorial.water.build, Build minimum 2 rain catchers, Zbuduj co najmniej 2 łapacze deszczu 
-tutorial.water.drought,Drought - people drink 2x water, Szusza - ludzie piją 2x wody 
-build hut, Build Hut, Budowanie szałasu
-water collecting, Water Collectiong, Zbieranie Wody
-rain catcher, Rain Catcher, Zbieracz Wody
-water collection, Water Collection, Zbieranie wody
-drought, Drought, Susza
-treatment, Treatment, Leczenie
-is sick, Is sick, Jest chory
-true, True, prawda
-false, False, Fałsz
-sickness, Sickness, Choroba
-one adult is sick, One adult is sick, Jeden dorosły jest chory
-natural medicine, Natural Medicine, Ziołolecznictwo
-young chosen, Young Chosen, Młody wybraniec
-the oldest child will collect points, The oldest child will collect points, Najstarsze dziecko bedzie zbierać punkty
+tutorial.stop.time,Pause the time first,Najpierw zatrzym czas
+tutorial.work.message,"Assign to work:
+2 - children care
+1 - caring for greybeards
+1 - wood picking
+1 - campfire experiment
+remain - fruit picking","Przypisz do pracy:
+2 - opieka nad dziećmi
+1 - opieka nad starcami
+1 - zbieranie drewna
+1 - eksperyment ognisko
+reszta - zbieranie owoców"
+tutorial.work.title,WORK,PRACA
+tutorial.time.unpause,"Unpause the game and wait until experiment
+will finish","Wznów grę i czekaj, aż eksperyment
+się zakończy"
+tutorial.campfire.title,CAMPFIRE,OGNISKO
+tutorial.campfire.message,"Your experiment has ended successfully
+Now you can place it.","Twój eksperyment zakończył się pomyślnie
+Teraz możesz je postawić"
+tutorial.wolfattack.title,ATTACK,ATAK
+tutorial.wolfattack.message,"Wolfs have attacked your village
+and one person is gone
+Check assignation and
+check it when needed","Wilki zaatakowały twoją wioskę
+i jedna osoba zginęła
+sprawdź przypisania i
+popraw w razie konieczności"
+tutorial.hut.title,HUT,SZAŁAS
+tutorial.hut.message,"New experiment 'Hut' is unlocked.
+Assing one person to this","Nowy eksperyment 'Szałas'
+jest dostępny. Przupisz
+jedną osobę do tego"
+tutorial.hut.instruction,"Your experiment is complete, 
+but you need to build the hut
+before you can use it. 
+Assign 1 person to construction. 
+Once built, click on the building 
+to assign greybeards to it.","Eksperyment zakończony! 
+Zanim jednak skorzystasz z szałasu, 
+musisz go wybudować. 
+Przypisz 1 osobę do budowy. 
+Po wybudowaniu kliknij na budynek, 
+aby przypisać do niego starców."
+build hut,Build Hut,Budowanie szałasu
+water collecting,Water Collectiong,Zbieranie Wody
+rain catcher,Rain Catcher,Zbieracz Wody
+water collection,Water Collection,Zbieranie wody
+drought,Drought,Susza
+treatment,Treatment,Leczenie
+is sick,Is sick,Jest chory
+TRUE,TRUE,prawda
+FALSE,FALSE,Fałsz
+sickness,Sickness,Choroba
+one adult is sick,One adult is sick,Jeden dorosły jest chory
+natural medicine,Natural Medicine,Ziołolecznictwo
+young chosen,Young Chosen,Młody wybraniec
+the oldest child will collect points,The oldest child will collect points,Najstarsze dziecko bedzie zbierać punkty
 fruits,Fruits,Owoce
 half of the fruit rotted due to lack of storage,half of the fruit rotted due to lack of storage,Połowa owoców zgniła przez brak magazynu
 storage house,Storage house,Magazyn
